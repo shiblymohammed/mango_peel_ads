@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 interface TeamCardProps {
     themeColor?: string;
     imageSrc?: string;
@@ -14,7 +18,12 @@ export default function TeamCard({
     skills = "Skill 1 • Skill 2"
 }: TeamCardProps) {
     return (
-        <div className="group w-[380px] bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500 p-5 relative overflow-hidden flex flex-col cursor-pointer">
+        <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="group w-[380px] bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500 p-5 relative overflow-hidden flex flex-col cursor-pointer"
+        >
             
             {/* Shine Effect */}
             <div className="absolute top-0 -left-[120%] w-[120%] h-full z-50 bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:left-[120%] transition-all duration-1000 ease-in-out transform -skew-x-12 pointer-events-none"></div>
@@ -23,20 +32,49 @@ export default function TeamCard({
             <div className="relative w-full h-[360px] flex justify-center items-end bg-white rounded-2xl overflow-hidden">
                 
                 {/* Decorative Line (Top Left) */}
-                <svg className="absolute top-0 left-[-10px] w-32 h-32 opacity-80 group-hover:opacity-100 group-hover:-translate-y-2 group-hover:scale-105 transition-all duration-500" style={{ color: themeColor }} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 10 70 C 20 50, 40 20, 70 -10" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                </svg>
+                <motion.svg 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.8 }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    className="absolute top-0 left-[-10px] w-32 h-32 group-hover:opacity-100 group-hover:-translate-y-2 group-hover:scale-105 transition-all duration-500" 
+                    style={{ color: themeColor }} 
+                    viewBox="0 0 100 100" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <motion.path 
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+                        d="M 10 70 C 20 50, 40 20, 70 -10" 
+                        stroke="currentColor" 
+                        strokeWidth="1.5" 
+                        fill="none" 
+                    />
+                </motion.svg>
 
                 {/* Decorative Dot Grid (Top Right) */}
-                <svg className="absolute top-4 right-4 w-16 h-16 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 delay-75" style={{ color: themeColor }} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <motion.svg 
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 0.7, scale: 1 }}
+                    transition={{ delay: 0.7, duration: 0.5 }}
+                    className="absolute top-4 right-4 w-16 h-16 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 delay-75" 
+                    style={{ color: themeColor }} 
+                    viewBox="0 0 100 100" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                >
                     <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
                         <circle cx="3" cy="3" r="2" fill="currentColor" />
                     </pattern>
                     <rect x="0" y="0" width="100" height="100" fill="url(#dots)" />
-                </svg>
+                </motion.svg>
 
                 {/* Organic Blob Background */}
-                <div 
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.6, duration: 0.6 }}
                     className="absolute inset-0 m-auto w-full h-[95%] -rotate-6 transition-all duration-700 ease-in-out group-hover:rotate-0 group-hover:scale-105"
                     style={{
                         backgroundColor: themeColor,
@@ -44,16 +82,19 @@ export default function TeamCard({
                         borderRadius: "50% 50% 30% 70% / 60% 40% 60% 40%",
                         zIndex: 0
                     }}
-                ></div>
+                ></motion.div>
 
                 {/* The Image */}
                 {imageSrc && (
                     <div className="relative z-10 w-full h-full flex items-end justify-center">
-                        <img 
+                        <motion.img 
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 1.1, duration: 0.6, ease: "easeOut" }}
                             src={imageSrc} 
                             alt={name} 
                             // grayscale to color transition, plus a slight scale up
-                            className="w-full h-[110%] object-contain object-bottom drop-shadow-xl grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-500 ease-out" 
+                            className="w-full h-[110%] object-contain object-bottom drop-shadow-xl grayscale translate-y-6 group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-500 ease-out" 
                         />
                         {/* Gradient mask fade at the bottom so it blends smoothly into the card */}
                         <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white via-white/80 to-transparent z-20"></div>
@@ -62,7 +103,12 @@ export default function TeamCard({
             </div>
 
             {/* Bottom section: Details and Socials */}
-            <div className="relative z-20 mt-4 flex flex-col px-2 pb-2">
+            <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.3, duration: 0.5 }}
+                className="relative z-20 mt-4 flex flex-col px-2 pb-2"
+            >
                 <h3 className="text-[22px] font-black text-gray-900 leading-tight tracking-tight">{name}</h3>
                 <p className="text-[13px] font-bold mt-1" style={{ color: themeColor }}>{role}</p>
                 
@@ -82,7 +128,7 @@ export default function TeamCard({
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     )
 }

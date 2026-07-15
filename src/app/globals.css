@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+@theme {
+  --font-mileast: "Mileast", sans-serif;
+  --font-poppins-italic: "Poppins Italic", sans-serif;
+}
+
+@font-face {
+  font-family: "Mileast";
+  src: url("/fonts/Mileast.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins Italic";
+  src: url("/fonts/Poppins-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}

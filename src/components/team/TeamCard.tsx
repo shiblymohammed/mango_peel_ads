@@ -16,6 +16,9 @@ export default function TeamCard({
     return (
         <div className="group w-[380px] bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500 p-5 relative overflow-hidden flex flex-col cursor-pointer">
             
+            {/* Shine Effect */}
+            <div className="absolute top-0 -left-[120%] w-[120%] h-full z-50 bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:left-[120%] transition-all duration-1000 ease-in-out transform -skew-x-12 pointer-events-none"></div>
+
             {/* Top section: Image and decorations */}
             <div className="relative w-full h-[360px] flex justify-center items-end bg-white rounded-2xl overflow-hidden">
                 

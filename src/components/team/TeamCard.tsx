@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 interface TeamCardProps {
     themeColor?: string;
@@ -20,8 +21,31 @@ export default function TeamCard({
     index = 0
 }: TeamCardProps) {
     const stagger = index * 0.05;
+    
+    // Scroll animation for mobile
+    const cardRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: cardRef,
+        offset: ["start end", "end start"]
+    });
+    
+    // Create a dynamic scale value based on scroll position
+    const scrollScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.75, 1.15, 0.75]);
+    
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    // Only apply the scroll scale on mobile, otherwise default to 1
+    const blobScale = useTransform(scrollScale, (val) => isMobile ? val : 1);
+
     return (
         <motion.div 
+            ref={cardRef}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.35, delay: stagger }}
@@ -79,13 +103,18 @@ export default function TeamCard({
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: "-50px" }} transition={{ delay: stagger + 0.15, duration: 0.35 }}
                     className="absolute inset-0 m-auto w-full h-[95%] -rotate-6 transition-all duration-700 ease-in-out group-hover:rotate-0 group-hover:scale-105"
-                    style={{
-                        backgroundColor: themeColor,
-                        // This creates an organic blob shape
-                        borderRadius: "50% 50% 30% 70% / 60% 40% 60% 40%",
-                        zIndex: 0
-                    }}
-                ></motion.div>
+                    style={{ zIndex: 0 }}
+                >
+                    <motion.div
+                        style={{
+                            backgroundColor: themeColor,
+                            borderRadius: "50% 50% 30% 70% / 60% 40% 60% 40%",
+                            width: "100%",
+                            height: "100%",
+                            scale: blobScale
+                        }}
+                    />
+                </motion.div>
 
                 {/* The Image */}
                 {imageSrc && (

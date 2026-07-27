@@ -259,7 +259,13 @@ export default function WorksPage() {
       : allWorks.filter((w) => w.category === activeFilter);
 
   return (
-    <main className="w-full min-h-screen overflow-hidden">
+    <main 
+      className="w-full min-h-screen overflow-hidden bg-[#F4F1E8]"
+      style={{
+        backgroundImage: 'url("/bg/french-stucco.png")',
+        backgroundRepeat: 'repeat',
+      }}
+    >
       <section className="relative w-full flex flex-col items-center px-4 sm:px-6 lg:px-10 py-28 pb-20">
 
         {/* ===== DECORATIVE BACKGROUND ELEMENTS (matching Teams page) ===== */}

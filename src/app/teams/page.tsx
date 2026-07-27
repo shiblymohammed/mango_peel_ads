@@ -58,7 +58,7 @@ export default function TeamPage() {
 
                 {/* Background Lines */}
                 <div 
-                    className="absolute inset-0 z-0 pointer-events-none opacity-25"
+                    className="absolute inset-0 z-0 pointer-events-none opacity-50"
                     style={{ 
                         backgroundImage: 'url("/assets/images/bg-lines.png")', 
                         backgroundSize: '800px', // Adjust this value to make lines smaller or larger

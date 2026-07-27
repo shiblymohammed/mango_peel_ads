@@ -96,78 +96,79 @@ export default function Navbar() {
   };
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex items-center px-6 md:px-12 lg:px-16 ${
-        scrolled
-          ? "h-20 bg-[#F4F1E8]/90 backdrop-blur-xl border-b border-[#0F172A]/10 shadow-sm"
-          : "h-24 bg-transparent"
-      }`}
-    >
-      
-      {/* Logo (Left) */}
-      <div className="flex-1 flex justify-start">
-        <Link href="/" className="flex items-center group">
-          <img 
-            src="/logo/logo.png" 
-            alt="Mango Peel Ads" 
-            className="h-10 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]" 
-          />
-        </Link>
-      </div>
+    <>
+      <nav 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex items-center px-6 md:px-12 lg:px-16 ${
+          scrolled
+            ? "h-20 bg-[#F4F1E8]/90 backdrop-blur-xl border-b border-[#0F172A]/10 shadow-sm"
+            : "h-24 bg-transparent"
+        }`}
+      >
+        {/* Logo (Left) */}
+        <div className="flex-1 flex justify-start">
+          <Link href="/" className="flex items-center group">
+            <img 
+              src="/logo/logo.png" 
+              alt="Mango Peel Ads" 
+              className="h-10 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]" 
+            />
+          </Link>
+        </div>
 
-      {/* Navigation Links (Center - Desktop Glassmorphic Pill) */}
-      <div className="hidden md:flex flex-none items-center justify-center gap-1 lg:gap-2 bg-white/75 backdrop-blur-md px-3 py-1.5 lg:px-4 lg:py-1.5 rounded-full border border-[#0F172A]/10 shadow-xs">
-        {navLinks.map((link) => {
-          const isActive = 
-            link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+        {/* Navigation Links (Center - Desktop Glassmorphic Pill) */}
+        <div className="hidden md:flex flex-none items-center justify-center gap-1 lg:gap-2 bg-white/75 backdrop-blur-md px-3 py-1.5 lg:px-4 lg:py-1.5 rounded-full border border-[#0F172A]/10 shadow-xs">
+          {navLinks.map((link) => {
+            const isActive = 
+              link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
 
-          return (
-            <Link 
-              key={link.name} 
-              href={link.href} 
-              className={`relative px-3.5 py-1.5 lg:px-4 lg:py-2 text-[13px] lg:text-[14.5px] rounded-full transition-all duration-300 ${
-                isActive 
-                  ? "text-[#0F172A] font-bold bg-[#FFB800]/25 shadow-2xs" 
-                  : "text-[#475569] font-medium hover:text-[#0F172A] hover:bg-[#0F172A]/5"
-              }`}
-            >
-              <span className="relative z-10 flex items-center gap-1.5">
-                {link.name}
-                {isActive && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFB800] shadow-[0_0_6px_#FFB800]" />
-                )}
-              </span>
-            </Link>
-          );
-        })}
-      </div>
+            return (
+              <Link 
+                key={link.name} 
+                href={link.href} 
+                className={`relative px-3.5 py-1.5 lg:px-4 lg:py-2 text-[13px] lg:text-[14.5px] rounded-full transition-all duration-300 ${
+                  isActive 
+                    ? "text-[#0F172A] font-bold bg-[#FFB800]/25 shadow-2xs" 
+                    : "text-[#475569] font-medium hover:text-[#0F172A] hover:bg-[#0F172A]/5"
+                }`}
+              >
+                <span className="relative z-10 flex items-center gap-1.5">
+                  {link.name}
+                  {isActive && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFB800] shadow-[0_0_6px_#FFB800]" />
+                  )}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
 
-      {/* CTA Button & Hamburger Menu (Right) */}
-      <div className="flex-1 flex justify-end items-center gap-2.5 sm:gap-3">
-        <Link 
-          href="/contact"
-          className="group relative inline-flex items-center gap-1.5 sm:gap-2 bg-[#1A3626] text-white px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 rounded-full text-[12px] sm:text-[13px] lg:text-[14px] font-semibold tracking-wide hover:bg-[#FFB800] hover:text-[#0F172A] transition-all duration-300 shadow-sm hover:shadow-md active:scale-95"
-        >
-          <span>Let's Talk</span>
-          <ArrowUpRight 
-            className="w-4 h-4 sm:w-[18px] sm:h-[18px] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
-            strokeWidth={2.5} 
-          />
-        </Link>
+        {/* CTA Button & Hamburger Menu (Right) */}
+        <div className="flex-1 flex justify-end items-center gap-2.5 sm:gap-3">
+          <Link 
+            href="/contact"
+            className="group relative inline-flex items-center gap-1.5 sm:gap-2 bg-[#1A3626] text-white px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 rounded-full text-[12px] sm:text-[13px] lg:text-[14px] font-semibold tracking-wide hover:bg-[#FFB800] hover:text-[#0F172A] transition-all duration-300 shadow-sm hover:shadow-md active:scale-95"
+          >
+            <span>Let's Talk</span>
+            <ArrowUpRight 
+              className="w-4 h-4 sm:w-[18px] sm:h-[18px] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
+              strokeWidth={2.5} 
+            />
+          </Link>
 
-        {/* Hamburger Menu Toggle (Mobile Only) */}
-        <button
-          type="button"
-          onClick={() => setMobileMenuOpen(true)}
-          className="md:hidden flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/90 border border-[#0F172A]/10 text-[#0F172A] hover:bg-white hover:border-[#FFB800]/50 transition-all duration-300 shadow-sm active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#1A3626]/20"
-          aria-label="Open mobile menu"
-          aria-expanded={mobileMenuOpen}
-        >
-          <Menu size={20} strokeWidth={2.5} />
-        </button>
-      </div>
+          {/* Hamburger Menu Toggle (Mobile Only) */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(true)}
+            className="md:hidden flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/90 border border-[#0F172A]/10 text-[#0F172A] hover:bg-white hover:border-[#FFB800]/50 transition-all duration-300 shadow-sm active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#1A3626]/20"
+            aria-label="Open mobile menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            <Menu size={20} strokeWidth={2.5} />
+          </button>
+        </div>
+      </nav>
 
-      {/* Full-Screen Immersive Mobile Menu Overlay */}
+      {/* Full-Screen Immersive Mobile Menu Overlay (Outside <nav> to avoid CSS backdrop-blur containing block trapping) */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
@@ -175,7 +176,7 @@ export default function Navbar() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 z-50 md:hidden bg-[#F4F1E8] flex flex-col justify-between overflow-hidden"
+            className="fixed inset-0 z-[100] md:hidden bg-[#F4F1E8] flex flex-col justify-between overflow-hidden"
             style={{
               backgroundImage: 'url("/bg/french-stucco.png")',
               backgroundRepeat: 'repeat',
@@ -192,7 +193,7 @@ export default function Navbar() {
             />
 
             {/* Header / Top Bar Inside Overlay */}
-            <div className="h-24 px-6 flex items-center justify-between relative z-10 border-b border-[#0F172A]/10">
+            <div className="h-24 px-6 flex items-center justify-between relative z-10 border-b border-[#0F172A]/10 shrink-0">
               <Link
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
@@ -208,7 +209,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 border border-[#0F172A]/10 text-[#0F172A] hover:bg-white hover:border-[#FFB800] transition-all duration-300 shadow-sm active:scale-95"
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 border border-[#0F172A]/10 text-[#0F172A] hover:bg-white hover:border-[#FFB800] transition-all duration-300 shadow-sm active:scale-95 cursor-pointer"
                 aria-label="Close mobile menu"
               >
                 <span className="text-xs font-semibold tracking-wider uppercase">Close</span>
@@ -274,7 +275,7 @@ export default function Navbar() {
             {/* Bottom Footer Area */}
             <motion.div 
               variants={menuItemVariants}
-              className="px-6 py-5 border-t border-[#0F172A]/10 bg-white/50 backdrop-blur-md relative z-10"
+              className="px-6 py-5 border-t border-[#0F172A]/10 bg-white/50 backdrop-blur-md relative z-10 shrink-0"
             >
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 max-w-lg mx-auto w-full">
                 <div>
@@ -305,7 +306,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-
-    </nav>
+    </>
   );
 }

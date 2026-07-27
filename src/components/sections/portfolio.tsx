@@ -1,6 +1,6 @@
 export default function PortfolioSection() {
   return (
-    <section className="h-screen flex items-center justify-center bg-pink-500 text-white text-4xl font-bold">
+    <section className="h-screen flex items-center justify-center bg-transparent text-[#0F172A] text-4xl font-bold">
       Portfolio Section
     </section>
   );

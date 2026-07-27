@@ -72,6 +72,50 @@ export const horizontalWorks: WorkItem[] = [
       "https://res.cloudinary.com/dqxyp7emm/video/upload/v1784789416/POTHYS_jwqvtp.mp4",
     aspect: "landscape",
   },
+  {
+    id: 9,
+    title: "Care That Inspires",
+    category: "Healthcare Film",
+    duration: "01:07",
+    thumbnail:
+      "https://res.cloudinary.com/dqxyp7emm/video/upload/so_2,c_fill,g_auto,w_1200,h_675,f_webp,q_auto/v1785170641/Ddrc_Film_02_Hq_mvs8op.webp",
+    videoUrl:
+      "https://res.cloudinary.com/dqxyp7emm/video/upload/v1785170641/Ddrc_Film_02_Hq_mvs8op.mp4",
+    aspect: "landscape",
+  },
+  {
+    id: 10,
+    title: "Trust in Every Test",
+    category: "Healthcare Ad",
+    duration: "00:39",
+    thumbnail:
+      "https://res.cloudinary.com/dqxyp7emm/video/upload/so_2,c_fill,g_auto,w_1200,h_675,f_webp,q_auto/v1785170630/Ddrc_Film_01_Hq_pw7czc.webp",
+    videoUrl:
+      "https://res.cloudinary.com/dqxyp7emm/video/upload/v1785170630/Ddrc_Film_01_Hq_pw7czc.mp4",
+    aspect: "landscape",
+  },
+  {
+    id: 11,
+    title: "Advanced Diagnostics",
+    category: "Healthcare Ad",
+    duration: "01:02",
+    thumbnail:
+      "https://res.cloudinary.com/dqxyp7emm/video/upload/so_2,c_fill,g_auto,w_1200,h_675,f_webp,q_auto/v1785170631/Ddrc_Film_04_Hq_ymkliu.webp",
+    videoUrl:
+      "https://res.cloudinary.com/dqxyp7emm/video/upload/v1785170631/Ddrc_Film_04_Hq_ymkliu.mp4",
+    aspect: "landscape",
+  },
+  {
+    id: 12,
+    title: "Precision & Care",
+    category: "Healthcare Film",
+    duration: "00:48",
+    thumbnail:
+      "https://res.cloudinary.com/dqxyp7emm/video/upload/so_2,c_fill,g_auto,w_1200,h_675,f_webp,q_auto/v1785170628/Ddrc_Film_03_Hq_aco1u9.webp",
+    videoUrl:
+      "https://res.cloudinary.com/dqxyp7emm/video/upload/v1785170628/Ddrc_Film_03_Hq_aco1u9.mp4",
+    aspect: "landscape",
+  },
 ];
 
 /* ===== VERTICAL (PORTRAIT) WORKS ===== */
@@ -112,16 +156,25 @@ export const verticalWorks: WorkItem[] = [
   },
 ];
 
-/* ===== COMBINED — ordered for the masonry grid (random-feeling mix) ===== */
-/*  H, H, V, H, V, H, H, V                                               */
+/* ===== COMBINED — ordered for the masonry grid (balanced 3-column height) ===== */
+/*  Each column gets 3 landscape + 1 portrait, starting with landscape at top!    */
 
 export const allWorks: WorkItem[] = [
-  horizontalWorks[0], // Drive the Future        — landscape
-  horizontalWorks[1], // Big. Bold. Delicious.    — landscape
-  verticalWorks[0],   // Timeless Elegance        — portrait
-  horizontalWorks[2], // Next Level Innovation    — landscape
-  verticalWorks[1],   // Escape & Explore         — portrait
-  horizontalWorks[3], // Just Keep Moving          — landscape
-  horizontalWorks[4], // Golden Hour Vibes         — landscape
-  verticalWorks[2],   // Pure by Nature            — portrait
+  // --- Column 1 ---
+  horizontalWorks[0], // Drive the Future        — landscape (#1 top)
+  verticalWorks[0],   // Timeless Elegance       — portrait  (#2)
+  horizontalWorks[5], // Care That Inspires      — landscape (#3)
+  horizontalWorks[1], // Big. Bold. Delicious.   — landscape (#4)
+
+  // --- Column 2 ---
+  horizontalWorks[6], // Trust in Every Test     — landscape (#1 top)
+  horizontalWorks[2], // Next Level Innovation   — landscape (#2)
+  horizontalWorks[7], // Advanced Diagnostics    — landscape (#3)
+  verticalWorks[1],   // Escape & Explore        — portrait  (#4)
+
+  // --- Column 3 ---
+  horizontalWorks[3], // Just Keep Moving        — landscape (#1 top)
+  horizontalWorks[8], // Precision & Care        — landscape (#2)
+  verticalWorks[2],   // Pure by Nature          — portrait  (#3)
+  horizontalWorks[4], // Golden Hour Vibes       — landscape (#4)
 ];

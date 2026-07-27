@@ -171,7 +171,7 @@ function WorkCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay: index * 0.06 }}
-      className="group relative rounded-2xl overflow-hidden cursor-pointer break-inside-avoid mb-4 shadow-[0_8px_30px_rgb(0,0,0,0.10)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.18)] transition-shadow duration-500"
+      className="group relative rounded-2xl overflow-hidden cursor-pointer break-inside-avoid mb-6 sm:mb-7 bg-black shadow-[0_8px_30px_rgb(0,0,0,0.10)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.18)] transition-shadow duration-500"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => onPlay(item)}
@@ -358,7 +358,7 @@ export default function WorksPage() {
 
         {/* ===== MASONRY GRID ===== */}
         <div className="relative z-10 max-w-[1400px] mx-auto w-full">
-          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4">
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 sm:gap-7">
             {filteredWorks.map((item, index) => (
               <WorkCard key={item.id} item={item} index={index} onPlay={setSelectedWork} />
             ))}

@@ -9,13 +9,7 @@ import CTASection from "@/components/sections/cta";
 
 export default function Home() {
   return (
-    <main 
-      className="w-full min-h-screen bg-[#F4F1E8]"
-      style={{
-        backgroundImage: 'url("/bg/french-stucco.png")',
-        backgroundRepeat: 'repeat',
-      }}
-    >
+    <main className="w-full min-h-screen">
       <HeroSection />
       <IntroSection />
       <AboutSection />

@@ -51,7 +51,7 @@ const teamMembers = [
 
 export default function TeamPage() {
     return (
-        <main className="min-h-screen flex flex-col items-center justify-start bg-gray-50 overflow-hidden">
+        <main className="min-h-screen flex flex-col items-center justify-start overflow-hidden">
 
             {/* Team Section */}
             <section className="relative w-full flex flex-col items-center px-4 py-24 bg-gray-100">

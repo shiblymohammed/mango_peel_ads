@@ -259,139 +259,18 @@ export default function WorksPage() {
       : allWorks.filter((w) => w.category === activeFilter);
 
   return (
-    <main 
-      className="w-full min-h-screen overflow-hidden bg-[#F4F1E8]"
-      style={{
-        backgroundImage: 'url("/bg/french-stucco.png")',
-        backgroundRepeat: 'repeat',
-      }}
-    >
-      <section className="relative w-full flex flex-col items-center px-4 sm:px-6 lg:px-10 py-28 pb-20">
-
-        {/* ===== DECORATIVE BACKGROUND ELEMENTS (matching Teams page) ===== */}
-
-        {/* Large green gradient orb — top right */}
-        <div
-          className="absolute top-[-80px] right-[-100px] w-[450px] h-[450px] rounded-full pointer-events-none z-0 hidden lg:block"
-          style={{ background: 'radial-gradient(circle at 40% 40%, #10B98150 0%, #10B98120 40%, transparent 70%)' }}
+    <main className="w-full min-h-screen overflow-hidden">
+      <section className="relative w-full flex flex-col items-center px-4 sm:px-6 lg:px-10 py-28 pb-20 bg-gray-100">
+        {/* Background Lines */}
+        <div 
+          className="absolute inset-0 z-0 pointer-events-none opacity-50"
+          style={{ 
+            backgroundImage: 'url("/assets/images/bg-lines.png")', 
+            backgroundSize: '800px',
+            backgroundPosition: 'top left',
+            backgroundRepeat: 'repeat'
+          }}
         />
-
-        {/* Large yellow gradient orb — bottom left */}
-        <div
-          className="absolute bottom-[-60px] left-[-80px] w-[380px] h-[380px] rounded-full pointer-events-none z-0 hidden lg:block"
-          style={{ background: 'radial-gradient(circle at 60% 60%, #FFB80040 0%, #FFB80015 45%, transparent 70%)' }}
-        />
-
-        {/* Medium green gradient orb — mid left */}
-        <div
-          className="absolute top-[45%] left-[-40px] w-[250px] h-[250px] rounded-full pointer-events-none z-0 hidden md:block"
-          style={{ background: 'radial-gradient(circle, #10B98125 0%, transparent 65%)' }}
-        />
-
-        {/* Medium yellow gradient orb — mid right */}
-        <div
-          className="absolute top-[30%] right-[-30px] w-[220px] h-[220px] rounded-full pointer-events-none z-0 hidden md:block"
-          style={{ background: 'radial-gradient(circle, #FFB80030 0%, transparent 60%)' }}
-        />
-
-        {/* Green organic blob — top right */}
-        <svg
-          className="absolute top-[-40px] right-[-60px] w-[280px] h-[320px] pointer-events-none z-0 opacity-90 hidden lg:block"
-          viewBox="0 0 300 350" fill="none" xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M220 10 C280 30, 310 120, 280 200 S240 310, 180 340 C120 360, 60 300, 40 230 S50 100, 120 50 C160 20, 190 0, 220 10Z" fill="#10B981" opacity="0.85" />
-        </svg>
-
-        {/* Green organic blob — bottom left */}
-        <svg
-          className="absolute bottom-[-60px] left-[-80px] w-[260px] h-[300px] pointer-events-none z-0 opacity-80 hidden lg:block"
-          viewBox="0 0 280 320" fill="none" xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M60 20 C120 -10, 200 30, 240 100 S270 240, 220 290 C170 330, 80 310, 40 250 S-20 120, 30 60 C40 40, 50 25, 60 20Z" fill="#10B981" opacity="0.8" />
-        </svg>
-
-        {/* Orange/yellow half-arc — left side */}
-        <svg
-          className="absolute top-[35%] left-[-30px] w-[120px] h-[120px] pointer-events-none z-0 opacity-60 hidden md:block"
-          viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="10" cy="60" r="50" stroke="#FFB800" strokeWidth="4" fill="none" />
-        </svg>
-
-        {/* Orange half-arc — bottom right */}
-        <svg
-          className="absolute bottom-[15%] right-[-20px] w-[100px] h-[100px] pointer-events-none z-0 opacity-50 hidden md:block"
-          viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="90" cy="50" r="40" stroke="#FFB800" strokeWidth="3.5" fill="none" />
-        </svg>
-
-        {/* Dot grid pattern — right side */}
-        <svg
-          className="absolute top-[40%] right-[3%] w-[80px] h-[80px] pointer-events-none z-0 opacity-30 hidden lg:block"
-          viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"
-        >
-          {[0, 1, 2, 3, 4].map(row =>
-            [0, 1, 2, 3, 4].map(col => (
-              <circle key={`dot-r-${row}-${col}`} cx={8 + col * 16} cy={8 + row * 16} r="2.5" fill="#94A3B8" />
-            ))
-          )}
-        </svg>
-
-        {/* Dot grid pattern — left side */}
-        <svg
-          className="absolute bottom-[25%] left-[5%] w-[60px] h-[60px] pointer-events-none z-0 opacity-25 hidden lg:block"
-          viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"
-        >
-          {[0, 1, 2, 3].map(row =>
-            [0, 1, 2, 3].map(col => (
-              <circle key={`dot-l-${row}-${col}`} cx={7 + col * 15} cy={7 + row * 15} r="2" fill="#94A3B8" />
-            ))
-          )}
-        </svg>
-
-        {/* Wavy line — between heading and cards */}
-        <svg
-          className="absolute top-[22%] left-[10%] w-[80%] h-[20px] pointer-events-none z-0 opacity-[0.08] hidden md:block"
-          viewBox="0 0 800 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
-        >
-          <path d="M0 10 Q40 0, 80 10 T160 10 T240 10 T320 10 T400 10 T480 10 T560 10 T640 10 T720 10 T800 10" stroke="#10B981" strokeWidth="2" fill="none" />
-        </svg>
-
-        {/* Subtle yellow glow — behind heading */}
-        <div
-          className="absolute top-[2%] left-1/2 -translate-x-1/2 w-[600px] h-[280px] rounded-full pointer-events-none z-0 opacity-25 hidden md:block"
-          style={{ background: 'radial-gradient(ellipse at center, #FFB80035 0%, #FFB80010 50%, transparent 75%)' }}
-        />
-
-        {/* Subtle green glow — behind grid */}
-        <div
-          className="absolute top-[55%] left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full pointer-events-none z-0 hidden lg:block"
-          style={{ background: 'radial-gradient(ellipse at center, #10B98118 0%, #10B98108 50%, transparent 70%)' }}
-        />
-
-        {/* Small static dots */}
-        <div className="absolute top-[30%] right-[8%] w-2 h-2 rounded-full bg-[#10B981] opacity-40 pointer-events-none z-0 hidden lg:block" />
-        <div className="absolute top-[65%] left-[7%] w-3 h-3 rounded-full bg-[#FFB800] opacity-30 pointer-events-none z-0 hidden lg:block" />
-        <div className="absolute bottom-[10%] right-[12%] w-2.5 h-2.5 rounded-full bg-[#10B981] opacity-35 pointer-events-none z-0 hidden lg:block" />
-        <div className="absolute top-[22%] right-[25%] w-2 h-2 rounded-full bg-[#10B981] opacity-25 pointer-events-none z-0 hidden lg:block" />
-
-        {/* Cross shapes */}
-        <svg className="absolute top-[48%] left-[8%] w-[20px] h-[20px] pointer-events-none z-0 opacity-30 hidden lg:block" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="10" y1="2" x2="10" y2="18" stroke="#10B981" strokeWidth="2" strokeLinecap="round" />
-          <line x1="2" y1="10" x2="18" y2="10" stroke="#10B981" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-        <svg className="absolute bottom-[20%] right-[6%] w-[16px] h-[16px] pointer-events-none z-0 opacity-25 hidden lg:block" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="8" y1="1" x2="8" y2="15" stroke="#FFB800" strokeWidth="1.8" strokeLinecap="round" />
-          <line x1="1" y1="8" x2="15" y2="8" stroke="#FFB800" strokeWidth="1.8" strokeLinecap="round" />
-        </svg>
-
-        {/* Sparkle star */}
-        <svg className="absolute top-[8%] right-[18%] w-[28px] h-[28px] pointer-events-none z-0 opacity-70 hidden md:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2 L14 9 L21 9 L15.5 13.5 L17.5 21 L12 16.5 L6.5 21 L8.5 13.5 L3 9 L10 9 Z" fill="#FFB800" opacity="0.7" />
-        </svg>
-
-        {/* ===== END DECORATIVE ELEMENTS ===== */}
 
         {/* ===== HEADING SECTION ===== */}
         <div className="relative z-10 max-w-[1400px] mx-auto w-full mb-14">

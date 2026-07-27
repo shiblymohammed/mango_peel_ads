@@ -52,7 +52,6 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Services", href: "/services" },
     { name: "Work", href: "/works" },
     { name: "Team", href: "/teams" },
     { name: "Contact", href: "/contact" },
@@ -98,10 +97,8 @@ export default function Navbar() {
   return (
     <>
       <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex items-center px-6 md:px-12 lg:px-16 ${
-          scrolled
-            ? "h-20 bg-[#F4F1E8]/90 backdrop-blur-xl border-b border-[#0F172A]/10 shadow-sm"
-            : "h-24 bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex items-center px-6 md:px-12 lg:px-16 bg-transparent ${
+          scrolled ? "h-20" : "h-24"
         }`}
       >
         {/* Logo (Left) */}

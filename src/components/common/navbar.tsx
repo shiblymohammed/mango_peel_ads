@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -58,7 +58,7 @@ export default function Navbar() {
     { name: "Contact", href: "/contact" },
   ];
 
-  const fullScreenMenuVariants = {
+  const fullScreenMenuVariants: Variants = {
     hidden: { 
       opacity: 0,
       scale: 0.98,
@@ -86,7 +86,7 @@ export default function Navbar() {
     }
   };
 
-  const menuItemVariants = {
+  const menuItemVariants: Variants = {
     hidden: { opacity: 0, x: -15 },
     visible: { 
       opacity: 1, 

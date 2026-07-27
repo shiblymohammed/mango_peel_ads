@@ -66,7 +66,7 @@ export default function Footer() {
           <motion.div variants={itemVariants} className="max-w-2xl">
             <h2 className="text-4xl md:text-6xl lg:text-[72px] font-extrabold tracking-tight leading-[1.05] text-white">
               Got a project? <br className="hidden md:block" />
-              <span className="text-[#FFB800] font-mileast font-normal">Let's create something</span>
+              <span className="text-[#FFB800] font-mileast font-normal">Let&apos;s create something</span>
             </h2>
           </motion.div>
           

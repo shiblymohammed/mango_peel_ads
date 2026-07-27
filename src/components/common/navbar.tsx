@@ -23,7 +23,8 @@ export default function Navbar() {
 
   // Close mobile menu when navigating to a new route
   useEffect(() => {
-    setMobileMenuOpen(false);
+    const timer = setTimeout(() => setMobileMenuOpen(false), 0);
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   // Lock body scroll when mobile menu is open
@@ -145,7 +146,7 @@ export default function Navbar() {
             href="/contact"
             className="group relative inline-flex items-center gap-1.5 sm:gap-2 bg-[#1A3626] text-white px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 rounded-full text-[12px] sm:text-[13px] lg:text-[14px] font-semibold tracking-wide hover:bg-[#FFB800] hover:text-[#0F172A] transition-all duration-300 shadow-sm hover:shadow-md active:scale-95"
           >
-            <span>Let's Talk</span>
+            <span>Let&apos;s Talk</span>
             <ArrowUpRight 
               className="w-4 h-4 sm:w-[18px] sm:h-[18px] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
               strokeWidth={2.5} 
@@ -277,7 +278,7 @@ export default function Navbar() {
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 max-w-lg mx-auto w-full">
                 <div>
                   <p className="font-poppins-italic text-xs sm:text-sm text-[#64748B] mb-0.5">
-                    Let's peel fresh ideas together
+                    Let&apos;s peel fresh ideas together
                   </p>
                   <a
                     href="mailto:hello@mangopeelads.com"

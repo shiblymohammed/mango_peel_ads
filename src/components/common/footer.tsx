@@ -48,7 +48,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#08120D] text-white pt-24 pb-8 overflow-hidden rounded-t-[2.5rem] mt-[-2rem] z-10">
+    <footer className="relative bg-[#18181B] text-white pt-24 pb-8 overflow-hidden rounded-t-[2.5rem] mt-[-2rem] z-10">
       
       {/* Decorative Blur */}
       <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#FFB800] rounded-full blur-[150px] opacity-10 pointer-events-none" />
@@ -162,8 +162,8 @@ export default function Footer() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className="w-full text-center overflow-hidden">
-            <h1 className="text-[12vw] font-black tracking-tighter leading-none text-white/5 select-none font-mileast">
-              MANGO PEEL
+            <h1 className="text-[12vw] font-black tracking-tight leading-none pb-10 text-white/5 select-none font-mileast">
+              mangopeel
             </h1>
           </div>
           

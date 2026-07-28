@@ -34,8 +34,7 @@ export default function TeamCard({
                 {/* 1. Shape reveals from center as an expanding circle first */}
                 <motion.div 
                     initial={{ clipPath: "circle(0% at 50% 50%)", opacity: 0 }}
-                    whileInView={{ clipPath: "circle(140% at 50% 50%)", opacity: 1 }}
-                    viewport={{ once: true, margin: "-50px" }}
+                    animate={{ clipPath: "circle(140% at 50% 50%)", opacity: 1 }}
                     transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: baseDelay }}
                     className="absolute bottom-0 left-0 w-full h-full rounded-tr-[6rem] group-hover:rounded-t-[3.5rem] overflow-hidden transition-all duration-500 ease-out group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.18)] group-hover:brightness-105"
                     style={{ backgroundColor: themeColor }}
@@ -50,8 +49,7 @@ export default function TeamCard({
                         src={imageSrc} 
                         alt={name}
                         initial={{ clipPath: "inset(100% 0% 0% 0%)", opacity: 0 }}
-                        whileInView={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
-                        viewport={{ once: true, margin: "-50px" }}
+                        animate={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
                         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: baseDelay + 0.25 }}
                         className="relative z-10 w-[92%] scale-[1.32] h-[115%] bottom-[55px] object-contain object-bottom grayscale drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] group-hover:grayscale-0 transition-all duration-500 ease-out"
                     />
@@ -61,8 +59,7 @@ export default function TeamCard({
             {/* 3. Details Section reveals promptly */}
             <motion.div 
                 initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, ease: "easeOut", delay: baseDelay + 0.25 }}
                 className="relative z-20 mt-4 flex flex-col px-2 pb-2 text-left"
             >

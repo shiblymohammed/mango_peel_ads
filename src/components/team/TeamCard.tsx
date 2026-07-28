@@ -19,36 +19,44 @@ export default function TeamCard({
     skills = "Skill 1 • Skill 2",
     index = 0
 }: TeamCardProps) {
-    const stagger = index * 0.05;
+    const baseDelay = index * 0.1;
 
     return (
-        <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.35, delay: stagger }}
-            className="group w-[340px] flex flex-col cursor-pointer"
-        >
+        <div className="group w-[340px] flex flex-col cursor-pointer">
             {/* Image Section */}
             <div className="relative w-full h-[300px] flex items-end justify-center overflow-visible">
-                {/* Shape with only top-right corner rounded */}
-                <div 
+                {/* 1. Shape reveals from center as an expanding circle first */}
+                <motion.div 
+                    initial={{ clipPath: "circle(0% at 50% 50%)", opacity: 0 }}
+                    whileInView={{ clipPath: "circle(140% at 50% 50%)", opacity: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: baseDelay }}
                     className="absolute bottom-0 left-0 w-full h-full rounded-tr-[6rem] transition-all duration-500 group-hover:brightness-105"
                     style={{ backgroundColor: themeColor }}
-                ></div>
+                ></motion.div>
                 
-                {/* Image */}
+                {/* 2. Image reveals from bottom to top in its exact position using clipPath wipe */}
                 {imageSrc && (
-                    <img 
+                    <motion.img 
                         src={imageSrc} 
                         alt={name}
+                        initial={{ clipPath: "inset(100% 0% 0% 0%)", opacity: 0 }}
+                        whileInView={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: baseDelay + 0.25 }}
                         className="relative z-10 w-[92%] scale-[1.32] h-[115%] bottom-[55px] object-contain object-bottom grayscale drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] group-hover:grayscale-0 transition-all duration-500 ease-out"
                     />
                 )}
             </div>
 
-            {/* Details Section */}
-            <div className="relative z-20 mt-4 flex flex-col px-2 pb-2 text-left">
+            {/* 3. Details Section reveals promptly */}
+            <motion.div 
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.35, ease: "easeOut", delay: baseDelay + 0.25 }}
+                className="relative z-20 mt-4 flex flex-col px-2 pb-2 text-left"
+            >
                 <h3 className="text-[22px] font-black text-gray-900 leading-tight tracking-tight">{name}</h3>
                 <p className="text-[13px] font-bold mt-1" style={{ color: themeColor }}>{role}</p>
                 
@@ -68,7 +76,7 @@ export default function TeamCard({
                         </a>
                     </div>
                 </div>
-            </div>
-        </motion.div>
+            </motion.div>
+        </div>
     );
 }

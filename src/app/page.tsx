@@ -17,7 +17,7 @@ export default function Home() {
       }}
     >
       <HeroSection />
-      <IntroSection />
+      {/* <IntroSection /> */}
       <AboutSection />
       <ServicesSection />
       <ProgrammesSection />

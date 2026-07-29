@@ -51,7 +51,7 @@ export default function TeamCard({
                         initial={{ clipPath: "inset(100% 0% 0% 0%)", opacity: 0 }}
                         animate={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
                         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: baseDelay + 0.25 }}
-                        className="relative z-10 w-[92%] scale-[1.32] h-[115%] bottom-[40px] sm:bottom-[55px] object-contain object-bottom grayscale drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] group-hover:grayscale-0 transition-all duration-500 ease-out"
+                        className="relative z-10 w-[92%] scale-[1.38] sm:scale-[1.32] h-[115%] bottom-[40px] sm:bottom-[55px] object-contain object-bottom grayscale drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] group-hover:grayscale-0 transition-all duration-500 ease-out"
                     />
                 )}
             </div>

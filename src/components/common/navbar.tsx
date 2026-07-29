@@ -104,11 +104,14 @@ export default function Navbar() {
       >
         {/* Logo (Left) */}
         <div className="flex-1 flex justify-start">
-          <Link href="/" className="flex items-center group">
+          <Link 
+            href="/" 
+            className="flex items-center group bg-white/85 backdrop-blur-md px-3.5 py-1.5 md:px-4 md:py-2 rounded-full  shadow-sm hover:bg-white hover:shadow-md hover:border-[#FFB800]/40 transition-all duration-300"
+          >
             <img 
               src="/logo/logo.png" 
               alt="Mango Peel Ads" 
-              className="h-10 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]" 
+              className="h-8 sm:h-9 md:h-10 lg:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]" 
             />
           </Link>
         </div>
@@ -195,12 +198,12 @@ export default function Navbar() {
               <Link
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center"
+                className="flex items-center bg-white/85 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#0F172A]/15 shadow-sm"
               >
                 <img 
                   src="/logo/logo.png" 
                   alt="Mango Peel Ads" 
-                  className="h-10 w-auto object-contain" 
+                  className="h-8 sm:h-9 w-auto object-contain" 
                 />
               </Link>
 

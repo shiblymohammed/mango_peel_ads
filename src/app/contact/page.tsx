@@ -239,7 +239,7 @@ export default function ContactPage() {
           <h1 className="font-mileast text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-extrabold text-[#0F172A] tracking-tight leading-[1.08] mb-8">
             Let&apos;s make your brand{" "}
             <span className="relative inline-block text-[#FFB800]">
-              unforgettable
+              unforgettable.
               <svg
                 className="absolute left-[-4%] w-[108%] h-auto pointer-events-none"
                 style={{ bottom: "-0.60em" }}
@@ -267,7 +267,7 @@ export default function ContactPage() {
                 />
               </svg>
             </span>
-            .
+            
           </h1>
 
           <p className="font-poppins-italic text-[#64748B] text-base sm:text-lg md:text-xl max-w-2xl font-medium leading-relaxed">
@@ -296,16 +296,16 @@ export default function ContactPage() {
                 <div className="w-12 h-12 rounded-2xl bg-[#FFB800]/20 text-[#0F172A] flex items-center justify-center">
                   <Mail size={22} strokeWidth={2.2} />
                 </div>
-                <CopyButton textToCopy="hello@mangopeelads.com" />
+                <CopyButton textToCopy="info@mangopeelads.com" />
               </div>
               <p className="text-xs font-bold uppercase tracking-wider text-[#64748B] mb-1">
                 Direct Email
               </p>
               <a
-                href="mailto:hello@mangopeelads.com"
+                href="mailto:info@mangopeelads.com"
                 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] hover:text-[#FFB800] transition-colors break-all"
               >
-                hello@mangopeelads.com
+                info@mangopeelads.com
               </a>
               <p className="text-sm text-[#64748B] font-medium mt-2">
                 We respond within 24 hours on business days.
@@ -328,17 +328,10 @@ export default function ContactPage() {
               </p>
               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 mt-1">
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+918547909279"
                   className="text-lg sm:text-xl font-bold text-[#0F172A] hover:text-[#FFB800] transition-colors"
                 >
-                  +91 (Kerala Studio)
-                </a>
-                <span className="hidden sm:inline text-gray-300">|</span>
-                <a
-                  href="tel:+971500000000"
-                  className="text-lg sm:text-xl font-bold text-[#0F172A] hover:text-[#FFB800] transition-colors"
-                >
-                  +971 (UAE Office)
+                  +91 8547909279
                 </a>
               </div>
             </div>
@@ -355,7 +348,7 @@ export default function ContactPage() {
                 </h3>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6">
                 {/* Kerala Hub */}
                 <div className="border-l-2 border-[#FFB800] pl-4">
                   <p className="text-xs uppercase tracking-widest text-[#FFB800] font-bold mb-1">
@@ -365,28 +358,13 @@ export default function ContactPage() {
                     Kerala, India
                   </h4>
                   <p className="text-xs text-white/70 leading-relaxed">
-                    Creative HQ, Film &amp; Strategy
+                    Pheonix Building, <br />
+                    Padivattom P.O, <br />
+                    Ernakulam, Kerala
                   </p>
                   <div className="flex items-center gap-1.5 mt-3 text-xs text-white/60 font-medium">
                     <Clock size={13} />
                     <span>IST (UTC +05:30)</span>
-                  </div>
-                </div>
-
-                {/* UAE Hub */}
-                <div className="border-l-2 border-[#FFB800] pl-4">
-                  <p className="text-xs uppercase tracking-widest text-[#FFB800] font-bold mb-1">
-                    UAE Office
-                  </p>
-                  <h4 className="text-lg font-extrabold text-white mb-1">
-                    Dubai, UAE
-                  </h4>
-                  <p className="text-xs text-white/70 leading-relaxed">
-                    Regional Sales &amp; Partnerships
-                  </p>
-                  <div className="flex items-center gap-1.5 mt-3 text-xs text-white/60 font-medium">
-                    <Clock size={13} />
-                    <span>GST (UTC +04:00)</span>
                   </div>
                 </div>
               </div>
@@ -398,10 +376,7 @@ export default function ContactPage() {
                 </span>
                 <div className="flex items-center gap-3">
                   {[
-                    { name: "Instagram", href: "#" },
-                    { name: "LinkedIn", href: "#" },
-                    { name: "YouTube", href: "#" },
-                    { name: "X", href: "#" },
+                    { name: "Instagram", href: "https://www.instagram.com/mangopeelads?igsh=bmN2ZGFleTdvZG80" },
                   ].map((social) => (
                     <a
                       key={social.name}
@@ -701,7 +676,7 @@ export default function ContactPage() {
           </p>
 
           <a
-            href="mailto:hello@mangopeelads.com"
+            href="mailto:info@mangopeelads.com"
             className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#FFB800] text-[#0F172A] font-bold text-sm sm:text-base tracking-wide hover:shadow-[0_0_30px_rgba(255,184,0,0.45)] hover:-translate-y-0.5 transition-all duration-300"
           >
             <span>Email Us directly</span>

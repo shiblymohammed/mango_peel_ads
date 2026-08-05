@@ -52,7 +52,6 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
     { name: "Work", href: "/works" },
     { name: "Team", href: "/teams" },
     { name: "Contact", href: "/contact" },
@@ -284,10 +283,10 @@ export default function Navbar() {
                     Let&apos;s peel fresh ideas together
                   </p>
                   <a
-                    href="mailto:hello@mangopeelads.com"
+                    href="mailto:info@mangopeelads.com"
                     className="text-sm font-semibold text-[#0F172A] hover:text-[#FFB800] transition-colors"
                   >
-                    hello@mangopeelads.com
+                    info@mangopeelads.com
                   </a>
                 </div>
 

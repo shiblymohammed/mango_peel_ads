@@ -116,15 +116,16 @@ export default function Footer() {
           {/* Column 3 - Contact */}
           <motion.div variants={itemVariants} className="flex flex-col gap-4">
             <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em] mb-2 opacity-50">Contact Us</h4>
-            <a href="mailto:hello@mangopeel.com" className="text-white/80 hover:text-[#FFB800] text-[15px] font-medium transition-colors w-fit">
-              hello@mangopeel.com
+            <a href="mailto:info@mangopeelads.com" className="text-white/80 hover:text-[#FFB800] text-[15px] font-medium transition-colors w-fit">
+              info@mangopeelads.com
             </a>
-            <a href="tel:+1234567890" className="text-white/80 hover:text-[#FFB800] text-[15px] font-medium transition-colors w-fit">
-              +1 (234) 567-890
+            <a href="tel:+918547909279" className="text-white/80 hover:text-[#FFB800] text-[15px] font-medium transition-colors w-fit">
+              +91 8547909279
             </a>
             <div className="text-white/60 text-[15px] mt-2">
-              123 Creative Studio Ave, <br />
-              Design District, NY 10001
+              Pheonix Building, <br />
+              Padivattom P.O, <br />
+              Ernakulam, Kerala
             </div>
           </motion.div>
 
@@ -133,10 +134,7 @@ export default function Footer() {
             <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em] mb-2 opacity-50">Follow Us</h4>
             <div className="flex gap-4">
               {[
-                { icon: InstagramIcon, href: '#' },
-                { icon: TwitterIcon, href: '#' },
-                { icon: LinkedinIcon, href: '#' },
-                { icon: DribbbleIcon, href: '#' }
+                { icon: InstagramIcon, href: 'https://www.instagram.com/mangopeelads?igsh=bmN2ZGFleTdvZG80' }
               ].map((social, idx) => {
                 const Icon = social.icon;
                 return (
@@ -167,12 +165,14 @@ export default function Footer() {
             </h1>
           </div>
           
-          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 mt-6 text-white/40 text-xs sm:text-sm font-medium">
+          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6 mt-6 text-white/40 text-xs sm:text-sm font-medium">
             <p>© {new Date().getFullYear()} Mango Peel Ads. All rights reserved.</p>
-            <div className="flex gap-6">
-              <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-            </div>
+            
+            <a href="https://dexiko.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group hover:text-white transition-colors">
+              <span>Developed by</span>
+              <img src="/logo/dexiko-logo.png" alt="Dexiko" className="h-5 brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity" />
+            </a>
+
           </div>
         </motion.div>
         

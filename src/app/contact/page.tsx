@@ -339,7 +339,7 @@ export default function ContactPage() {
             {/* Global Studio Locations Card */}
             <div className="bg-[#1A3626] text-white rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden">
               {/* Decorative circle */}
-              <div className="absolute -right-12 -top-12 w-40 h-40 rounded-full bg-[#FFB800]/15 pointer-events-none" />
+              <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full pointer-events-none opacity-20" style={{ background: "radial-gradient(circle, rgb(255, 184, 0) 0%, transparent 70%)" }} />
 
               <div className="flex items-center gap-2 mb-6">
                 <Globe className="text-[#FFB800]" size={20} />
@@ -664,7 +664,6 @@ export default function ContactPage() {
           />
 
           <span className="inline-flex items-center gap-2 text-[#FFB800] text-xs font-bold uppercase tracking-widest mb-3">
-            <Sparkles size={16} />
             <span>Ready for what&apos;s next?</span>
           </span>
           <h2 className="font-mileast text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight max-w-2xl mb-4">

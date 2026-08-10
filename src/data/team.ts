@@ -19,16 +19,16 @@ export const teamMembers: TeamMember[] = [
     skills: "Operations • Management • Planning"
   },
   {
-    name: "Ajuraj",
-    role: "Art Director",
-    imageSrc: "/assets/team/Ajuraj_Art_Director.png",
-    skills: "Design • Creative • Branding"
-  },
-  {
     name: "Hari",
     role: "Consultant & Creative Director",
     imageSrc: "/assets/team/Hari_Consultant_Creative-Director.png",
     skills: "Creative Direction • Consulting"
+  },
+  {
+    name: "Ajuraj",
+    role: "Art Director",
+    imageSrc: "/assets/team/Ajuraj_Art_Director.png",
+    skills: "Design • Creative • Branding"
   },
   {
     name: "John",

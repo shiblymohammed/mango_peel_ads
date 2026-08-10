@@ -45,7 +45,7 @@ export default function AboutSection() {
           {/* ========================================================================= */}
           {/* LEFT COLUMN: 3D MODEL PLACEHOLDER (Reserved for your 3D model later)     */}
           {/* ========================================================================= */}
-          <div className="w-full lg:col-span-6 xl:col-span-7 order-2 lg:order-1 min-h-[300px] sm:min-h-[400px] lg:min-h-[600px] flex items-center justify-center">
+          <div className="w-full lg:col-span-5 xl:col-span-5 order-2 lg:order-1 min-h-[300px] sm:min-h-[400px] lg:min-h-[600px] flex items-center justify-center">
             {/* Left side reserved for your 3D scene */}
           </div>
 
@@ -53,7 +53,7 @@ export default function AboutSection() {
           {/* RIGHT COLUMN: ABOUT US TYPOGRAPHY & FEATURES                              */}
           {/* Matches the exact typography, colors, and cards from your reference       */}
           {/* ========================================================================= */}
-          <div className="w-full lg:col-span-6 xl:col-span-5 order-1 lg:order-2 flex flex-col items-start text-left relative pt-2 sm:pt-4 lg:pt-0">
+          <div className="w-full lg:col-span-7 xl:col-span-7 order-1 lg:order-2 flex flex-col items-start text-left relative pt-2 sm:pt-4 lg:pt-0">
             {/* Eyebrow: ABOUT US */}
             <motion.span
               initial={{ opacity: 0, y: 15 }}
@@ -66,26 +66,15 @@ export default function AboutSection() {
             </motion.span>
 
             {/* Main Heading: Who We Are. */}
-            <h2 className="font-mileast font-extrabold tracking-tight select-none mt-2 sm:mt-3">
+            <h2 className="font-mileast font-extrabold tracking-tight select-none mt-2 sm:mt-3 flex flex-wrap gap-x-4">
               <motion.span
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="block text-[#0F172A] text-6xl sm:text-7xl md:text-8xl lg:text-[76px] xl:text-[88px] 2xl:text-[98px] leading-[0.92]"
+                className="text-[#0F172A] text-6xl sm:text-7xl md:text-8xl lg:text-[76px] xl:text-[88px] 2xl:text-[98px] leading-[0.92]"
               >
-                Who
-              </motion.span>
-
-              <motion.span
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="block text-6xl sm:text-7xl md:text-8xl lg:text-[76px] xl:text-[88px] 2xl:text-[98px] leading-[0.92] mt-1 sm:mt-1.5"
-              >
-                <span className="text-[#F0A202]">We </span>
-                <span className="text-[#2E7D32]">Are.</span>
+                Who <span className="text-[#F0A202]">We </span><span className="text-[#2E7D32]">Are.</span>
               </motion.span>
             </h2>
 
@@ -104,13 +93,9 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="font-poppins-italic italic text-[#64748B] text-lg sm:text-xl md:text-2xl xl:text-[22px] font-medium leading-[1.38] mt-6 sm:mt-7 max-w-lg"
+              className="font-poppins-italic italic text-[#64748B] text-lg sm:text-xl md:text-2xl xl:text-[22px] font-medium leading-[1.38] mt-6 sm:mt-7 max-w-2xl xl:max-w-3xl"
             >
-              We are a creative advertising
-              <br className="hidden sm:block" />
-              agency passionate about telling
-              <br className="hidden sm:block" />
-              stories that create impact.
+              We are a creative advertising agency passionate about telling stories that create impact.
             </motion.p>
 
             {/* Three Feature / Stat Icon Cards */}

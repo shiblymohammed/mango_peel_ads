@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Clapperboard, Target, Rocket } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -65,22 +65,23 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.65 }}
-              className="font-poppins-italic italic text-[#64748B] text-lg sm:text-xl md:text-2xl xl:text-[24px] font-medium leading-[1.38] mt-6 sm:mt-8 max-w-2xl xl:max-w-3xl relative z-20"
+              className="font-poppins text-[#64748B] text-base sm:text-lg lg:text-[17px] font-medium leading-[1.6] mt-6 sm:mt-8 max-w-xl relative z-20"
             >
-              Creative films, reels &amp; campaigns that drive real results.
+              Creative films, reels &amp; campaigns<br className="hidden sm:block" />
+              that drive real results for brands that dare to stand out.
             </motion.p>
 
-            {/* Action Buttons (Stacked vertically: View Our Work & Let's Talk) */}
+            {/* Action Buttons (Horizontal layout) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="mt-8 sm:mt-10 flex flex-col items-start gap-3.5 sm:gap-4 relative z-20"
+              className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 relative z-20"
             >
               {/* Primary CTA: VIEW OUR WORK -> */}
               <Link
                 href="/works"
-                className="group inline-flex items-center gap-3 px-7 sm:px-8 py-3 sm:py-3.5 rounded-full border-[1.5px] border-[#2E7D32] bg-white/60 backdrop-blur-sm text-[#2E7D32] hover:bg-[#2E7D32] hover:text-white hover:border-[#2E7D32] hover:shadow-lg hover:shadow-[#2E7D32]/25 transition-all duration-300 transform hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-3 px-6 sm:px-8 py-3.5 rounded-full bg-[#4E8B4F] text-white hover:bg-[#3d6e3e] transition-all duration-300 transform hover:-translate-y-0.5 shadow-sm"
               >
                 <span className="text-xs sm:text-sm font-bold tracking-[0.14em] uppercase">
                   VIEW OUR WORK
@@ -91,13 +92,57 @@ export default function HeroSection() {
               {/* Secondary CTA: LET'S TALK -> */}
               <Link
                 href="/contact"
-                className="group/talk inline-flex items-center gap-2.5 ml-2 sm:ml-3 py-1.5 text-[#0F172A] hover:text-[#2E7D32] transition-colors duration-200"
+                className="group inline-flex items-center gap-3 px-6 sm:px-8 py-3.5 rounded-full border border-gray-300 bg-transparent text-[#4E8B4F] hover:border-[#4E8B4F] hover:bg-[#4E8B4F]/5 transition-all duration-300 transform hover:-translate-y-0.5"
               >
-                <span className="italic font-extrabold text-xs sm:text-sm tracking-[0.16em] uppercase">
+                <span className="text-xs sm:text-sm font-bold tracking-[0.14em] uppercase">
                   LET&apos;S TALK
                 </span>
-                <ArrowRight className="w-4 h-4 text-[#2E7D32] transition-transform duration-300 group-hover/talk:translate-x-1.5" />
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
               </Link>
+            </motion.div>
+
+            {/* Bottom Features Row */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.95 }}
+              className="mt-12 flex flex-wrap items-center gap-6 sm:gap-10 relative z-20"
+            >
+              {/* Feature 1 */}
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#2E7D32]/10 flex items-center justify-center text-[#2E7D32]">
+                  <Clapperboard className="w-4 h-4 sm:w-5 sm:h-5" />
+                </div>
+                <span className="text-xs sm:text-sm font-semibold text-gray-700 leading-tight">
+                  Creative<br />Storytelling
+                </span>
+              </div>
+              
+              {/* Divider */}
+              <div className="hidden sm:block w-[1px] h-10 bg-gray-200"></div>
+
+              {/* Feature 2 */}
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#F0A202]/10 flex items-center justify-center text-[#F0A202]">
+                  <Target className="w-4 h-4 sm:w-5 sm:h-5" />
+                </div>
+                <span className="text-xs sm:text-sm font-semibold text-gray-700 leading-tight">
+                  Performance<br />Driven
+                </span>
+              </div>
+
+              {/* Divider */}
+              <div className="hidden sm:block w-[1px] h-10 bg-gray-200"></div>
+
+              {/* Feature 3 */}
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#2E7D32]/10 flex items-center justify-center text-[#2E7D32]">
+                  <Rocket className="w-4 h-4 sm:w-5 sm:h-5" />
+                </div>
+                <span className="text-xs sm:text-sm font-semibold text-gray-700 leading-tight">
+                  Results That<br />Matter
+                </span>
+              </div>
             </motion.div>
           </motion.div>
         </div>

@@ -80,18 +80,18 @@ export default function HeroSection() {
               {/* Line 1 */}
               <div className="flex flex-wrap gap-x-3 sm:gap-x-4">
                 <motion.span
-                  initial={{ opacity: 0, y: 25 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-[#0F172A]"
+                  initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 1.0, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  className="text-[#0F172A] inline-block"
                 >
                   We Make
                 </motion.span>
                 <motion.span
-                  initial={{ opacity: 0, y: 25 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="text-[#0F172A]"
+                  initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 1.0, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                  className="text-[#0F172A] inline-block"
                 >
                   People
                 </motion.span>
@@ -100,18 +100,18 @@ export default function HeroSection() {
               {/* Line 2 */}
               <div className="flex flex-wrap gap-x-3 sm:gap-x-4 relative w-fit mt-1 sm:mt-2">
                 <motion.span
-                  initial={{ opacity: 0, y: 25 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="text-[#2E7D32]"
+                  initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 1.0, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  className="text-[#2E7D32] inline-block"
                 >
                   Stop
                 </motion.span>
                 <motion.span
-                  initial={{ opacity: 0, y: 25 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  className="text-[#F0A202]"
+                  initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 1.0, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  className="text-[#F0A202] inline-block"
                 >
                   Scrolling.
                 </motion.span>
@@ -134,30 +134,33 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="mt-8 sm:mt-12 flex flex-wrap items-center gap-4 relative z-20 w-full"
+              className="mt-8 sm:mt-12 flex flex-wrap items-center gap-6 sm:gap-8 relative z-20 w-full"
             >
               {/* Primary CTA */}
               <Link
                 href="/works"
-                className="group inline-flex items-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-[#2E7D32] text-white hover:bg-[#1B5E20] transition-all duration-300 shadow-sm"
+                className="group relative inline-flex items-center gap-3 px-8 sm:px-10 py-4 sm:py-[18px] rounded-full bg-[#2E7D32] overflow-hidden transition-all duration-500 shadow-[0_8px_25px_rgba(46,125,50,0.25)] hover:shadow-[0_12px_30px_rgba(46,125,50,0.35)] hover:-translate-y-1"
               >
-                <span className="text-sm sm:text-base font-semibold tracking-wide">
+                {/* Hover Sliding Background */}
+                <div className="absolute inset-0 bg-[#F0A202] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]" />
+                
+                <span className="relative z-10 text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase text-white group-hover:text-[#0F3124] transition-colors duration-500">
                   View Our Work
                 </span>
-                <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <ArrowUpRight className="relative z-10 w-4 h-4 text-white group-hover:text-[#0F3124] transition-all duration-500 group-hover:rotate-45" />
               </Link>
 
-              {/* Secondary CTA */}
+              {/* Secondary CTA - Minimalist Outline */}
               <Link
                 href="/showreel"
-                className="group inline-flex items-center gap-3 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full border border-[#F0A202] bg-transparent text-[#0F172A] hover:bg-[#F0A202]/10 transition-all duration-300"
+                className="group inline-flex items-center gap-3 px-8 sm:px-10 py-4 sm:py-[18px] rounded-full border border-[#0F172A]/15 bg-transparent hover:border-[#F0A202] hover:bg-[#F0A202]/5 transition-all duration-500"
               >
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#F0A202] flex items-center justify-center text-black shadow-sm">
-                   <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="sm:w-[14px] sm:h-[14px] ml-0.5">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#F0A202]/20 flex items-center justify-center group-hover:bg-[#F0A202] transition-colors duration-500">
+                   <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="text-[#F0A202] group-hover:text-black ml-0.5 transition-colors duration-500 sm:w-3 sm:h-3">
                       <path d="M8 5v14l11-7z" />
                    </svg>
                 </div>
-                <span className="text-sm sm:text-base font-semibold tracking-wide">
+                <span className="text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase text-[#0F172A]">
                   Watch Showreel
                 </span>
               </Link>

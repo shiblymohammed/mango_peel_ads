@@ -17,6 +17,9 @@ export function MangoModel(props: any) {
   // Use two groups: outer for props (position/scale from parent), inner for animation
   const outerGroup = useRef<Group>(null);
   const innerGroup = useRef<Group>(null);
+  const spinLinesGroup = useRef<Group>(null);
+  const materialsRef = useRef<(THREE.MeshBasicMaterial | null)[]>([]);
+  const prevRotY = useRef(0);
   
   const { scene, animations } = useGLTF("/models/mango_export.glb");
   const { actions } = useAnimations(animations, innerGroup);
@@ -33,8 +36,27 @@ export function MangoModel(props: any) {
 
   const scrollProgress = useRef(0);
 
-  // Setup GSAP ScrollTrigger
+  // Setup GSAP ScrollTrigger and Entrance Animation
   useGSAP(() => {
+    // 1. Fast, spinning entrance drop
+    if (outerGroup.current) {
+      gsap.from(outerGroup.current.position, {
+        y: 10,
+        duration: 1.5, // Slower drop
+        ease: "power2.out",
+        delay: 0.4
+      });
+      gsap.from(outerGroup.current.rotation, {
+        x: Math.PI / 2,
+        y: Math.PI,
+        z: Math.PI / 4,
+        duration: 2.0, // Slower spin
+        ease: "power2.out",
+        delay: 0.4
+      });
+    }
+
+    // 2. ScrollTrigger
     ScrollTrigger.create({
       trigger: document.body,
       start: "top top",
@@ -47,6 +69,15 @@ export function MangoModel(props: any) {
 
     setTimeout(() => ScrollTrigger.refresh(), 500);
     setTimeout(() => ScrollTrigger.refresh(), 2000);
+  }, []);
+
+  // Notify parent that the model is loaded and ready for entrance effects
+  React.useEffect(() => {
+    // Small timeout prevents race conditions if the model loads instantly from cache
+    const timer = setTimeout(() => {
+      window.dispatchEvent(new Event("mangoLoaded"));
+    }, 50);
+    return () => clearTimeout(timer);
   }, []);
 
   // Update the animation frame on every render tick
@@ -71,13 +102,53 @@ export function MangoModel(props: any) {
     const isMobile = window.innerWidth < 768;
     const m = isMobile ? 0.4 : 1.0; // Shrink the sway even more on mobile
 
+    // Extra hero section animation: larger and extra tilted at the very top
+    // Fades out by the time p reaches 0.15 (as they scroll past hero)
+    const heroEffect = Math.max(0, 1 - p * 6.66); 
+    const targetScale = 1.0 + (0.25 * heroEffect); // 25% bigger at top
+    const extraTiltX = -0.1 * heroEffect; 
+    const extraTiltZ = 0.1 * heroEffect;
+
+    // Calculate mouse spin effect (only active in the hero section because of * heroEffect)
+    // Increase the multiplier to make it spin multiple times across the screen
+    const mouseSpinY = state.pointer.x * (Math.PI * 3) * heroEffect; 
+
     // Apply smooth dampening to the inner group
-    innerGroup.current.rotation.y = THREE.MathUtils.damp(innerGroup.current.rotation.y, targetRotY, 4, delta);
-    innerGroup.current.rotation.x = THREE.MathUtils.damp(innerGroup.current.rotation.x, targetRotX * m, 4, delta);
-    innerGroup.current.rotation.z = THREE.MathUtils.damp(innerGroup.current.rotation.z, targetRotZ * m, 4, delta);
+    innerGroup.current.scale.setScalar(THREE.MathUtils.damp(innerGroup.current.scale.x, targetScale, 4, delta));
+
+    // Increase damp factor for Y rotation so it reacts much faster to mouse movements
+    innerGroup.current.rotation.y = THREE.MathUtils.damp(innerGroup.current.rotation.y, targetRotY + mouseSpinY, 10, delta);
+    innerGroup.current.rotation.x = THREE.MathUtils.damp(innerGroup.current.rotation.x, targetRotX * m + extraTiltX, 4, delta);
+    innerGroup.current.rotation.z = THREE.MathUtils.damp(innerGroup.current.rotation.z, targetRotZ * m + extraTiltZ, 4, delta);
     
-    // Keep only a very subtle continuous float so it breathes
-    const floatY = Math.sin(state.clock.elapsedTime * 1.2) * 0.05 * m;
+    // Dynamic 3D Speed Lines Logic
+    if (spinLinesGroup.current && innerGroup.current) {
+      const currentRotY = innerGroup.current.rotation.y;
+      const velocityY = (currentRotY - prevRotY.current) / delta;
+      prevRotY.current = currentRotY;
+
+      const absVelocity = Math.abs(velocityY);
+      // Fade in lines when velocity is high (between 0.5 and 4.0 rad/s)
+      const targetOpacity = Math.max(0, Math.min(1, (absVelocity - 0.5) / 3.5));
+
+      // Make the speed lines spin around the mango based on the velocity direction
+      spinLinesGroup.current.rotation.y += velocityY * 1.5 * delta;
+      
+      // Match the tilt and scale of the mango so the rings stay perfectly aligned
+      spinLinesGroup.current.rotation.x = innerGroup.current.rotation.x;
+      spinLinesGroup.current.rotation.z = innerGroup.current.rotation.z;
+      spinLinesGroup.current.scale.copy(innerGroup.current.scale);
+
+      // Apply opacity to all the 3D curves
+      materialsRef.current.forEach(mat => {
+        if (mat) {
+          mat.opacity = THREE.MathUtils.damp(mat.opacity, targetOpacity * 0.9, 10, delta);
+        }
+      });
+    }
+
+    // Keep only a very subtle continuous float so it breathes, but disable it in the hero section
+    const floatY = Math.sin(state.clock.elapsedTime * 1.2) * 0.05 * m * (1 - heroEffect);
     innerGroup.current.position.y = THREE.MathUtils.damp(innerGroup.current.position.y, floatY, 4, delta);
 
     // Apply Peel Animation mapping strictly to scroll progress like before
@@ -112,7 +183,66 @@ export function MangoModel(props: any) {
 
   return (
     <group ref={outerGroup} {...props} dispose={null}>
-      <group ref={innerGroup}>
+      {/* 3D Motion Blur Lines */}
+      <group ref={spinLinesGroup}>
+        {/* Equator Lines (Middle) */}
+        <group rotation={[0, 0, 0]} position={[0, -0.5, 0]}>
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <torusGeometry args={[0.35, 0.002, 8, 32, Math.PI / 1.5]} />
+            <meshBasicMaterial ref={(el) => { materialsRef.current[0] = el; }} color="#2E7D32" transparent opacity={0} />
+          </mesh>
+        </group>
+        <group rotation={[0, Math.PI, 0]} position={[0, -0.5, 0]}>
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <torusGeometry args={[0.35, 0.002, 8, 32, Math.PI / 1.5]} />
+            <meshBasicMaterial ref={(el) => { materialsRef.current[1] = el; }} color="#FFB800" transparent opacity={0} />
+          </mesh>
+        </group>
+
+        {/* Upper Lines */}
+        <group rotation={[0, Math.PI / 2, 0]} position={[0, -0.4, 0]}>
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <torusGeometry args={[0.3, 0.0015, 8, 32, Math.PI / 1.8]} />
+            <meshBasicMaterial ref={(el) => { materialsRef.current[2] = el; }} color="#FFB800" transparent opacity={0} />
+          </mesh>
+        </group>
+        <group rotation={[0, -Math.PI / 2, 0]} position={[0, -0.4, 0]}>
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <torusGeometry args={[0.3, 0.0015, 8, 32, Math.PI / 1.8]} />
+            <meshBasicMaterial ref={(el) => { materialsRef.current[3] = el; }} color="#2E7D32" transparent opacity={0} />
+          </mesh>
+        </group>
+
+        {/* Lower Lines */}
+        <group rotation={[0, Math.PI / 4, 0]} position={[0, -0.6, 0]}>
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <torusGeometry args={[0.3, 0.0015, 8, 32, Math.PI / 1.8]} />
+            <meshBasicMaterial ref={(el) => { materialsRef.current[4] = el; }} color="#2E7D32" transparent opacity={0} />
+          </mesh>
+        </group>
+        <group rotation={[0, Math.PI + Math.PI / 4, 0]} position={[0, -0.6, 0]}>
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <torusGeometry args={[0.3, 0.0015, 8, 32, Math.PI / 1.8]} />
+            <meshBasicMaterial ref={(el) => { materialsRef.current[5] = el; }} color="#FFB800" transparent opacity={0} />
+          </mesh>
+        </group>
+        
+        {/* Small Cap Lines (Top & Bottom) */}
+        <group rotation={[0, Math.PI / 3, 0]} position={[0, -0.3, 0]}>
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <torusGeometry args={[0.15, 0.001, 8, 32, Math.PI]} />
+            <meshBasicMaterial ref={(el) => { materialsRef.current[6] = el; }} color="#2E7D32" transparent opacity={0} />
+          </mesh>
+        </group>
+        <group rotation={[0, -Math.PI / 3, 0]} position={[0, -0.7, 0]}>
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <torusGeometry args={[0.15, 0.001, 8, 32, Math.PI]} />
+            <meshBasicMaterial ref={(el) => { materialsRef.current[7] = el; }} color="#FFB800" transparent opacity={0} />
+          </mesh>
+        </group>
+      </group>
+
+      <group ref={innerGroup} scale={1.25}>
         <primitive object={scene} rotation={[0, 0, Math.PI]} />
       </group>
     </group>

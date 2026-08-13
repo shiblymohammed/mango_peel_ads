@@ -35,7 +35,7 @@ export default function ServicesSection() {
             <motion.span
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5 }}
               className="font-poppins-italic italic text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-[#2E7D32]"
             >
@@ -47,7 +47,7 @@ export default function ServicesSection() {
               <motion.span
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-[#0F172A] text-6xl sm:text-7xl md:text-8xl lg:text-[76px] xl:text-[88px] 2xl:text-[98px] leading-[0.92]"
               >
@@ -56,7 +56,7 @@ export default function ServicesSection() {
               <motion.span
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-[#F0A202] text-6xl sm:text-7xl md:text-8xl lg:text-[76px] xl:text-[88px] 2xl:text-[98px] leading-[0.92]"
               >
@@ -68,7 +68,7 @@ export default function ServicesSection() {
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
               whileInView={{ opacity: 1, scaleX: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="w-14 sm:w-16 h-0.5 bg-[#2E7D32] mt-6 sm:mt-7 origin-left"
             />
@@ -82,7 +82,7 @@ export default function ServicesSection() {
                     key={index}
                     initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
                     className="flex items-center gap-4 bg-white/90 backdrop-blur-sm rounded-2xl border border-[#0F172A]/5 shadow-[0_2px_10px_rgba(0,0,0,0.02)] px-5 py-4 sm:px-6 sm:py-4 hover:shadow-md hover:border-[#2E7D32]/20 hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
                   >

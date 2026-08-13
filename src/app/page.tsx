@@ -1,11 +1,8 @@
-import HeroSection from "@/components/sections/hero";
-import IntroSection from "@/components/sections/intro";
-import AboutSection from "@/components/sections/about";
-import ServicesSection from "@/components/sections/services";
-import WorksSection from "@/components/sections/works";
-import PortfolioSection from "@/components/sections/portfolio";
-import ContactSection from "@/components/sections/contact";
-import CTASection from "@/components/sections/cta";
+import HeroSection from "@/components/sections/homepage/hero";
+import AboutSection from "@/components/sections/homepage/about";
+import ServicesSection from "@/components/sections/homepage/services";
+import WorksSection from "@/components/sections/homepage/works";
+import ContactSection from "@/components/sections/homepage/contact";
 import MangoCanvas from "@/components/3d/MangoCanvas";
 
 export default function Home() {
@@ -19,13 +16,10 @@ export default function Home() {
     >
       <MangoCanvas />
       <HeroSection />
-      {/* <IntroSection /> */}
       <AboutSection />
       <ServicesSection />
       <WorksSection />
-      <PortfolioSection />
       <ContactSection />
-      <CTASection />
     </main>
   );
 }

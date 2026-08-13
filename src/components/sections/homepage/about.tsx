@@ -58,7 +58,7 @@ export default function AboutSection() {
             <motion.span
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5 }}
               className="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-[#2E7D32]"
             >
@@ -70,7 +70,7 @@ export default function AboutSection() {
               <motion.span
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-[#0F172A] text-6xl sm:text-7xl md:text-8xl lg:text-[76px] xl:text-[88px] 2xl:text-[98px] leading-[0.92]"
               >
@@ -82,7 +82,7 @@ export default function AboutSection() {
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
               whileInView={{ opacity: 1, scaleX: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="w-14 sm:w-16 h-0.5 bg-[#2E7D32] mt-6 sm:mt-7 origin-left"
             />
@@ -91,7 +91,7 @@ export default function AboutSection() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="font-poppins-italic italic text-[#64748B] text-lg sm:text-xl md:text-2xl xl:text-[22px] font-medium leading-[1.38] mt-6 sm:mt-7 max-w-2xl xl:max-w-3xl"
             >
@@ -107,7 +107,7 @@ export default function AboutSection() {
                     key={index}
                     initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.5, delay: 0.45 + index * 0.15 }}
                     className="flex items-center gap-4 sm:gap-5 group"
                   >

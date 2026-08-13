@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/navbar";
 import Footer from "@/components/common/footer";
+import SmoothScrolling from "@/components/common/SmoothScrolling";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,16 +32,19 @@ export default function RootLayout({
     >
       <body 
         className="min-h-full flex flex-col bg-[#F4F1E8]"
+        suppressHydrationWarning
         style={{
           backgroundImage: 'url("/bg/french-stucco.png")',
           backgroundRepeat: 'repeat',
         }}
       >
-        <Navbar />
-        <div className="flex-grow">
-          {children}
-        </div>
-        <Footer />
+        <SmoothScrolling>
+          <Navbar />
+          <div className="flex-grow">
+            {children}
+          </div>
+          <Footer />
+        </SmoothScrolling>
       </body>
     </html>
   );

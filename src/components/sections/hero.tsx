@@ -2,14 +2,14 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Clapperboard, Target, Rocket } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Clapperboard, Target, Rocket } from "lucide-react";
 
 export default function HeroSection() {
   return (
     <section className="relative w-full min-h-screen pt-28 pb-16 lg:py-0 flex items-center justify-center overflow-hidden">
       {/* Background Decorative Ambient Highlights */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#FFB800]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#2E7D32]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#FFB800]/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#2E7D32]/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-12 items-center min-h-[calc(100vh-110px)]">
@@ -76,12 +76,12 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 relative z-20"
+              className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 relative z-20 w-full"
             >
               {/* Primary CTA: VIEW OUR WORK -> */}
               <Link
                 href="/works"
-                className="group inline-flex items-center gap-3 px-6 sm:px-8 py-3.5 rounded-full bg-[#4E8B4F] text-white hover:bg-[#3d6e3e] transition-all duration-300 transform hover:-translate-y-0.5 shadow-sm"
+                className="group inline-flex items-center gap-3 px-6 sm:px-8 py-3.5 rounded-full bg-[#2E7D32] text-white hover:bg-[#1B5E20] transition-all duration-300 transform hover:-translate-y-0.5 shadow-sm"
               >
                 <span className="text-xs sm:text-sm font-bold tracking-[0.14em] uppercase">
                   VIEW OUR WORK
@@ -92,12 +92,12 @@ export default function HeroSection() {
               {/* Secondary CTA: LET'S TALK -> */}
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-3 px-6 sm:px-8 py-3.5 rounded-full border border-gray-300 bg-transparent text-[#4E8B4F] hover:border-[#4E8B4F] hover:bg-[#4E8B4F]/5 transition-all duration-300 transform hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-3 px-6 sm:px-8 py-3.5 rounded-full border border-[#2E7D32] bg-transparent text-[#2E7D32] hover:bg-[#2E7D32]/5 transition-all duration-300 transform hover:-translate-y-0.5"
               >
                 <span className="text-xs sm:text-sm font-bold tracking-[0.14em] uppercase">
                   LET&apos;S TALK
                 </span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
             </motion.div>
 
@@ -106,42 +106,54 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.95 }}
-              className="mt-12 flex flex-wrap items-center gap-6 sm:gap-10 relative z-20"
+              className="mt-16 flex flex-wrap items-center gap-6 sm:gap-10 relative z-20"
             >
               {/* Feature 1 */}
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#2E7D32]/10 flex items-center justify-center text-[#2E7D32]">
-                  <Clapperboard className="w-4 h-4 sm:w-5 sm:h-5" />
+              <div className="flex items-center gap-3 sm:gap-4">
+                <span className="text-[#1A4314] font-bold text-lg sm:text-xl font-poppins">01</span>
+                <div className="w-12 h-12 rounded-full bg-[#4E8B4F]/10 flex items-center justify-center text-[#1A4314]">
+                  <Clapperboard className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <span className="text-xs sm:text-sm font-semibold text-gray-700 leading-tight">
-                  Creative<br />Storytelling
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-[#1F2937] leading-tight">
+                    Creative<br />Storytelling
+                  </span>
+                  <span className="text-xs text-[#64748B] mt-1 font-medium">Ideas that connect.</span>
+                </div>
               </div>
-              
+
               {/* Divider */}
-              <div className="hidden sm:block w-[1px] h-10 bg-gray-200"></div>
+              <div className="hidden sm:block w-[1px] h-12 bg-gray-300"></div>
 
               {/* Feature 2 */}
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#F0A202]/10 flex items-center justify-center text-[#F0A202]">
-                  <Target className="w-4 h-4 sm:w-5 sm:h-5" />
+              <div className="flex items-center gap-3 sm:gap-4">
+                <span className="text-[#1A4314] font-bold text-lg sm:text-xl font-poppins">02</span>
+                <div className="w-12 h-12 rounded-full bg-[#F0A202]/15 flex items-center justify-center text-[#F0A202]">
+                  <Target className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <span className="text-xs sm:text-sm font-semibold text-gray-700 leading-tight">
-                  Performance<br />Driven
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-[#1F2937] leading-tight">
+                    Performance<br />Driven
+                  </span>
+                  <span className="text-xs text-[#64748B] mt-1 font-medium">Strategies that work.</span>
+                </div>
               </div>
 
               {/* Divider */}
-              <div className="hidden sm:block w-[1px] h-10 bg-gray-200"></div>
+              <div className="hidden sm:block w-[1px] h-12 bg-gray-300"></div>
 
               {/* Feature 3 */}
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#2E7D32]/10 flex items-center justify-center text-[#2E7D32]">
-                  <Rocket className="w-4 h-4 sm:w-5 sm:h-5" />
+              <div className="flex items-center gap-3 sm:gap-4">
+                <span className="text-[#1A4314] font-bold text-lg sm:text-xl font-poppins">03</span>
+                <div className="w-12 h-12 rounded-full bg-[#4E8B4F]/10 flex items-center justify-center text-[#1A4314]">
+                  <Rocket className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <span className="text-xs sm:text-sm font-semibold text-gray-700 leading-tight">
-                  Results That<br />Matter
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-[#1F2937] leading-tight">
+                    Results That<br />Matter
+                  </span>
+                  <span className="text-xs text-[#64748B] mt-1 font-medium">Impact you can see.</span>
+                </div>
               </div>
             </motion.div>
           </motion.div>

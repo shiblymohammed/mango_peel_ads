@@ -37,8 +37,8 @@ export default function AboutSection() {
       className="relative w-full py-20 lg:py-28 flex items-center justify-center overflow-hidden"
     >
       {/* Background Decorative Ambient Highlights */}
-      <div className="absolute top-1/3 right-10 w-96 h-96 bg-[#2E7D32]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/3 left-10 w-96 h-96 bg-[#FFB800]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-10 w-96 h-96 bg-[#2E7D32]/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-1/3 left-10 w-96 h-96 bg-[#FFB800]/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-12 items-center min-h-[calc(100vh-120px)]">

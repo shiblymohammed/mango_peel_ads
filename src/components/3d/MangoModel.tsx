@@ -21,6 +21,16 @@ export function MangoModel(props: any) {
   const { scene, animations } = useGLTF("/models/mango_export.glb");
   const { actions } = useAnimations(animations, innerGroup);
   
+  // Enable shadows on the model
+  React.useEffect(() => {
+    scene.traverse((child) => {
+      if ((child as THREE.Mesh).isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
+  }, [scene]);
+
   const scrollProgress = useRef(0);
 
   // Setup GSAP ScrollTrigger

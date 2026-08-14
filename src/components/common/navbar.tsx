@@ -146,11 +146,16 @@ export default function Navbar() {
         <div className="flex-1 flex justify-end items-center gap-2.5 sm:gap-3">
           <Link 
             href="/contact"
-            className="group relative inline-flex items-center gap-1.5 sm:gap-2 bg-[#1A3626] text-white px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 rounded-full text-[12px] sm:text-[13px] lg:text-[14px] font-semibold tracking-wide hover:bg-[#FFB800] hover:text-[#0F172A] transition-all duration-300 shadow-sm hover:shadow-md active:scale-95"
+            className="group relative inline-flex items-center gap-1.5 sm:gap-2 bg-[#1A3626] px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 rounded-full overflow-hidden transition-all duration-500 shadow-sm hover:shadow-md active:scale-95"
           >
-            <span>Let&apos;s Talk</span>
+            {/* Hover Sliding Background */}
+            <div className="absolute inset-0 bg-[#FFB800] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]" />
+            
+            <span className="relative z-10 text-white group-hover:text-[#0F172A] text-[12px] sm:text-[13px] lg:text-[14px] font-semibold tracking-wide transition-colors duration-500">
+              Let&apos;s Talk
+            </span>
             <ArrowUpRight 
-              className="w-4 h-4 sm:w-[18px] sm:h-[18px] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
+              className="relative z-10 text-white group-hover:text-[#0F172A] w-4 h-4 sm:w-[18px] sm:h-[18px] transition-all duration-500 group-hover:rotate-45" 
               strokeWidth={2.5} 
             />
           </Link>

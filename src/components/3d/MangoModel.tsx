@@ -21,7 +21,7 @@ export function MangoModel(props: any) {
   const materialsRef = useRef<(THREE.MeshBasicMaterial | null)[]>([]);
   const prevRotY = useRef(0);
   
-  const { scene, animations } = useGLTF("/models/mango_export.glb");
+  const { scene, animations } = useGLTF("/models/mango_export-optimized.glb");
   const { actions } = useAnimations(animations, innerGroup);
   
   // Enable shadows on the model
@@ -250,4 +250,4 @@ export function MangoModel(props: any) {
 }
 
 // Preload the model
-useGLTF.preload("/models/mango_export.glb");
+useGLTF.preload("/models/mango_export-optimized.glb");

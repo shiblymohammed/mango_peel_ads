@@ -125,13 +125,21 @@ function VideoLightbox({
             aspectRatio: isPortrait ? "9/16" : "16/9",
           }}
         >
-          <video
-            src={item.videoUrl}
-            className="w-full h-full object-contain bg-black"
-            controls
-            autoPlay
-            playsInline
-          />
+          {item.type === "image" || item.imageUrl ? (
+            <img
+              src={item.imageUrl || item.videoUrl}
+              alt={item.title}
+              className="w-full h-full object-contain bg-black"
+            />
+          ) : (
+            <video
+              src={item.videoUrl}
+              className="w-full h-full object-contain bg-black"
+              controls
+              autoPlay
+              playsInline
+            />
+          )}
         </div>
 
         {/* Info bar below video */}
@@ -141,7 +149,7 @@ function VideoLightbox({
               {item.title}
             </h3>
             <p className="text-white/50 text-sm font-medium mt-0.5">
-              {item.category} &middot; {item.duration}
+              {item.category} {item.duration ? `· ${item.duration}` : ""}
             </p>
           </div>
         </div>
@@ -206,30 +214,34 @@ function WorkCard({
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
 
         {/* Play button */}
-        <div className="absolute inset-0 flex items-center justify-center z-10">
-          <motion.div
-            animate={{
-              scale: isHovered ? 1.15 : 1,
-              opacity: isHovered ? 1 : 0.85,
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            <PlayIcon size={item.aspect === "portrait" ? 44 : 52} />
-          </motion.div>
-        </div>
+        {item.type !== "image" && !item.imageUrl && (
+          <div className="absolute inset-0 flex items-center justify-center z-10">
+            <motion.div
+              animate={{
+                scale: isHovered ? 1.15 : 1,
+                opacity: isHovered ? 1 : 0.85,
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <PlayIcon size={item.aspect === "portrait" ? 44 : 52} />
+            </motion.div>
+          </div>
+        )}
 
         {/* Duration badge */}
-        <div className="absolute bottom-3 right-3 z-10">
-          <span
-            className="text-[11px] font-semibold tracking-wider text-white/90 px-2.5 py-1 rounded-md"
-            style={{
-              background: "rgba(0,0,0,0.50)",
-              backdropFilter: "blur(8px)",
-            }}
-          >
-            {item.duration}
-          </span>
-        </div>
+        {item.duration && (
+          <div className="absolute bottom-3 right-3 z-10">
+            <span
+              className="text-[11px] font-semibold tracking-wider text-white/90 px-2.5 py-1 rounded-md"
+              style={{
+                background: "rgba(0,0,0,0.50)",
+                backdropFilter: "blur(8px)",
+              }}
+            >
+              {item.duration}
+            </span>
+          </div>
+        )}
 
         {/* Bottom text info */}
         <div className="absolute bottom-3 left-3 z-10 pr-16">

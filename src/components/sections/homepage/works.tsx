@@ -68,13 +68,13 @@ export default function WorksSection() {
 
             {/* ALL IN ONE CLIENT LOGO */}
             {/* ALL IN ONE CLIENT LOGO */}
-            <div className="w-full relative mt-16 mb-24 group cursor-pointer max-w-[800px]">
+            <div className="w-full relative mt-12 mb-16 group cursor-pointer max-w-[600px]">
               <motion.div
                 initial={{ opacity: 0, y: 30, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative w-full min-h-[250px] sm:min-h-[350px] lg:min-h-[400px] flex items-center justify-center p-8 sm:p-12 lg:p-16 overflow-visible"
+                className="relative w-full min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] flex items-center justify-center p-6 sm:p-8 lg:p-10 overflow-visible"
               >
                 {/* Ambient Glow on hover */}
                 <div 

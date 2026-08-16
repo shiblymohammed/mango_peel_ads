@@ -112,7 +112,7 @@ export default function ServicesSection() {
       </div>
 
       {/* Full Screen Carousel Section with Wavy Edges */}
-      <div ref={cardsRef} className="w-full -mt-4 lg:-mt-12 mb-24 relative z-0 bg-[#FFB800]">
+      <div ref={cardsRef} className="w-full -mt-4 lg:-mt-12 mb-4 relative z-0 bg-[#FFB800]">
         
         {/* Top Wave */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180 text-[#FFB800] -translate-y-[99%] z-10 pointer-events-none">

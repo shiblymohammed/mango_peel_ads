@@ -272,6 +272,137 @@ export default function WorksPage() {
           }}
         />
 
+        {/* ===== AWARDS SECTION ===== */}
+        <div className="relative z-10 max-w-[1300px] mx-auto w-full mb-16 mt-0">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left: Content (7 columns) */}
+            <div className="lg:col-span-7 flex flex-col relative z-20">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <h2 className="font-mileast text-[48px] sm:text-6xl md:text-[72px] lg:text-[80px] font-extrabold tracking-tight leading-[0.85] mb-6">
+                  <span className="text-[#FFB800] block drop-shadow-sm">Trophies and</span>
+                  <span className="text-[#2E7D32] block drop-shadow-sm">Triumphs</span>
+                </h2>
+                
+                <div className="flex items-center gap-4 mb-8">
+                  <span className="text-[#475569] font-bold tracking-[0.25em] uppercase text-xs md:text-sm whitespace-nowrap bg-white/60 px-4 py-2 rounded-full border border-gray-200 shadow-sm backdrop-blur-md">
+                    AS CREATIVE DIRECTOR
+                  </span>
+                  <div className="h-[2px] w-full bg-gradient-to-r from-[#2E7D32]/30 to-transparent"></div>
+                </div>
+              </motion.div>
+
+              <div className="flex flex-col gap-3 relative">
+                {/* Decorative timeline line */}
+                <div className="absolute left-[18px] top-6 bottom-6 w-[2px] bg-gradient-to-b from-[#FFB800] via-[#2E7D32] to-transparent opacity-30 hidden sm:block"></div>
+
+                {/* Award 1 */}
+                <motion.div 
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="group relative flex flex-col sm:flex-row gap-4 items-start p-4 lg:p-5 rounded-[24px] transition-all duration-500 hover:bg-white hover:shadow-[0_10px_20px_rgba(0,0,0,0.04)] border border-transparent hover:border-gray-100 sm:ml-8"
+                >
+                  <div className="absolute -left-6 top-8 w-2.5 h-2.5 rounded-full bg-[#FFB800] hidden sm:block shadow-[0_0_10px_#FFB800] group-hover:scale-[1.7] group-hover:bg-[#2E7D32] transition-all duration-500"></div>
+                  
+                  <div className="bg-[#0F172A] text-white px-4 py-2 rounded-xl flex items-center justify-center shadow-lg group-hover:bg-[#FFB800] group-hover:text-[#0F172A] transition-colors duration-500 shrink-0">
+                    <span className="font-bold text-base tracking-widest">2023</span>
+                  </div>
+                  <div className="flex flex-col mt-0.5">
+                    <h3 className="text-[#0F172A] font-extrabold text-lg md:text-xl tracking-[0.05em] mb-1.5 uppercase group-hover:text-[#2E7D32] transition-colors duration-500">PEPPER AWARD FOR ART DIRECTION</h3>
+                    <div className="flex flex-wrap gap-x-6 gap-y-1">
+                      <p className="text-[#64748B] text-xs md:text-[13px] font-bold tracking-wider flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#FFB800]"></span> CLIENT: CENTURY FASION CITY
+                      </p>
+                      <p className="text-[#64748B] text-xs md:text-[13px] font-bold tracking-wider flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2E7D32]"></span> AGENCY: INBOON MEDIA
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Award 2 */}
+                <motion.div 
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="group relative flex flex-col sm:flex-row gap-4 items-start p-4 lg:p-5 rounded-[24px] transition-all duration-500 hover:bg-white hover:shadow-[0_10px_20px_rgba(0,0,0,0.04)] border border-transparent hover:border-gray-100 sm:ml-8"
+                >
+                  <div className="absolute -left-6 top-8 w-2.5 h-2.5 rounded-full bg-[#FFB800] hidden sm:block shadow-[0_0_10px_#FFB800] group-hover:scale-[1.7] group-hover:bg-[#2E7D32] transition-all duration-500"></div>
+                  
+                  <div className="bg-[#0F172A] text-white px-4 py-2 rounded-xl flex items-center justify-center shadow-lg group-hover:bg-[#FFB800] group-hover:text-[#0F172A] transition-colors duration-500 shrink-0">
+                    <span className="font-bold text-base tracking-widest">2024</span>
+                  </div>
+                  <div className="flex flex-col mt-0.5">
+                    <h3 className="text-[#0F172A] font-extrabold text-lg md:text-xl tracking-[0.05em] mb-1.5 uppercase group-hover:text-[#2E7D32] transition-colors duration-500">PEPPER AWARD FOR BEST DIGITAL FILM</h3>
+                    <div className="flex flex-wrap gap-x-6 gap-y-1">
+                      <p className="text-[#64748B] text-xs md:text-[13px] font-bold tracking-wider flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#FFB800]"></span> CLIENT: POTHYS KERALA
+                      </p>
+                      <p className="text-[#64748B] text-xs md:text-[13px] font-bold tracking-wider flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2E7D32]"></span> AGENCY: BUZZTOP INTEGRATED
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Award 3 */}
+                <motion.div 
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="group relative flex flex-col sm:flex-row gap-4 items-start p-4 lg:p-5 rounded-[24px] transition-all duration-500 hover:bg-white hover:shadow-[0_10px_20px_rgba(0,0,0,0.04)] border border-transparent hover:border-gray-100 sm:ml-8"
+                >
+                  <div className="absolute -left-6 top-8 w-2.5 h-2.5 rounded-full bg-[#FFB800] hidden sm:block shadow-[0_0_10px_#FFB800] group-hover:scale-[1.7] group-hover:bg-[#2E7D32] transition-all duration-500"></div>
+                  
+                  <div className="bg-[#0F172A] text-white px-4 py-2 rounded-xl flex items-center justify-center shadow-lg group-hover:bg-[#FFB800] group-hover:text-[#0F172A] transition-colors duration-500 shrink-0">
+                    <span className="font-bold text-base tracking-widest">2024</span>
+                  </div>
+                  <div className="flex flex-col mt-0.5">
+                    <h3 className="text-[#0F172A] font-extrabold text-lg md:text-xl tracking-[0.05em] mb-1.5 uppercase group-hover:text-[#2E7D32] transition-colors duration-500">PEPPER AWARD FOR BEST TOPICAL POSTER</h3>
+                    <div className="flex flex-wrap gap-x-6 gap-y-1">
+                      <p className="text-[#64748B] text-xs md:text-[13px] font-bold tracking-wider flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#FFB800]"></span> CLIENT: ASTER MEDCITY
+                      </p>
+                      <p className="text-[#64748B] text-xs md:text-[13px] font-bold tracking-wider flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2E7D32]"></span> AGENCY: INBOON MEDIA
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Right: Trophy Image (5 columns) */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end w-full relative mt-8 lg:mt-0">
+              {/* Decorative blobs behind trophy for ambient lighting */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] md:w-[350px] h-[250px] md:h-[350px] bg-[#FFB800]/25 rounded-full blur-[60px] pointer-events-none z-0"></div>
+              
+              <motion.img 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.0, ease: "easeOut" }}
+                animate={{ y: [-10, 10, -10] }}
+                style={{ filter: "drop-shadow(0 25px 35px rgba(0,0,0,0.20))" }}
+                src="/bg/trophy.png" 
+                alt="Pepper Awards Trophies" 
+                className="w-full max-w-[350px] lg:max-w-[90%] h-auto object-contain relative z-10 hover:scale-105 transition-transform duration-700 ease-[0.25,1,0.5,1] xl:-mr-8"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Elegant glowing divider before works */}
+        <div className="w-full max-w-[1400px] mx-auto h-[2px] bg-gradient-to-r from-transparent via-[#CBD5E1] to-transparent mb-12 relative z-10"></div>
+
         {/* ===== HEADING SECTION ===== */}
         <div className="relative z-10 max-w-[1400px] mx-auto w-full mb-14">
           <motion.div

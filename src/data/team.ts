@@ -8,7 +8,7 @@ export interface TeamMember {
 export const teamMembers: TeamMember[] = [
   {
     name: "Mibish Biju",
-    role: "Creative Director",
+    role: "Founder & Creative Director",
     imageSrc: "/assets/team/Mibish_Founder-_Head-of-Creatives.png",
     skills: "Strategy • Creative • Leadership"
   },

@@ -69,7 +69,12 @@ export default function MangoCanvas() {
         className="sticky top-0 h-screen w-full"
         style={{ filter: 'drop-shadow(-20px 100px 40px rgba(26, 67, 20, 0.5))' }}
       >
-        <Canvas shadows style={{ pointerEvents: 'none' }}>
+        <Canvas 
+          shadows 
+          style={{ pointerEvents: 'none' }}
+          eventSource={typeof window !== 'undefined' ? document.body : undefined}
+          eventPrefix="client"
+        >
           {/* Default camera */}
           <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={45} />
 

@@ -128,11 +128,11 @@ export function MangoModel(props: any) {
       prevRotY.current = currentRotY;
 
       const absVelocity = Math.abs(velocityY);
-      // Fade in lines when velocity is high (between 0.5 and 4.0 rad/s)
-      const targetOpacity = Math.max(0, Math.min(1, (absVelocity - 0.5) / 3.5));
+      // Keep lines permanently visible (e.g., 0.35 opacity) and brighten up to 0.95 when spinning fast
+      const targetOpacity = 0.35 + Math.max(0, Math.min(0.6, absVelocity / 4.0));
 
-      // Make the speed lines spin around the mango based on the velocity direction
-      spinLinesGroup.current.rotation.y += velocityY * 1.5 * delta;
+      // Make the speed lines constantly spin around the mango, plus extra based on velocity
+      spinLinesGroup.current.rotation.y += (0.6 + velocityY * 1.5) * delta;
       
       // Match the tilt and scale of the mango so the rings stay perfectly aligned
       spinLinesGroup.current.rotation.x = innerGroup.current.rotation.x;

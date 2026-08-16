@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Send } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full py-20 lg:py-28 flex items-center justify-center overflow-hidden bg-transparent"
+      className="relative w-full py-20 lg:py-32 flex items-center justify-center overflow-hidden bg-transparent"
     >
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-12 items-center min-h-[calc(100vh-120px)]">
@@ -21,114 +21,87 @@ export default function ContactSection() {
           {/* ========================================================================= */}
           {/* RIGHT COLUMN: CONTACT TYPOGRAPHY & FORM                                   */}
           {/* ========================================================================= */}
-          <div className="w-full lg:col-span-7 xl:col-span-7 order-1 lg:order-2 flex flex-col items-start text-left relative pt-2 sm:pt-4 lg:pt-0">
-            {/* Eyebrow: CONTACT US */}
-            <motion.span
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+          <div className="w-full lg:col-span-7 xl:col-span-7 order-1 lg:order-2 flex flex-col items-start text-left relative z-20">
+            
+            {/* Ambient Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-[#FFB800]/10 to-[#2E7D32]/10 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+
+            {/* Eyebrow */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-[#2E7D32]"
+              className="mb-6 ml-4 lg:ml-6"
             >
-              CONTACT US
-            </motion.span>
+              <div className="relative inline-flex items-center justify-center">
+                <img src="/bg/yellowBadgeStroke.png" alt="badge" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[180%] object-fill -z-10 pointer-events-none" />
+                <span className="relative z-10 text-xs sm:text-sm font-bold tracking-widest uppercase text-[#0B132B] px-3 py-1 whitespace-nowrap">
+                  START A PROJECT
+                </span>
+              </div>
+            </motion.div>
 
             {/* Main Heading */}
-            <h2 className="font-mileast font-extrabold tracking-tight select-none mt-2 sm:mt-3 flex flex-wrap gap-x-3 sm:gap-x-4">
-              <div className="w-full">
-                <motion.span
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  className="text-[#0F172A] text-5xl sm:text-6xl md:text-7xl lg:text-[68px] xl:text-[80px] 2xl:text-[90px] leading-[1.05]"
-                >
-                  Let&apos;s <span className="text-[#F0A202]">Create</span>
-                </motion.span>
-              </div>
-              <div className="w-full mt-1 sm:mt-2">
-                <motion.span
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-[#0F172A] text-5xl sm:text-6xl md:text-7xl lg:text-[68px] xl:text-[80px] 2xl:text-[90px] leading-[1.05]"
-                >
-                  Something People
-                </motion.span>
-              </div>
-              <div className="w-full mt-1 sm:mt-2">
-                <motion.span
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="text-[#0F172A] text-5xl sm:text-6xl md:text-7xl lg:text-[68px] xl:text-[80px] 2xl:text-[90px] leading-[1.05]"
-                >
-                  Can&apos;t <span className="text-[#2E7D32]">Ignore.</span>
-                </motion.span>
-              </div>
-            </h2>
-
-            {/* Green Horizontal Divider Line */}
-            <motion.div
-              initial={{ opacity: 0, scaleX: 0 }}
-              whileInView={{ opacity: 1, scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="w-14 sm:w-16 h-0.5 bg-[#2E7D32] mt-6 sm:mt-7 origin-left"
-            />
-
-            {/* Subtitle */}
-            <motion.p
+            <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="font-poppins-italic italic text-[#64748B] text-base sm:text-lg font-medium leading-[1.38] mt-6 sm:mt-7"
+              transition={{ delay: 0.1 }}
+              className="font-mileast text-[64px] sm:text-[76px] md:text-[88px] lg:text-[104px] leading-[0.9] text-[#0B132B] mb-8 sm:mb-12 flex flex-col gap-1 select-none"
             >
-              Have a project in mind? Let&apos;s make it amazing together.
-            </motion.p>
+              <span>Ready to <span className="text-[#FFB800] drop-shadow-sm">Peel</span></span>
+              <span className="text-[#2E7D32] drop-shadow-sm relative w-max">
+                The Ordinary?
+              </span>
+            </motion.h2>
 
-            {/* Contact Form */}
+            {/* Interactive Mad Libs Form */}
             <motion.form
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-8 sm:mt-10 w-full max-w-2xl flex flex-col gap-4 sm:gap-5"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="w-full max-w-3xl bg-white/40 backdrop-blur-xl border border-white/60 p-6 sm:p-10 lg:p-12 rounded-[32px] shadow-[0_20px_60px_rgba(0,0,0,0.05)]"
               onSubmit={(e) => e.preventDefault()}
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full px-6 py-4 rounded-2xl bg-white border border-gray-200 text-[#0F172A] placeholder:text-gray-400 placeholder:italic placeholder:font-medium focus:outline-none focus:ring-2 focus:ring-[#2E7D32]/20 focus:border-[#2E7D32] transition-all"
-                />
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  className="w-full px-6 py-4 rounded-2xl bg-white border border-gray-200 text-[#0F172A] placeholder:text-gray-400 placeholder:italic placeholder:font-medium focus:outline-none focus:ring-2 focus:ring-[#2E7D32]/20 focus:border-[#2E7D32] transition-all"
-                />
+              <div className="font-poppins text-2xl sm:text-3xl lg:text-[34px] leading-[2] sm:leading-[2.2] lg:leading-[2.4] font-medium text-[#475569]">
+                Hi, my name is 
+                <input 
+                  type="text" 
+                  placeholder="Your Name" 
+                  className="inline-block bg-transparent border-b-2 border-gray-300 focus:border-[#FFB800] mx-3 px-2 w-[180px] sm:w-[220px] text-center italic font-semibold text-[#0B132B] focus:outline-none transition-colors placeholder:text-gray-300 placeholder:font-normal placeholder:italic pb-1" 
+                /> 
+                <br className="hidden lg:block" />
+                and I'm looking for a creative partner to help me with 
+                <input 
+                  type="text" 
+                  placeholder="Project Type" 
+                  className="inline-block bg-transparent border-b-2 border-gray-300 focus:border-[#FFB800] mx-3 px-2 w-[220px] sm:w-[280px] text-center italic font-semibold text-[#0B132B] focus:outline-none transition-colors placeholder:text-gray-300 placeholder:font-normal placeholder:italic pb-1" 
+                />.
+                <br className="hidden lg:block" />
+                You can reach me at
+                <input 
+                  type="email" 
+                  placeholder="Email Address" 
+                  className="inline-block bg-transparent border-b-2 border-gray-300 focus:border-[#FFB800] mx-3 px-2 w-[240px] sm:w-[300px] text-center italic font-semibold text-[#0B132B] focus:outline-none transition-colors placeholder:text-gray-300 placeholder:font-normal placeholder:italic pb-1" 
+                /> 
+                to discuss this further.
               </div>
-              <textarea
-                placeholder="Tell us about your project"
-                rows={4}
-                className="w-full px-6 py-4 rounded-2xl bg-white border border-gray-200 text-[#0F172A] placeholder:text-gray-400 placeholder:italic placeholder:font-medium focus:outline-none focus:ring-2 focus:ring-[#2E7D32]/20 focus:border-[#2E7D32] transition-all resize-none"
-              ></textarea>
               
-              <div className="mt-2">
+              <div className="mt-12 flex justify-start">
                 <button
                   type="submit"
-                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#2E7D32] text-white hover:bg-[#1B5E20] transition-all duration-300 transform hover:-translate-y-0.5 shadow-sm w-full sm:w-auto"
+                  className="group relative inline-flex items-center gap-3 px-10 py-5 rounded-full bg-[#2E7D32] overflow-hidden shadow-[0_8px_20px_rgba(46,125,50,0.2)] hover:shadow-[0_15px_30px_rgba(46,125,50,0.4)] transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  <span className="text-xs sm:text-sm font-bold tracking-[0.14em] uppercase">
-                    SEND MESSAGE
+                  <div className="absolute inset-0 bg-[#FFB800] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]"></div>
+                  <span className="relative z-10 font-poppins font-extrabold tracking-[0.15em] uppercase text-[15px] text-white group-hover:text-[#0B132B] transition-colors duration-500">
+                    SEND INQUIRY
                   </span>
-                  <Send className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRight className="relative z-10 w-5 h-5 text-white group-hover:text-[#0B132B] transition-all duration-500 group-hover:translate-x-1" />
                 </button>
               </div>
             </motion.form>
+            
           </div>
         </div>
       </div>

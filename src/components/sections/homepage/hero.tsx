@@ -40,16 +40,7 @@ export default function HeroSection() {
           {/* 3D MODEL PLACEHOLDER / BACKGROUND                                         */}
           {/* ========================================================================= */}
           <div className="relative w-full lg:col-span-6 xl:col-span-6 order-2 lg:order-1 min-h-[300px] sm:min-h-[400px] lg:min-h-[600px] flex items-center justify-center">
-            {/* Yellow stroke background for the mango model */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-90 pointer-events-none z-0">
-              <Image 
-                src="/bg/yellowstroke-2.png" 
-                alt="Yellow Stroke Background" 
-                fill
-                className="object-contain scale-[1.4] md:scale-[1.8] -rotate-6 -translate-x-12 md:-translate-x-20 translate-y-6 md:translate-y-10"
-                priority
-              />
-            </div>
+             {/* Model renders here via MangoCanvas */}
           </div>
 
           {/* ========================================================================= */}

@@ -14,6 +14,17 @@ export default function Home() {
         backgroundRepeat: 'repeat',
       }}
     >
+      {/* Background Lines from Team Section */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none opacity-40 mix-blend-multiply"
+        style={{ 
+            backgroundImage: 'url("/assets/images/bg-lines.png")', 
+            backgroundSize: '800px',
+            backgroundPosition: 'top left',
+            backgroundRepeat: 'repeat'
+        }}
+      />
+      
       <MangoCanvas />
       <HeroSection />
       <AboutSection />

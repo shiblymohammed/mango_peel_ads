@@ -5,15 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function WorksSection() {
-  const clients = [
-    "Walkaroo_idthIMNtuc_1.png",
-    "caritas hospital.png",
-    "logo.png",
-    "mend.png",
-    "milma-seeklogo.png",
-    "pothys.png",
-    "santa monica.png",
-  ];
+
 
   return (
     <section
@@ -42,7 +34,7 @@ export default function WorksSection() {
               className="mb-6 mt-4 lg:mt-0 ml-4 lg:ml-0"
             >
               <div className="relative inline-flex items-center justify-center">
-                <img src="/bg/yellowBadgeStroke.png" alt="badge" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160%] h-[200%] object-fill -z-10 pointer-events-none" />
+                <img src="/bg/yellowBadgeStroke.png" alt="badge" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[250%] object-fill -z-10 pointer-events-none" />
                 <span className="relative z-10 text-xs sm:text-sm font-bold tracking-widest uppercase text-[#0B132B] px-3 py-1 whitespace-nowrap">
                   OUR PARTNERS
                 </span>
@@ -55,7 +47,7 @@ export default function WorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="font-mileast text-[64px] sm:text-[76px] md:text-[88px] lg:text-[96px] leading-[0.9] text-[#0B132B] mb-5 flex flex-wrap gap-x-4 select-none"
+              className="font-mileast font-extrabold text-[#0B132B] text-4xl sm:text-6xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight mb-5 flex flex-wrap gap-x-4 select-none"
             >
               <span>Trusted <span className="text-[#FFB800] drop-shadow-md">by</span></span>
               <span className="text-[#2E7D32] drop-shadow-md relative">
@@ -69,36 +61,43 @@ export default function WorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="font-poppins text-[#475569] text-xl sm:text-2xl font-bold tracking-wide leading-[1.5] mb-4 mt-4 max-w-xl"
+              className="font-poppins text-[#475569] text-[15px] sm:text-lg leading-relaxed mb-8 mt-4 max-w-xl"
             >
               We partner with industry leaders and ambitious challengers to deliver campaigns that disrupt markets and drive undeniable growth.
             </motion.p>
 
-            {/* MASSIVE UNCONSTRAINED LOGOS */}
-            <div className="w-full relative mt-16 mb-24">
-              <div className="flex flex-wrap items-center justify-start gap-x-12 sm:gap-x-16 lg:gap-x-24 gap-y-16 sm:gap-y-20">
-                {clients.map((logo, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
-                    whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                    viewport={{ once: true, margin: "-20px" }}
-                    transition={{ 
-                      duration: 0.8, 
-                      delay: idx * 0.1,
-                      ease: "easeOut"
-                    }}
-                    whileHover={{ scale: 1.05 }}
-                    className="flex items-center justify-center cursor-pointer"
-                  >
-                    <img
-                      src={`/clients/${logo}`}
-                      alt={`Client Logo ${idx + 1}`}
-                      className="max-h-[70px] sm:max-h-[90px] lg:max-h-[110px] max-w-[160px] sm:max-w-[220px] lg:max-w-[300px] w-auto object-contain filter drop-shadow-sm hover:drop-shadow-2xl transition-all duration-300"
-                    />
-                  </motion.div>
-                ))}
-              </div>
+            {/* ALL IN ONE CLIENT LOGO */}
+            {/* ALL IN ONE CLIENT LOGO */}
+            <div className="w-full relative mt-16 mb-24 group cursor-pointer max-w-[800px]">
+              <motion.div
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="relative w-full min-h-[250px] sm:min-h-[350px] lg:min-h-[400px] flex items-center justify-center p-8 sm:p-12 lg:p-16 overflow-visible"
+              >
+                {/* Ambient Glow on hover */}
+                <div 
+                    className="absolute inset-0 rounded-tr-[4.5rem] sm:rounded-tr-[6rem] opacity-0 group-hover:opacity-45 blur-2xl transition-all duration-500 -z-10 pointer-events-none"
+                    style={{ backgroundColor: "#10B981" }}
+                />
+
+                {/* Background Shape */}
+                <div 
+                    className="absolute inset-0 w-full h-full rounded-tr-[4.5rem] sm:rounded-tr-[6rem] group-hover:rounded-[2.5rem] sm:group-hover:rounded-[3.5rem] overflow-hidden transition-all duration-500 ease-out group-hover:shadow-[0_20px_40px_rgba(16,185,129,0.3)] group-hover:brightness-105"
+                    style={{ backgroundColor: "#10B981" }}
+                >
+                    {/* Shine Line */}
+                    <div className="absolute inset-y-0 -left-[100px] w-20 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 group-hover:translate-x-[1000px] transition-transform duration-1000 ease-in-out pointer-events-none" />
+                </div>
+                
+                {/* Image */}
+                <img
+                  src="/clients/AIOclientsLogos.png"
+                  alt="Our Clients"
+                  className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] group-hover:scale-105 transition-all duration-500 ease-out pointer-events-none"
+                />
+              </motion.div>
             </div>
 
             {/* CTA Button */}

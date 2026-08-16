@@ -16,6 +16,7 @@ if (typeof window !== "undefined") {
 export function MangoModel(props: any) {
   // Use two groups: outer for props (position/scale from parent), inner for animation
   const outerGroup = useRef<Group>(null);
+  const translationGroup = useRef<Group>(null);
   const innerGroup = useRef<Group>(null);
   const spinLinesGroup = useRef<Group>(null);
   const materialsRef = useRef<(THREE.MeshBasicMaterial | null)[]>([]);
@@ -105,7 +106,12 @@ export function MangoModel(props: any) {
     // Extra hero section animation: larger and extra tilted at the very top
     // Fades out by the time p reaches 0.15 (as they scroll past hero)
     const heroEffect = Math.max(0, 1 - p * 6.66); 
-    const targetScale = 1.0 + (0.25 * heroEffect); // 25% bigger at top
+    
+    // On mobile, shrink significantly (to 0.55x). On desktop, keep normal size (1.0x).
+    const baseScale = isMobile ? 0.55 : 1.0;
+    const topScaleBonus = 1.25 - baseScale;
+    const targetScale = baseScale + (topScaleBonus * heroEffect); 
+    
     const extraTiltX = -0.1 * heroEffect; 
     const extraTiltZ = 0.1 * heroEffect;
 
@@ -115,6 +121,12 @@ export function MangoModel(props: any) {
 
     // Apply smooth dampening to the inner group
     innerGroup.current.scale.setScalar(THREE.MathUtils.damp(innerGroup.current.scale.x, targetScale, 4, delta));
+
+    if (translationGroup.current) {
+      // Move to right edge on mobile when scrolling down
+      const targetPosX = isMobile ? (1 - heroEffect) * 1.8 : 0;
+      translationGroup.current.position.x = THREE.MathUtils.damp(translationGroup.current.position.x, targetPosX, 4, delta);
+    }
 
     // Increase damp factor for Y rotation so it reacts much faster to mouse movements
     innerGroup.current.rotation.y = THREE.MathUtils.damp(innerGroup.current.rotation.y, targetRotY + mouseSpinY, 10, delta);
@@ -183,67 +195,71 @@ export function MangoModel(props: any) {
 
   return (
     <group ref={outerGroup} {...props} dispose={null}>
-      {/* 3D Motion Blur Lines */}
-      <group ref={spinLinesGroup}>
-        {/* Equator Lines (Middle) */}
-        <group rotation={[0, 0, 0]} position={[0, -0.5, 0]}>
-          <mesh rotation={[Math.PI / 2, 0, 0]}>
-            <torusGeometry args={[0.35, 0.002, 8, 32, Math.PI / 1.5]} />
-            <meshBasicMaterial ref={(el) => { materialsRef.current[0] = el; }} color="#2E7D32" transparent opacity={0} />
-          </mesh>
-        </group>
-        <group rotation={[0, Math.PI, 0]} position={[0, -0.5, 0]}>
-          <mesh rotation={[Math.PI / 2, 0, 0]}>
-            <torusGeometry args={[0.35, 0.002, 8, 32, Math.PI / 1.5]} />
-            <meshBasicMaterial ref={(el) => { materialsRef.current[1] = el; }} color="#FFB800" transparent opacity={0} />
-          </mesh>
+      <group ref={translationGroup}>
+        {/* 3D Motion Blur Lines */}
+        <group ref={spinLinesGroup}>
+          {/* Equator Lines (Middle) */}
+          <group rotation={[0, 0, 0]} position={[0, -0.5, 0]}>
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <torusGeometry args={[0.35, 0.002, 8, 32, Math.PI / 1.5]} />
+              <meshBasicMaterial ref={(el) => { materialsRef.current[0] = el; }} color="#2E7D32" transparent opacity={0} />
+            </mesh>
+          </group>
+          <group rotation={[0, Math.PI, 0]} position={[0, -0.5, 0]}>
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <torusGeometry args={[0.35, 0.002, 8, 32, Math.PI / 1.5]} />
+              <meshBasicMaterial ref={(el) => { materialsRef.current[1] = el; }} color="#FFB800" transparent opacity={0} />
+            </mesh>
+          </group>
+
+          {/* Upper Lines */}
+          <group rotation={[0, Math.PI / 2, 0]} position={[0, -0.4, 0]}>
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <torusGeometry args={[0.3, 0.0015, 8, 32, Math.PI / 1.8]} />
+              <meshBasicMaterial ref={(el) => { materialsRef.current[2] = el; }} color="#FFB800" transparent opacity={0} />
+            </mesh>
+          </group>
+          <group rotation={[0, -Math.PI / 2, 0]} position={[0, -0.4, 0]}>
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <torusGeometry args={[0.3, 0.0015, 8, 32, Math.PI / 1.8]} />
+              <meshBasicMaterial ref={(el) => { materialsRef.current[3] = el; }} color="#2E7D32" transparent opacity={0} />
+            </mesh>
+          </group>
+
+          {/* Lower Lines */}
+          <group rotation={[0, Math.PI / 4, 0]} position={[0, -0.6, 0]}>
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <torusGeometry args={[0.3, 0.0015, 8, 32, Math.PI / 1.8]} />
+              <meshBasicMaterial ref={(el) => { materialsRef.current[4] = el; }} color="#2E7D32" transparent opacity={0} />
+            </mesh>
+          </group>
+          <group rotation={[0, Math.PI + Math.PI / 4, 0]} position={[0, -0.6, 0]}>
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <torusGeometry args={[0.3, 0.0015, 8, 32, Math.PI / 1.8]} />
+              <meshBasicMaterial ref={(el) => { materialsRef.current[5] = el; }} color="#FFB800" transparent opacity={0} />
+            </mesh>
+          </group>
+          
+          {/* Small Cap Lines (Top & Bottom) */}
+          <group rotation={[0, Math.PI / 3, 0]} position={[0, -0.3, 0]}>
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <torusGeometry args={[0.15, 0.001, 8, 32, Math.PI]} />
+              <meshBasicMaterial ref={(el) => { materialsRef.current[6] = el; }} color="#2E7D32" transparent opacity={0} />
+            </mesh>
+          </group>
+          <group rotation={[0, -Math.PI / 3, 0]} position={[0, -0.7, 0]}>
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <torusGeometry args={[0.15, 0.001, 8, 32, Math.PI]} />
+              <meshBasicMaterial ref={(el) => { materialsRef.current[7] = el; }} color="#FFB800" transparent opacity={0} />
+            </mesh>
+          </group>
         </group>
 
-        {/* Upper Lines */}
-        <group rotation={[0, Math.PI / 2, 0]} position={[0, -0.4, 0]}>
-          <mesh rotation={[Math.PI / 2, 0, 0]}>
-            <torusGeometry args={[0.3, 0.0015, 8, 32, Math.PI / 1.8]} />
-            <meshBasicMaterial ref={(el) => { materialsRef.current[2] = el; }} color="#FFB800" transparent opacity={0} />
-          </mesh>
-        </group>
-        <group rotation={[0, -Math.PI / 2, 0]} position={[0, -0.4, 0]}>
-          <mesh rotation={[Math.PI / 2, 0, 0]}>
-            <torusGeometry args={[0.3, 0.0015, 8, 32, Math.PI / 1.8]} />
-            <meshBasicMaterial ref={(el) => { materialsRef.current[3] = el; }} color="#2E7D32" transparent opacity={0} />
-          </mesh>
-        </group>
-
-        {/* Lower Lines */}
-        <group rotation={[0, Math.PI / 4, 0]} position={[0, -0.6, 0]}>
-          <mesh rotation={[Math.PI / 2, 0, 0]}>
-            <torusGeometry args={[0.3, 0.0015, 8, 32, Math.PI / 1.8]} />
-            <meshBasicMaterial ref={(el) => { materialsRef.current[4] = el; }} color="#2E7D32" transparent opacity={0} />
-          </mesh>
-        </group>
-        <group rotation={[0, Math.PI + Math.PI / 4, 0]} position={[0, -0.6, 0]}>
-          <mesh rotation={[Math.PI / 2, 0, 0]}>
-            <torusGeometry args={[0.3, 0.0015, 8, 32, Math.PI / 1.8]} />
-            <meshBasicMaterial ref={(el) => { materialsRef.current[5] = el; }} color="#FFB800" transparent opacity={0} />
-          </mesh>
+        <group ref={innerGroup} scale={1.25}>
+          <primitive object={scene} rotation={[0, 0, Math.PI]} />
         </group>
         
-        {/* Small Cap Lines (Top & Bottom) */}
-        <group rotation={[0, Math.PI / 3, 0]} position={[0, -0.3, 0]}>
-          <mesh rotation={[Math.PI / 2, 0, 0]}>
-            <torusGeometry args={[0.15, 0.001, 8, 32, Math.PI]} />
-            <meshBasicMaterial ref={(el) => { materialsRef.current[6] = el; }} color="#2E7D32" transparent opacity={0} />
-          </mesh>
-        </group>
-        <group rotation={[0, -Math.PI / 3, 0]} position={[0, -0.7, 0]}>
-          <mesh rotation={[Math.PI / 2, 0, 0]}>
-            <torusGeometry args={[0.15, 0.001, 8, 32, Math.PI]} />
-            <meshBasicMaterial ref={(el) => { materialsRef.current[7] = el; }} color="#FFB800" transparent opacity={0} />
-          </mesh>
-        </group>
-      </group>
-
-      <group ref={innerGroup} scale={1.25}>
-        <primitive object={scene} rotation={[0, 0, Math.PI]} />
+        {props.children}
       </group>
     </group>
   );

@@ -63,7 +63,7 @@ function SpeedLines() {
 
 export default function MangoCanvas() {
   return (
-    <div className="absolute inset-0 z-10 pointer-events-none">
+    <div className="absolute inset-0 z-30 pointer-events-none">
       <SpeedLines />
       <div 
         className="sticky top-0 h-screen w-full"
@@ -110,38 +110,50 @@ export default function MangoCanvas() {
           <Environment preset="city" />
 
           <Suspense fallback={null}>
-            {/* 
-              Start the mango positioned on the right to match the hero section placeholder, 
-              and slightly scaled up depending on the model's native size.
-            */}
-            <MangoModel position={[-3.3, 3.8, 0]} scale={7.0} rotation={[0.2, 0.5, 0]} />
-            
-            {/* Layer 2: Soft ambient shadows underneath (Two-layer composite) */}
-            {/* Broad, very soft ambient shadow */}
-            <ContactShadows 
-              position={[-3.3, -1.0, 0]} 
-              opacity={0.35} 
-              scale={35} 
-              blur={3.5} 
-              far={15} 
-              color="#0F172A" 
-              resolution={256} 
-            />
-            {/* Tighter, darker contact shadow */}
-            <ContactShadows 
-              position={[-3.3, -1.0, 0]} 
-              opacity={0.65} 
-              scale={15} 
-              blur={1.2} 
-              far={10} 
-              color="#1A4314" 
-              resolution={512} 
-            />
+            <ResponsiveMango />
           </Suspense>
-
-
         </Canvas>
       </div>
     </div>
+  );
+}
+
+function ResponsiveMango() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1024);
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const mangoPos: [number, number, number] = isMobile ? [0, 4.2, 0] : [-3.3, 3.8, 0];
+  const shadowPos: [number, number, number] = isMobile ? [0, 1.0, 0] : [-3.3, -1.0, 0];
+  const mangoScale = isMobile ? 4.5 : 7.0;
+
+  return (
+    <>
+      <MangoModel position={mangoPos} scale={mangoScale} rotation={[0.2, 0.5, 0]}>
+        <ContactShadows 
+          position={shadowPos} 
+          opacity={0.35} 
+          scale={isMobile ? 25 : 35} 
+          blur={3.5} 
+          far={15} 
+          color="#0F172A" 
+          resolution={256} 
+        />
+        <ContactShadows 
+          position={shadowPos} 
+          opacity={0.65} 
+          scale={isMobile ? 10 : 15} 
+          blur={1.2} 
+          far={10} 
+          color="#1A4314" 
+          resolution={512} 
+        />
+      </MangoModel>
+    </>
   );
 }

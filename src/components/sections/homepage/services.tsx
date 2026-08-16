@@ -1,33 +1,34 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowRight, Flame, PlaySquare, Projector, Focus, Radar } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion, AnimatePresence } from "framer-motion";
 
 const services = [
   {
-    image: "/bg/socialmedia.png",
+    icon: Flame,
     title: "Social Media Content",
     desc: "Engaging, scroll-stopping content designed natively for every platform to build your community."
   },
   {
-    image: "/bg/videoproduction.png",
+    icon: PlaySquare,
     title: "Reels Production",
     desc: "High-quality, short-form video production that captures attention and drives viral growth."
   },
   {
-    image: "/bg/tvcommercial.png",
+    icon: Projector,
     title: "TV Commercials",
     desc: "Cinematic, broadcast-ready advertisements that tell your brand's story on the big screen."
   },
   {
-    image: "/bg/photography.png",
+    icon: Focus,
     title: "Photography",
     desc: "Professional product and lifestyle photography that makes your brand visually unforgettable."
   },
   {
-    image: "/bg/digitalmarketing.png",
+    icon: Radar,
     title: "Digital Marketing",
     desc: "Data-driven marketing strategies and paid media to maximize your reach and conversions."
   }
@@ -37,6 +38,7 @@ export default function ServicesSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -92,11 +94,11 @@ export default function ServicesSection() {
                 <img src="/bg/yellowBadgeStroke.png" alt="badge" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[250%] object-fill -z-10 pointer-events-none" />
                 <span className="relative z-10 text-xs sm:text-sm font-bold tracking-widest uppercase text-[#0B132B] px-3 py-1 whitespace-nowrap">WHAT WE DO</span>
               </div>
-              <h2 className="font-mileast font-extrabold text-[#0B132B] text-5xl sm:text-6xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight mt-4">
+              <h2 className="font-mileast font-extrabold text-[#0B132B] text-4xl sm:text-6xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight mt-4">
                 We <span className="text-[#2E7D32]">Create.</span> You <span className="text-[#2E7D32]">Connect.</span><br/>
                 We <span className="text-[#FFB800]">Make</span> It Matter.
               </h2>
-              <div className="mt-8 relative inline-block text-[#475569] font-poppins text-[15px] sm:text-lg leading-relaxed">
+              <div className="mt-4 relative inline-block text-[#475569] font-poppins text-[15px] sm:text-lg leading-relaxed">
                 From scroll-stopping content to performance-driven campaigns,<br className="hidden sm:block" />
                 we create, connect and convert across every platform.
                 {/* Green scribbled underline */}
@@ -107,93 +109,74 @@ export default function ServicesSection() {
               </div>
             </div>
 
-          </div>
-        </div>
-      </div>
-
-      {/* Full Screen Carousel Section with Wavy Edges */}
-      <div ref={cardsRef} className="w-full -mt-4 lg:-mt-12 mb-4 relative z-0 bg-[#FFB800]">
-        
-        {/* Top Wave */}
-        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180 text-[#FFB800] -translate-y-[99%] z-10 pointer-events-none">
-          <svg className="relative block w-full h-[50px] md:h-[70px] lg:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="currentColor"></path>
-          </svg>
-        </div>
-
-        {/* Marquee Wrapper (Hides Overflow) */}
-        <div className="w-full overflow-hidden py-16">
-          <div className="flex gap-8 w-max animate-marquee px-4">
-          {[...services, ...services, ...services, ...services].map((service, idx) => (
-            <div 
-              key={idx}
-              className="service-card shrink-0 w-[340px] h-[460px] bg-white p-10 flex flex-col items-center relative border border-[#FFB800]/20 shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:-translate-y-4 hover:shadow-[0_40px_60px_-15px_rgba(0,0,0,0.2)] hover:border-[#FFB800]/50 transition-all duration-500 ease-out group"
-              style={{ borderRadius: idx % 2 === 0 ? '30px 45px 30px 45px / 45px 30px 45px 30px' : '45px 30px 45px 30px / 30px 45px 30px 45px' }}
-            >
-
-              {/* Icon Area */}
-              <div className="w-56 h-56 -mt-6 mb-0 relative flex items-center justify-center">
-                {/* Dot Grid Pattern */}
-                <svg 
-                  className={`absolute top-12 -left-4 w-14 h-20 opacity-60 z-0 transition-opacity duration-500 group-hover:opacity-100 ${idx % 2 === 0 ? 'text-[#FFB800]' : 'text-[#2E7D32]'}`}
-                  fill="currentColor" viewBox="0 0 24 40"
+            {/* Modern Bento Grid Services List */}
+            <div ref={cardsRef} className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mt-8">
+              {services.map((service, idx) => (
+                <div 
+                  key={idx} 
+                  onMouseEnter={() => setHoveredIdx(idx)}
+                  onMouseLeave={() => setHoveredIdx(null)}
+                  className={`service-card group relative w-full flex flex-col p-8 sm:p-10 bg-white/60 backdrop-blur-sm border-[1.5px] border-[#0B132B]/10 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden ${
+                    idx === 0 ? 'sm:col-span-2' : ''
+                  } ${
+                    idx % 2 === 0 
+                      ? 'rounded-[24px] rounded-tr-[80px] hover:border-[#FFB800]' 
+                      : 'rounded-[24px] rounded-tl-[80px] hover:border-[#10B981]'
+                  }`}
                 >
-                  <circle cx="4" cy="4" r="1.5" /><circle cx="12" cy="4" r="1.5" /><circle cx="20" cy="4" r="1.5" />
-                  <circle cx="4" cy="14" r="1.5" /><circle cx="12" cy="14" r="1.5" /><circle cx="20" cy="14" r="1.5" />
-                  <circle cx="4" cy="24" r="1.5" /><circle cx="12" cy="24" r="1.5" /><circle cx="20" cy="24" r="1.5" />
-                  <circle cx="4" cy="34" r="1.5" /><circle cx="12" cy="34" r="1.5" /><circle cx="20" cy="34" r="1.5" />
-                </svg>
-                
-                <img 
-                  src={idx % 2 === 0 ? "/bg/cardblobyellow.png" : "/bg/cardblobgreen.png"} 
-                  alt="blob background"
-                  className="absolute inset-0 w-full h-full object-contain transform scale-[1.4] group-hover:scale-[1.55] transition-all duration-700 ease-out"
-                />
-                <img src={service.image} alt={service.title} className="w-44 h-44 object-contain relative z-10 drop-shadow-md group-hover:scale-125 group-hover:-translate-y-4 group-hover:drop-shadow-2xl transition-all duration-500 ease-out" />
-              </div>
+                  
+                  {/* Flowing Shared Hover Background */}
+                  <AnimatePresence>
+                    {hoveredIdx === idx && (
+                      <motion.div
+                        layoutId="serviceHoverBg"
+                        initial={{ opacity: 0 }}
+                        animate={{ 
+                          opacity: 1,
+                          backgroundColor: idx % 2 === 0 ? '#FFB800' : '#10B981',
+                          borderRadius: idx % 2 === 0 ? '24px 80px 24px 24px' : '80px 24px 24px 24px'
+                        }}
+                        exit={{ opacity: 0 }}
+                        transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                        className="absolute inset-0 z-0 pointer-events-none"
+                      />
+                    )}
+                  </AnimatePresence>
 
-              <h3 className="font-poppins font-bold text-[#0B132B] text-2xl mb-4 text-center">
-                <span className="relative inline-block">
-                  {service.title}
-                  {/* Pen drawn underline */}
-                  <svg className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[75%] h-[6px] text-[#FFB800] opacity-100" viewBox="0 0 100 10" preserveAspectRatio="none">
-                    <path d="M2 8 Q 50 2 98 6" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" vectorEffect="non-scaling-stroke"/>
-                  </svg>
-                </span>
-              </h3>
-              <p className="text-[#1E293B] font-poppins text-[15px] leading-relaxed text-center flex-1">
-                {service.desc}
-              </p>
-              
-              {/* Bottom Arrow */}
-              <div className="mt-6 w-12 h-12 rounded-full bg-[#E5D7C2]/40 flex items-center justify-center group-hover:bg-[#FFB800] group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-lg transition-all duration-300 ease-out shrink-0 cursor-pointer">
-                <ArrowRight className="w-6 h-6 text-[#0B132B] group-hover:text-white transition-colors" />
-              </div>
+                  {/* Shine Line Glare Effect */}
+                  <div className="absolute inset-y-0 -left-[150px] w-32 bg-gradient-to-r from-transparent via-white/80 to-transparent -skew-x-12 group-hover:translate-x-[1200px] transition-transform duration-1000 ease-in-out pointer-events-none z-10" />
+
+                  {/* Background Ambient Number */}
+                  <div className="absolute -bottom-8 -right-4 text-[140px] leading-none font-mileast font-bold text-[#0B132B]/[0.03] group-hover:text-[#0B132B]/[0.1] group-hover:-translate-y-4 group-hover:-translate-x-2 transition-all duration-700 ease-out pointer-events-none select-none z-10">
+                    0{idx + 1}
+                  </div>
+
+                  {/* Top: Icon & Arrow */}
+                  <div className="flex justify-between items-start w-full mb-12 relative z-10">
+                    <div className="w-14 h-14 rounded-2xl border border-[#0B132B]/10 flex items-center justify-center bg-white group-hover:bg-[#0B132B] transition-colors duration-500 shadow-sm">
+                       <service.icon className="w-6 h-6 text-[#2E7D32] group-hover:text-white transition-colors duration-500" strokeWidth={2.5} />
+                    </div>
+                    <ArrowRight className="w-6 h-6 text-[#0B132B]/20 group-hover:text-[#0B132B] group-hover:-rotate-45 transition-all duration-500 shrink-0" />
+                  </div>
+
+                  {/* Bottom: Title & Description */}
+                  <div className="relative z-10 flex flex-col gap-3 mt-auto">
+                    <h3 className="font-poppins font-bold text-[#0B132B] text-xl sm:text-2xl leading-tight">
+                      {service.title}
+                    </h3>
+                    <p className="font-poppins text-[#475569] group-hover:text-[#0B132B]/80 text-sm sm:text-[15px] leading-relaxed max-w-[95%] transition-colors duration-500">
+                      {service.desc}
+                    </p>
+                  </div>
+
+                </div>
+              ))}
             </div>
-          ))}
+
           </div>
         </div>
-
-        {/* Bottom Wave */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none text-[#FFB800] translate-y-[99%] z-10 pointer-events-none">
-          <svg className="relative block w-full h-[50px] md:h-[70px] lg:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="currentColor"></path>
-          </svg>
-        </div>
-
-        <style dangerouslySetInnerHTML={{__html: `
-          @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-50% - 16px)); }
-          }
-          .animate-marquee {
-            animation: marquee 40s linear infinite;
-          }
-          .animate-marquee:hover {
-            animation-play-state: paused;
-          }
-        `}} />
       </div>
+
     </section>
   );
 }

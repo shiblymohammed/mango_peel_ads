@@ -81,7 +81,7 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-12 items-start">
           
           {/* LEFT COLUMN: Reserved for Mango */}
-          <div className="w-full lg:col-span-5 xl:col-span-5 relative flex flex-col items-center lg:items-start justify-end pointer-events-none min-h-[100px] lg:min-h-[400px]">
+          <div className="w-full lg:col-span-5 xl:col-span-5 relative hidden lg:flex flex-col items-center lg:items-start justify-end pointer-events-none min-h-[100px] lg:min-h-[400px]">
              {/* Left side remains empty for Mango */}
           </div>
 
@@ -110,14 +110,14 @@ export default function ServicesSection() {
               {services.map((service, idx) => (
                 <div 
                   key={idx} 
-                  onMouseEnter={() => setHoveredIdx(idx)}
+                  onMouseEnter={() => window.innerWidth >= 1024 && setHoveredIdx(idx)}
                   onMouseLeave={() => setHoveredIdx(null)}
-                  className={`service-card group relative w-full flex flex-col p-8 sm:p-10 bg-white/60 backdrop-blur-sm border-[1.5px] border-[#0B132B]/10 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden ${
+                  className={`service-card group relative w-full flex flex-col p-8 sm:p-10 bg-white/60 backdrop-blur-sm border-[1.5px] border-[#0B132B]/10 lg:hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] lg:hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden ${
                     idx === 0 ? 'sm:col-span-2' : ''
                   } ${
                     idx % 2 === 0 
-                      ? 'rounded-[24px] rounded-tr-[80px] hover:border-[#FFB800]' 
-                      : 'rounded-[24px] rounded-tl-[80px] hover:border-[#10B981]'
+                      ? 'rounded-[24px] rounded-tr-[80px] lg:hover:border-[#FFB800]' 
+                      : 'rounded-[24px] rounded-tl-[80px] lg:hover:border-[#10B981]'
                   }`}
                 >
                   
@@ -140,19 +140,19 @@ export default function ServicesSection() {
                   </AnimatePresence>
 
                   {/* Shine Line Glare Effect */}
-                  <div className="absolute inset-y-0 -left-[150px] w-32 bg-gradient-to-r from-transparent via-white/80 to-transparent -skew-x-12 group-hover:translate-x-[1200px] transition-transform duration-1000 ease-in-out pointer-events-none z-10" />
+                  <div className="absolute inset-y-0 -left-[150px] w-32 bg-gradient-to-r from-transparent via-white/80 to-transparent -skew-x-12 lg:group-hover:translate-x-[1200px] transition-transform duration-1000 ease-in-out pointer-events-none z-10" />
 
                   {/* Background Ambient Number */}
-                  <div className="absolute -bottom-8 -right-4 text-[140px] leading-none font-mileast font-bold text-[#0B132B]/[0.03] group-hover:text-[#0B132B]/[0.1] group-hover:-translate-y-4 group-hover:-translate-x-2 transition-all duration-700 ease-out pointer-events-none select-none z-10">
+                  <div className="absolute -bottom-8 -right-4 text-[140px] leading-none font-mileast font-bold text-[#0B132B]/[0.03] lg:group-hover:text-[#0B132B]/[0.1] lg:group-hover:-translate-y-4 lg:group-hover:-translate-x-2 transition-all duration-700 ease-out pointer-events-none select-none z-10">
                     0{idx + 1}
                   </div>
 
                   {/* Top: Icon & Arrow */}
                   <div className="flex justify-between items-start w-full mb-12 relative z-10">
-                    <div className="w-14 h-14 rounded-2xl border border-[#0B132B]/10 flex items-center justify-center bg-white group-hover:bg-[#0B132B] transition-colors duration-500 shadow-sm">
-                       <service.icon className="w-6 h-6 text-[#2E7D32] group-hover:text-white transition-colors duration-500" strokeWidth={2.5} />
+                    <div className="w-14 h-14 rounded-2xl border border-[#0B132B]/10 flex items-center justify-center bg-white lg:group-hover:bg-[#0B132B] transition-colors duration-500 shadow-sm">
+                       <service.icon className="w-6 h-6 text-[#2E7D32] lg:group-hover:text-white transition-colors duration-500" strokeWidth={2.5} />
                     </div>
-                    <ArrowRight className="w-6 h-6 text-[#0B132B]/20 group-hover:text-[#0B132B] group-hover:-rotate-45 transition-all duration-500 shrink-0" />
+                    <ArrowRight className="w-6 h-6 text-[#0B132B]/20 lg:group-hover:text-[#0B132B] lg:group-hover:-rotate-45 transition-all duration-500 shrink-0" />
                   </div>
 
                   {/* Bottom: Title & Description */}
@@ -160,7 +160,7 @@ export default function ServicesSection() {
                     <h3 className="font-poppins font-bold text-[#0B132B] text-xl sm:text-2xl leading-tight">
                       {service.title}
                     </h3>
-                    <p className="font-poppins text-[#475569] group-hover:text-[#0B132B]/80 text-sm sm:text-[15px] leading-relaxed max-w-[95%] transition-colors duration-500">
+                    <p className="font-poppins text-[#475569] lg:group-hover:text-[#0B132B]/80 text-sm sm:text-[15px] leading-relaxed max-w-[95%] transition-colors duration-500">
                       {service.desc}
                     </p>
                   </div>

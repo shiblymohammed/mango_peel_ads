@@ -39,7 +39,7 @@ export default function HeroSection() {
           {/* ========================================================================= */}
           {/* 3D MODEL PLACEHOLDER / BACKGROUND                                         */}
           {/* ========================================================================= */}
-          <div className="relative w-full lg:col-span-5 xl:col-span-5 order-2 lg:order-1 min-h-[300px] sm:min-h-[400px] lg:min-h-[600px] flex items-center justify-center">
+          <div className="relative w-full lg:col-span-5 xl:col-span-5 order-2 lg:order-1 hidden lg:flex min-h-[300px] sm:min-h-[400px] lg:min-h-[600px] items-center justify-center">
              {/* Model renders here via MangoCanvas */}
           </div>
 
@@ -116,23 +116,23 @@ export default function HeroSection() {
               {/* Primary CTA */}
               <Link
                 href="/works"
-                className="group relative inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-10 py-3 sm:py-[18px] rounded-full bg-[#2E7D32] overflow-hidden transition-all duration-500 shadow-[0_8px_25px_rgba(46,125,50,0.25)] hover:shadow-[0_12px_30px_rgba(46,125,50,0.35)] hover:-translate-y-1"
+                className="group relative inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-10 py-3 sm:py-[18px] rounded-full bg-[#2E7D32] overflow-hidden transition-all duration-500 shadow-[0_8px_25px_rgba(46,125,50,0.25)] lg:hover:shadow-[0_12px_30px_rgba(46,125,50,0.35)] lg:hover:-translate-y-1"
               >
-                <div className="absolute inset-0 bg-[#F0A202] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]" />
+                <div className="absolute inset-0 bg-[#F0A202] translate-y-full lg:group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]" />
                 
-                <span className="relative z-10 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-white group-hover:text-[#0F3124] transition-colors duration-500">
+                <span className="relative z-10 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-white lg:group-hover:text-[#0F3124] transition-colors duration-500">
                   View Our Work
                 </span>
-                <ArrowUpRight className="relative z-10 w-3 h-3 sm:w-4 sm:h-4 text-white group-hover:text-[#0F3124] transition-all duration-500 group-hover:rotate-45" />
+                <ArrowUpRight className="relative z-10 w-3 h-3 sm:w-4 sm:h-4 text-white lg:group-hover:text-[#0F3124] transition-all duration-500 lg:group-hover:rotate-45" />
               </Link>
 
               {/* Secondary CTA - Minimalist Outline */}
               <Link
                 href="/showreel"
-                className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-10 py-3 sm:py-[18px] rounded-full border border-[#0F172A]/15 bg-transparent hover:border-[#F0A202] hover:bg-[#F0A202]/5 transition-all duration-500"
+                className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-10 py-3 sm:py-[18px] rounded-full border border-[#0F172A]/15 bg-transparent lg:hover:border-[#F0A202] lg:hover:bg-[#F0A202]/5 transition-all duration-500"
               >
-                <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-[#F0A202]/20 flex items-center justify-center group-hover:bg-[#F0A202] transition-colors duration-500">
-                   <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="text-[#F0A202] group-hover:text-black ml-0.5 transition-colors duration-500 w-2 h-2 sm:w-3 sm:h-3">
+                <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-[#F0A202]/20 flex items-center justify-center lg:group-hover:bg-[#F0A202] transition-colors duration-500">
+                   <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="text-[#F0A202] lg:group-hover:text-black ml-0.5 transition-colors duration-500 w-2 h-2 sm:w-3 sm:h-3">
                       <path d="M8 5v14l11-7z" />
                    </svg>
                 </div>
@@ -147,7 +147,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.95 }}
-              className="mt-6 sm:mt-16 w-full grid grid-cols-4 lg:grid-cols-4 gap-y-4 sm:gap-y-10 gap-x-1 sm:gap-x-4 relative z-20"
+              className="mt-6 sm:mt-16 w-full grid grid-cols-2 sm:grid-cols-4 gap-y-8 sm:gap-y-10 gap-x-2 sm:gap-x-4 relative z-20"
             >
               {[
                 {
@@ -175,12 +175,12 @@ export default function HeroSection() {
                   className="flex flex-col items-center justify-center relative text-center group min-h-[50px] sm:min-h-[120px]"
                 >
                   {/* Divider line */}
-                  <div className={`absolute right-[-4px] sm:right-[-12px] top-[15%] h-[70%] w-[1px] bg-[#0F3124]/20 ${index === 3 ? 'hidden' : ''}`} />
+                  <div className={`absolute right-[-4px] sm:right-[-12px] top-[15%] h-[70%] w-[1px] bg-[#0F3124]/20 ${index === 3 ? 'hidden' : ''} ${index === 1 ? 'hidden sm:block' : ''}`} />
 
-                  <div className="relative z-10 text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-[#0F3124] font-mileast leading-none mb-1 sm:mb-2 mt-0.5 sm:mt-2 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105 group-hover:text-[#2E7D32]">
+                  <div className="relative z-10 text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-[#0F3124] font-mileast leading-none mb-1 sm:mb-2 mt-0.5 sm:mt-2 transition-transform duration-300 lg:group-hover:-translate-y-1 lg:group-hover:scale-105 lg:group-hover:text-[#2E7D32]">
                     <Counter value={stat.value} suffix={stat.suffix} />
                   </div>
-                  <div className="relative z-10 text-[9px] sm:text-[11px] lg:text-[13px] font-bold text-[#0F3124]/70 uppercase tracking-[0.1em] sm:tracking-[0.15em] whitespace-pre-line leading-[1.1] sm:leading-[1.3] font-poppins block transition-colors duration-300 group-hover:text-[#0F3124]">
+                  <div className="relative z-10 text-[9px] sm:text-[11px] lg:text-[13px] font-bold text-[#0F3124]/70 uppercase tracking-[0.1em] sm:tracking-[0.15em] whitespace-pre-line leading-[1.1] sm:leading-[1.3] font-poppins block transition-colors duration-300 lg:group-hover:text-[#0F3124]">
                     {stat.label}
                   </div>
                 </motion.div>

@@ -107,8 +107,8 @@ export function MangoModel(props: any) {
     // Fades out by the time p reaches 0.15 (as they scroll past hero)
     const heroEffect = Math.max(0, 1 - p * 6.66); 
     
-    // On mobile, shrink significantly (to 0.55x). On desktop, keep normal size (1.0x).
-    const baseScale = isMobile ? 0.55 : 1.0;
+    // On mobile, keep the initial size constant (1.25x). On desktop, shrink to normal size (1.0x).
+    const baseScale = isMobile ? 1.25 : 1.0;
     const topScaleBonus = 1.25 - baseScale;
     const targetScale = baseScale + (topScaleBonus * heroEffect); 
     
@@ -123,8 +123,8 @@ export function MangoModel(props: any) {
     innerGroup.current.scale.setScalar(THREE.MathUtils.damp(innerGroup.current.scale.x, targetScale, 4, delta));
 
     if (translationGroup.current) {
-      // Move to right edge on mobile when scrolling down
-      const targetPosX = isMobile ? (1 - heroEffect) * 1.8 : 0;
+      // Keep mango centered on all devices during scroll
+      const targetPosX = 0;
       translationGroup.current.position.x = THREE.MathUtils.damp(translationGroup.current.position.x, targetPosX, 4, delta);
     }
 

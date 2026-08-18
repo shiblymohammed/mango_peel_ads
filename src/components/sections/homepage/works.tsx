@@ -17,7 +17,7 @@ export default function WorksSection() {
           {/* ========================================================================= */}
           {/* LEFT COLUMN: 3D MODEL PLACEHOLDER                                         */}
           {/* ========================================================================= */}
-          <div className="w-full lg:col-span-5 xl:col-span-5 order-2 lg:order-1 min-h-[300px] sm:min-h-[400px] lg:min-h-[600px] flex items-start justify-center">
+          <div className="w-full lg:col-span-5 xl:col-span-5 order-2 lg:order-1 hidden lg:flex min-h-[300px] sm:min-h-[400px] lg:min-h-[600px] items-start justify-center">
             {/* Left side reserved for your 3D scene */}
           </div>
 
@@ -63,24 +63,24 @@ export default function WorksSection() {
               >
                 {/* Ambient Glow on hover */}
                 <div 
-                    className="absolute inset-0 rounded-tr-[4.5rem] sm:rounded-tr-[6rem] opacity-0 group-hover:opacity-45 blur-2xl transition-all duration-500 -z-10 pointer-events-none"
+                    className="absolute inset-0 rounded-tr-[4.5rem] sm:rounded-tr-[6rem] opacity-0 lg:group-hover:opacity-45 blur-2xl transition-all duration-500 -z-10 pointer-events-none"
                     style={{ backgroundColor: "#10B981" }}
                 />
 
                 {/* Background Shape */}
                 <div 
-                    className="absolute inset-0 w-full h-full rounded-tr-[4.5rem] sm:rounded-tr-[6rem] group-hover:rounded-[2.5rem] sm:group-hover:rounded-[3.5rem] overflow-hidden transition-all duration-500 ease-out group-hover:shadow-[0_20px_40px_rgba(16,185,129,0.3)] group-hover:brightness-105"
+                    className="absolute inset-0 w-full h-full rounded-tr-[4.5rem] sm:rounded-tr-[6rem] lg:group-hover:rounded-[2.5rem] sm:lg:group-hover:rounded-[3.5rem] overflow-hidden transition-all duration-500 ease-out lg:group-hover:shadow-[0_20px_40px_rgba(16,185,129,0.3)] lg:group-hover:brightness-105"
                     style={{ backgroundColor: "#10B981" }}
                 >
                     {/* Shine Line */}
-                    <div className="absolute inset-y-0 -left-[100px] w-20 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 group-hover:translate-x-[1000px] transition-transform duration-1000 ease-in-out pointer-events-none" />
+                    <div className="absolute inset-y-0 -left-[100px] w-20 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 lg:group-hover:translate-x-[1000px] transition-transform duration-1000 ease-in-out pointer-events-none" />
                 </div>
                 
                 {/* Image */}
                 <img
                   src="/clients/AIOclientsLogos.png"
                   alt="Our Clients"
-                  className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] group-hover:scale-105 transition-all duration-500 ease-out pointer-events-none"
+                  className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] lg:group-hover:scale-105 transition-all duration-500 ease-out pointer-events-none"
                 />
               </motion.div>
             </div>
@@ -95,14 +95,14 @@ export default function WorksSection() {
             >
               <Link
                 href="/works"
-                className="group relative inline-flex items-center gap-3 px-10 py-5 rounded-full bg-[#0B132B] overflow-hidden shadow-[0_8px_20px_rgba(11,19,43,0.15)] hover:shadow-[0_15px_30px_rgba(255,184,0,0.3)] transition-all duration-300 transform hover:-translate-y-1"
+                className="group relative inline-flex items-center gap-3 px-10 py-5 rounded-full bg-[#0B132B] overflow-hidden shadow-[0_8px_20px_rgba(11,19,43,0.15)] lg:hover:shadow-[0_15px_30px_rgba(255,184,0,0.3)] transition-all duration-300 transform lg:hover:-translate-y-1"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#FFB800] to-[#FF9800] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#FFB800] to-[#FF9800] translate-y-full lg:group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]"></div>
                 
-                <span className="relative z-10 font-poppins font-extrabold tracking-[0.15em] uppercase text-[15px] text-white group-hover:text-[#0B132B] transition-colors duration-500">
+                <span className="relative z-10 font-poppins font-extrabold tracking-[0.15em] uppercase text-[15px] text-white lg:group-hover:text-[#0B132B] transition-colors duration-500">
                   SEE OUR WORK
                 </span>
-                <ArrowRight className="relative z-10 w-5 h-5 text-white group-hover:text-[#0B132B] transition-all duration-500 group-hover:translate-x-1" />
+                <ArrowRight className="relative z-10 w-5 h-5 text-white lg:group-hover:text-[#0B132B] transition-all duration-500 lg:group-hover:translate-x-1" />
               </Link>
             </motion.div>
           </div>

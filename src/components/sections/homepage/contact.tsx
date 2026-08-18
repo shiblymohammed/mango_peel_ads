@@ -14,7 +14,7 @@ export default function ContactSection() {
           {/* ========================================================================= */}
           {/* LEFT COLUMN: 3D MODEL PLACEHOLDER                                         */}
           {/* ========================================================================= */}
-          <div className="w-full lg:col-span-5 xl:col-span-5 order-2 lg:order-1 min-h-[300px] sm:min-h-[400px] lg:min-h-[600px] flex items-center justify-center">
+          <div className="w-full lg:col-span-5 xl:col-span-5 order-2 lg:order-1 hidden lg:flex min-h-[300px] sm:min-h-[400px] lg:min-h-[600px] items-center justify-center">
             {/* Left side reserved for your 3D scene */}
           </div>
 
@@ -97,13 +97,13 @@ export default function ContactSection() {
               <div className="mt-8 sm:mt-12 flex justify-start">
                 <button
                   type="submit"
-                  className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 py-4 xs:px-10 xs:py-5 rounded-full bg-[#2E7D32] overflow-hidden shadow-[0_8px_20px_rgba(46,125,50,0.2)] hover:shadow-[0_15px_30px_rgba(46,125,50,0.4)] transition-all duration-300 transform hover:-translate-y-1 w-full xs:w-auto justify-center"
+                  className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 py-4 xs:px-10 xs:py-5 rounded-full bg-[#2E7D32] overflow-hidden shadow-[0_8px_20px_rgba(46,125,50,0.2)] lg:hover:shadow-[0_15px_30px_rgba(46,125,50,0.4)] transition-all duration-300 transform lg:hover:-translate-y-1 w-full xs:w-auto justify-center"
                 >
-                  <div className="absolute inset-0 bg-[#FFB800] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]"></div>
-                  <span className="relative z-10 font-poppins font-extrabold tracking-[0.15em] uppercase text-xs sm:text-[15px] text-white group-hover:text-[#0B132B] transition-colors duration-500">
+                  <div className="absolute inset-0 bg-[#FFB800] translate-y-full lg:group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]"></div>
+                  <span className="relative z-10 font-poppins font-extrabold tracking-[0.15em] uppercase text-xs sm:text-[15px] text-white lg:group-hover:text-[#0B132B] transition-colors duration-500">
                     SEND INQUIRY
                   </span>
-                  <ArrowRight className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:text-[#0B132B] transition-all duration-500 group-hover:translate-x-1" />
+                  <ArrowRight className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 text-white lg:group-hover:text-[#0B132B] transition-all duration-500 lg:group-hover:translate-x-1" />
                 </button>
               </div>
             </motion.form>

@@ -6,7 +6,7 @@ import { teamMembers } from "@/data/team";
 
 export default function TeamGrid() {
     return (
-        <div className="relative z-10 flex flex-wrap justify-center gap-x-8 sm:gap-x-14 md:gap-x-20 lg:gap-x-24 gap-y-28 sm:gap-y-36 md:gap-y-28 max-w-[1400px] w-full mt-16 md:mt-24 px-4">
+        <div className="relative z-10 flex flex-wrap justify-center gap-x-8 sm:gap-x-14 md:gap-x-20 lg:gap-x-24 gap-y-36 sm:gap-y-44 md:gap-y-36 max-w-[1400px] w-full mt-16 md:mt-24 px-4">
             {teamMembers.map((member, index) => (
                 <motion.div 
                     key={index} 

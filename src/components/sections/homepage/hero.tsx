@@ -39,7 +39,7 @@ export default function HeroSection() {
           {/* ========================================================================= */}
           {/* 3D MODEL PLACEHOLDER / BACKGROUND                                         */}
           {/* ========================================================================= */}
-          <div className="relative w-full lg:col-span-6 xl:col-span-6 order-2 lg:order-1 min-h-[300px] sm:min-h-[400px] lg:min-h-[600px] flex items-center justify-center">
+          <div className="relative w-full lg:col-span-5 xl:col-span-5 order-2 lg:order-1 min-h-[300px] sm:min-h-[400px] lg:min-h-[600px] flex items-center justify-center">
              {/* Model renders here via MangoCanvas */}
           </div>
 
@@ -50,21 +50,8 @@ export default function HeroSection() {
             initial={{ opacity: 0, x: -35 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-            className="w-full lg:col-span-6 xl:col-span-6 order-1 lg:order-2 flex flex-col items-center sm:items-start text-center sm:text-left relative pt-[45vh] sm:pt-[50vh] lg:pt-0 lg:ml-8 xl:ml-16 max-w-full sm:max-w-xl xl:max-w-2xl"
+            className="w-full lg:col-span-7 xl:col-span-7 order-1 lg:order-2 flex flex-col items-center sm:items-start text-center sm:text-left relative pt-[45vh] sm:pt-[50vh] lg:pt-0 lg:ml-4 xl:ml-8 max-w-full sm:max-w-2xl xl:max-w-3xl"
           >
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex items-center gap-2 mb-2 sm:mb-6"
-            >
-              <span className="text-[#1F2937] text-[9px] sm:text-xs md:text-sm font-bold tracking-[0.15em] sm:tracking-[0.25em] uppercase">
-                Stories That Create Impact
-              </span>
-              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#F0A202]"></span>
-            </motion.div>
-
             {/* Main Display Headline */}
             <h1 className="font-mileast font-extrabold tracking-tight select-none relative z-20 flex flex-col items-center sm:items-start gap-y-0 sm:gap-y-1 md:gap-y-2 text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[88px] 2xl:text-[98px] leading-[1.0] sm:leading-[0.95] md:leading-[0.92]">
               {/* Line 1 */}
@@ -113,9 +100,9 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.65 }}
-              className="font-poppins text-[#64748B] text-xs sm:text-base lg:text-[17px] font-medium leading-[1.4] sm:leading-[1.6] mt-2 sm:mt-8 max-w-[280px] xs:max-w-[320px] sm:max-w-lg relative z-20"
+              className="font-poppins text-[#64748B] text-xs sm:text-base lg:text-[17px] font-medium leading-[1.4] sm:leading-[1.6] mt-2 sm:mt-8 max-w-[280px] xs:max-w-[320px] sm:max-w-lg lg:max-w-none lg:whitespace-nowrap relative z-20"
             >
-              We&apos;re a creative advertising agency that builds stories, sparks emotions, and delivers real results for brands that dare to{" "}
+              We&apos;re a creative advertising agency that builds stories, sparks emotions,<br /> and delivers real results for brands that dare to{" "}
               <span className="font-bold text-[#1F2937]">stand out.</span>
             </motion.p>
 
@@ -165,23 +152,19 @@ export default function HeroSection() {
               {[
                 {
                   value: 100, suffix: "+",
-                  label: "Campaigns\nDelivered",
-                  bgImage: "url('/bg/stroke-green.png')"
+                  label: "Ad Films"
                 },
                 {
                   value: 50, suffix: "+",
-                  label: "Happy\nClients",
-                  bgImage: "url('/bg/stroke-yellow.png')"
+                  label: "Brands"
                 },
                 {
-                  value: 4, suffix: "+",
-                  label: "Years of\nImpact",
-                  bgImage: "url('/bg/stroke-green.png')"
+                  value: 25, suffix: "+",
+                  label: "Campaigns"
                 },
                 {
-                  value: 1, suffix: "M+",
-                  label: "Views\nGenerated",
-                  bgImage: "url('/bg/stroke-yellow.png')"
+                  value: 10, suffix: "M+",
+                  label: "Views"
                 }
               ].map((stat, index) => (
                 <motion.div 
@@ -191,18 +174,13 @@ export default function HeroSection() {
                   transition={{ duration: 0.6, delay: 1.0 + index * 0.15, ease: "easeOut" }}
                   className="flex flex-col items-center justify-center relative text-center group min-h-[50px] sm:min-h-[120px]"
                 >
-                  <div 
-                    className="absolute inset-0 z-0 bg-center bg-no-repeat bg-contain opacity-40 mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
-                    style={{ backgroundImage: stat.bgImage, transform: 'scale(1.35)' }} 
-                  />
-                  
                   {/* Divider line */}
                   <div className={`absolute right-[-4px] sm:right-[-12px] top-[15%] h-[70%] w-[1px] bg-[#0F3124]/20 ${index === 3 ? 'hidden' : ''}`} />
 
-                  <div className="relative z-10 text-xl sm:text-3xl lg:text-[34px] font-extrabold text-[#0F3124] font-mileast leading-none mb-0.5 sm:mb-1.5 mt-0.5 sm:mt-2">
+                  <div className="relative z-10 text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-[#0F3124] font-mileast leading-none mb-1 sm:mb-2 mt-0.5 sm:mt-2 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105 group-hover:text-[#2E7D32]">
                     <Counter value={stat.value} suffix={stat.suffix} />
                   </div>
-                  <div className="relative z-10 text-[8px] sm:text-[11px] lg:text-[12px] font-semibold text-[#0F3124]/80 whitespace-pre-line leading-[1.1] sm:leading-[1.3] font-poppins hidden xs:block">
+                  <div className="relative z-10 text-[9px] sm:text-[11px] lg:text-[13px] font-bold text-[#0F3124]/70 uppercase tracking-[0.1em] sm:tracking-[0.15em] whitespace-pre-line leading-[1.1] sm:leading-[1.3] font-poppins block transition-colors duration-300 group-hover:text-[#0F3124]">
                     {stat.label}
                   </div>
                 </motion.div>

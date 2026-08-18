@@ -26,21 +26,6 @@ export default function ContactSection() {
             {/* Ambient Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-[#FFB800]/10 to-[#2E7D32]/10 blur-[100px] rounded-full pointer-events-none -z-10"></div>
 
-            {/* Eyebrow */}
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="mb-6 ml-4 lg:ml-6"
-            >
-              <div className="relative inline-flex items-center justify-center">
-                <img src="/bg/yellowBadgeStroke.png" alt="badge" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[250%] object-fill -z-10 pointer-events-none" />
-                <span className="relative z-10 text-xs sm:text-sm font-bold tracking-widest uppercase text-[#0B132B] px-3 py-1 whitespace-nowrap">
-                  START A PROJECT
-                </span>
-              </div>
-            </motion.div>
-
             {/* Main Heading */}
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}

@@ -26,21 +26,6 @@ export default function WorksSection() {
           {/* ========================================================================= */}
           <div className="w-full lg:col-span-7 xl:col-span-7 order-1 lg:order-2 flex flex-col items-start text-left relative z-20">
             
-            {/* Eyebrow */}
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-6 mt-4 lg:mt-0 ml-4 lg:ml-0"
-            >
-              <div className="relative inline-flex items-center justify-center">
-                <img src="/bg/yellowBadgeStroke.png" alt="badge" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[250%] object-fill -z-10 pointer-events-none" />
-                <span className="relative z-10 text-xs sm:text-sm font-bold tracking-widest uppercase text-[#0B132B] px-3 py-1 whitespace-nowrap">
-                  OUR PARTNERS
-                </span>
-              </div>
-            </motion.div>
-
             {/* Main Heading */}
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}

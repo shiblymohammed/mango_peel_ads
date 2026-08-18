@@ -10,7 +10,6 @@ export default function AboutSection() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const paragraphRef = useRef<HTMLDivElement>(null);
   const featureBarRef = useRef<HTMLDivElement>(null);
-  const quoteRef = useRef<HTMLDivElement>(null);
 
   const features = [
     {
@@ -39,20 +38,6 @@ export default function AboutSection() {
     gsap.registerPlugin(ScrollTrigger);
     
     let ctx = gsap.context(() => {
-      // 1. Wavy Badge Entrance & Parallax
-      gsap.from('.wavy-badge', {
-        scrollTrigger: { trigger: '.wavy-badge', start: "top 85%" },
-        scale: 0,
-        rotation: -45,
-        opacity: 0,
-        duration: 1.5,
-        ease: "elastic.out(1, 0.6)"
-      });
-      gsap.to('.wavy-badge', {
-        scrollTrigger: { trigger: sectionRef.current, start: "top bottom", end: "bottom top", scrub: 1 },
-        y: -120,
-        ease: "none"
-      });
 
       // 2. Headline Entrance
       gsap.from(headlineRef.current, {
@@ -90,14 +75,6 @@ export default function AboutSection() {
         ease: "back.out(1.5)"
       });
 
-      // 5. Quote Card Entrance
-      gsap.from(quoteRef.current, {
-        scrollTrigger: { trigger: quoteRef.current, start: "top 85%" },
-        x: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out"
-      });
 
     }, sectionRef);
 
@@ -134,14 +111,6 @@ export default function AboutSection() {
               
               {/* Left Text */}
               <div className="flex-1">
-                {/* Eyebrow */}
-                <div className="mb-6">
-                  <div className="relative inline-flex items-center justify-center">
-                    <img src="/bg/yellowBadgeStroke.png" alt="badge" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[250%] object-fill -z-10 pointer-events-none" />
-                    <span className="relative z-10 text-xs sm:text-sm font-bold tracking-widest uppercase text-[#0B132B] px-3 py-1 whitespace-nowrap">ABOUT US</span>
-                  </div>
-                </div>
-
                 {/* Headline */}
                 <h2 ref={headlineRef} className="font-mileast font-extrabold text-[#0B132B] text-4xl sm:text-6xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight relative z-10">
                   <div className="flex items-center relative inline-block">
@@ -244,37 +213,6 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* BOTTOM ROW: Quote */}
-            <div
-              ref={quoteRef}
-              className="mt-10 xl:mt-12 w-full max-w-[560px] bg-[#FFF8E7] p-6 flex flex-col sm:flex-row items-center gap-6 relative border border-[#FFB800]/10 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:-translate-y-1 transition-transform duration-500"
-              style={{ borderRadius: '15px 255px 15px 225px / 255px 15px 225px 15px' }}
-            >
-              {/* Big Quote marks */}
-              <div className="absolute top-4 left-5 text-6xl font-serif text-[#FFB800] opacity-40 leading-none select-none">
-                &ldquo;
-              </div>
-              
-              <div className="flex-1 relative z-10 pl-6">
-                <h3 className="font-poppins font-bold text-[#0B132B] text-lg xl:text-[19px] leading-snug mb-2">
-                  People don't buy products. <br className="hidden sm:block"/>
-                  They buy stories.
-                </h3>
-                <svg width="100" height="6" viewBox="0 0 140 8" fill="none" className="mt-1">
-                  <path d="M2 6C30 2 110 2 138 6" stroke="#FFB800" strokeWidth="4" strokeLinecap="round"/>
-                </svg>
-              </div>
-
-              <div className="hidden sm:block w-[1px] h-12 bg-[#E5D7C2]/60" />
-
-              <div className="flex flex-col items-center justify-center shrink-0 pr-2">
-                {/* Simple Avatar outline */}
-                <div className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center bg-[#FAF8F3] mb-2 overflow-hidden">
-                  <img src="/seth.jpg" alt="Seth Godin" className="w-full h-full object-cover" />
-                </div>
-                <span className="font-poppins font-bold text-[11px] text-[#0B132B] tracking-wide">– Seth Godin</span>
-              </div>
-            </div>
 
           </div>
         </div>

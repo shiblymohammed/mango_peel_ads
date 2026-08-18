@@ -16,11 +16,11 @@ export const teamMembers: TeamMember[] = [
     name: "Annie",
     role: "Co Founder & Head of Operations",
     imageSrc: "/assets/team/Annie_Co Founder-_Head-of-Operations.png",
-    skills: "Operations • Management • Planning"
+    skills: "Operations • Management"
   },
   {
     name: "Hari",
-    role: "Consultant & Creative Director",
+    role: "Consultant Creative Director",
     imageSrc: "/assets/team/Hari_Consultant_Creative-Director.png",
     skills: "Creative Direction • Consulting"
   },

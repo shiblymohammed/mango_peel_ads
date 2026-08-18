@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const services = [
   {
     icon: Flame,
-    title: "Social Media Content",
+    title: "Creative Campaigns",
     desc: "Engaging, scroll-stopping content designed natively for every platform to build your community."
   },
   {
@@ -29,7 +29,7 @@ const services = [
   },
   {
     icon: Radar,
-    title: "Digital Marketing",
+    title: "Corporate Films",
     desc: "Data-driven marketing strategies and paid media to maximize your reach and conversions."
   }
 ];
@@ -90,10 +90,6 @@ export default function ServicesSection() {
             
             {/* Title Section */}
             <div ref={titleRef} className="w-full mb-12">
-              <div className="relative inline-flex items-center justify-center">
-                <img src="/bg/yellowBadgeStroke.png" alt="badge" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[250%] object-fill -z-10 pointer-events-none" />
-                <span className="relative z-10 text-xs sm:text-sm font-bold tracking-widest uppercase text-[#0B132B] px-3 py-1 whitespace-nowrap">WHAT WE DO</span>
-              </div>
               <h2 className="font-mileast font-extrabold text-[#0B132B] text-4xl sm:text-6xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight mt-4">
                 We <span className="text-[#2E7D32]">Create.</span> You <span className="text-[#2E7D32]">Connect.</span><br/>
                 We <span className="text-[#FFB800]">Make</span> It Matter.

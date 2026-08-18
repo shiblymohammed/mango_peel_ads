@@ -21,7 +21,7 @@ export default function ContactSection() {
           {/* ========================================================================= */}
           {/* RIGHT COLUMN: CONTACT TYPOGRAPHY & FORM                                   */}
           {/* ========================================================================= */}
-          <div className="w-full lg:col-span-7 xl:col-span-7 order-1 lg:order-2 flex flex-col items-start text-left relative z-20">
+          <div className="w-full lg:col-span-7 xl:col-span-7 order-1 lg:order-2 flex flex-col items-center lg:items-start text-left relative z-20">
             
             {/* Ambient Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-[#FFB800]/10 to-[#2E7D32]/10 blur-[100px] rounded-full pointer-events-none -z-10"></div>
@@ -32,10 +32,10 @@ export default function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="font-mileast font-extrabold text-[#0B132B] text-4xl sm:text-6xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight mb-8 sm:mb-12 flex flex-col gap-1 select-none"
+              className="font-mileast font-extrabold text-[#0B132B] text-4xl sm:text-6xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight mb-8 sm:mb-12 flex flex-col gap-1 select-none text-center lg:text-left"
             >
               <span>Ready to <span className="text-[#FFB800] drop-shadow-sm">Peel</span></span>
-              <span className="text-[#2E7D32] drop-shadow-sm relative w-max">
+              <span className="text-[#2E7D32] drop-shadow-sm relative w-max mx-auto lg:mx-0">
                 The Ordinary?
               </span>
             </motion.h2>

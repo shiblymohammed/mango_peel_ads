@@ -86,7 +86,7 @@ export default function ServicesSection() {
           </div>
 
           {/* RIGHT COLUMN: Content */}
-          <div className="w-full lg:col-span-7 xl:col-span-7 flex flex-col items-start text-left relative z-10 pt-10 lg:pt-0 pointer-events-auto">
+          <div className="w-full lg:col-span-7 xl:col-span-7 flex flex-col items-center text-center lg:items-start lg:text-left relative z-10 pt-10 lg:pt-0 pointer-events-auto">
             
             {/* Title Section */}
             <div ref={titleRef} className="w-full mb-12">
@@ -98,7 +98,7 @@ export default function ServicesSection() {
                 From scroll-stopping content to performance-driven campaigns,<br className="hidden sm:block" />
                 we create, connect and convert across every platform.
                 {/* Green scribbled underline */}
-                <svg width="220" height="12" viewBox="0 0 200 12" fill="none" className="absolute -bottom-3 left-1/2 -translate-x-1/2 sm:left-10 sm:translate-x-0">
+                <svg width="220" height="12" viewBox="0 0 200 12" fill="none" className="absolute -bottom-3 left-1/2 -translate-x-1/2 lg:left-10 lg:translate-x-0">
                   <path d="M2 8C50 2 150 2 198 8" stroke="#2E7D32" strokeWidth="3" strokeLinecap="round" vectorEffect="non-scaling-stroke"/>
                   <path d="M15 10C70 5 130 9 180 7" stroke="#2E7D32" strokeWidth="2" strokeLinecap="round" vectorEffect="non-scaling-stroke"/>
                 </svg>

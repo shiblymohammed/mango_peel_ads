@@ -24,7 +24,7 @@ export default function WorksSection() {
           {/* ========================================================================= */}
           {/* RIGHT COLUMN: OUR CLIENTS TYPOGRAPHY & LOGOS                             */}
           {/* ========================================================================= */}
-          <div className="w-full lg:col-span-7 xl:col-span-7 order-1 lg:order-2 flex flex-col items-start text-left relative z-20">
+          <div className="w-full lg:col-span-7 xl:col-span-7 order-1 lg:order-2 flex flex-col items-center text-center lg:items-start lg:text-left relative z-20">
             
             {/* Main Heading */}
             <motion.h2 
@@ -32,7 +32,7 @@ export default function WorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="font-mileast font-extrabold text-[#0B132B] text-4xl sm:text-6xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight mb-5 flex flex-wrap gap-x-4 select-none"
+              className="font-mileast font-extrabold text-[#0B132B] text-4xl sm:text-6xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight mb-5 flex flex-wrap justify-center lg:justify-start gap-x-4 select-none"
             >
               <span>Trusted <span className="text-[#FFB800] drop-shadow-md">by</span></span>
               <span className="text-[#2E7D32] drop-shadow-md relative">

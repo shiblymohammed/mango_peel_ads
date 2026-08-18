@@ -100,7 +100,7 @@ export function MangoModel(props: any) {
     const targetPosY = 0; 
 
     // Responsive scaling
-    const isMobile = window.innerWidth < 768;
+    const isMobile = window.innerWidth < 1024;
     const m = isMobile ? 0.4 : 1.0; // Shrink the sway even more on mobile
 
     // Extra hero section animation: larger and extra tilted at the very top

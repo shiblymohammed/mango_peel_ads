@@ -50,12 +50,12 @@ export default function HeroSection() {
             initial={{ opacity: 0, x: -35 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-            className="w-full lg:col-span-7 xl:col-span-7 order-1 lg:order-2 flex flex-col items-center sm:items-start text-center sm:text-left relative pt-[45vh] sm:pt-[50vh] lg:pt-0 lg:ml-4 xl:ml-8 max-w-full sm:max-w-2xl xl:max-w-3xl"
+            className="w-full lg:col-span-7 xl:col-span-7 order-1 lg:order-2 flex flex-col items-center lg:items-start text-center lg:text-left relative pt-[45vh] sm:pt-[50vh] md:pt-[45vh] lg:pt-0 lg:ml-4 xl:ml-8 max-w-full sm:max-w-2xl md:max-w-3xl xl:max-w-3xl"
           >
             {/* Main Display Headline */}
             <h1 className="font-mileast font-extrabold tracking-tight select-none relative z-20 flex flex-col items-center sm:items-start gap-y-0 sm:gap-y-1 md:gap-y-2 text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[88px] 2xl:text-[98px] leading-[1.0] sm:leading-[0.95] md:leading-[0.92]">
               {/* Line 1 */}
-              <div className="flex flex-wrap justify-center sm:justify-start gap-x-1.5 sm:gap-x-3 md:gap-x-4">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-x-1.5 sm:gap-x-3 md:gap-x-4">
                 <motion.span
                   initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -75,7 +75,7 @@ export default function HeroSection() {
               </div>
 
               {/* Line 2 */}
-              <div className="flex flex-wrap justify-center sm:justify-start gap-x-1.5 sm:gap-x-3 md:gap-x-4 relative w-fit mt-0.5 sm:mt-2">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-x-1.5 sm:gap-x-3 md:gap-x-4 relative w-fit mt-0.5 sm:mt-2">
                 <motion.span
                   initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -111,7 +111,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="mt-4 sm:mt-12 flex flex-row flex-wrap items-center sm:items-start gap-3 sm:gap-6 relative z-20 w-full justify-center sm:justify-start"
+              className="mt-4 sm:mt-12 flex flex-row flex-wrap items-center lg:items-start gap-3 sm:gap-6 relative z-20 w-full justify-center lg:justify-start"
             >
               {/* Primary CTA */}
               <Link

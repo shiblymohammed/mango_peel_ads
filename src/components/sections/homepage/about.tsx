@@ -104,13 +104,13 @@ export default function AboutSection() {
           </div>
 
           {/* RIGHT COLUMN: Typography & Content */}
-          <div className="w-full lg:col-span-7 xl:col-span-7 flex flex-col items-center sm:items-start text-center sm:text-left relative z-10 order-1 lg:order-2 pt-12 sm:pt-16 lg:pt-0">
+          <div className="w-full lg:col-span-7 xl:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left relative z-10 order-1 lg:order-2 pt-12 sm:pt-16 lg:pt-0">
             
             {/* TOP ROW: Text & Button */}
-            <div className="flex flex-col xl:flex-row justify-between items-center sm:items-start gap-10 xl:gap-8 w-full">
+            <div className="flex flex-col xl:flex-row justify-between items-center lg:items-start gap-10 xl:gap-8 w-full">
               
               {/* Left Text */}
-              <div className="flex-1 flex flex-col items-center sm:items-start">
+              <div className="flex-1 flex flex-col items-center lg:items-start">
                 {/* Headline */}
                 <h2 ref={headlineRef} className="font-mileast font-extrabold text-[#0B132B] text-5xl sm:text-6xl lg:text-[64px] xl:text-[72px] leading-[1.0] sm:leading-[1.1] tracking-tight relative z-10">
                   <div className="flex items-center relative inline-block">
@@ -123,7 +123,7 @@ export default function AboutSection() {
                     </svg>
                   </div>
                   <br />
-                  <div className="flex items-baseline justify-center sm:justify-start relative inline-block mt-2">
+                  <div className="flex items-baseline justify-center lg:justify-start relative inline-block mt-2">
                     Really <span className="text-[#2E7D32] ml-3 sm:ml-4 lg:ml-5">Are</span><span className="text-[#FFB800]">.</span>
                     {/* Green squiggly line */}
                     <svg viewBox="0 0 100 10" fill="none" className="absolute -bottom-3 left-0 w-16 sm:-bottom-4 sm:w-[100px] h-2 sm:h-2.5">

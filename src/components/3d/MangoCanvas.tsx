@@ -119,18 +119,24 @@ export default function MangoCanvas() {
 }
 
 function ResponsiveMango() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [screenSize, setScreenSize] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 1024);
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 768) setScreenSize('mobile');
+      else if (width < 1024) setScreenSize('tablet');
+      else setScreenSize('desktop');
+    };
     handleResize(); // initial check
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const mangoPos: [number, number, number] = isMobile ? [0, 4.2, 0] : [-3.3, 3.8, 0];
-  const shadowPos: [number, number, number] = isMobile ? [0, 1.0, 0] : [-3.3, -1.0, 0];
-  const mangoScale = isMobile ? 4.5 : 7.0;
+  const isSmall = screenSize !== 'desktop';
+  const mangoPos: [number, number, number] = isSmall ? [0, 4.2, 0] : [-3.3, 3.8, 0];
+  const shadowPos: [number, number, number] = isSmall ? [0, 1.0, 0] : [-3.3, -1.0, 0];
+  const mangoScale = screenSize === 'mobile' ? 4.5 : screenSize === 'tablet' ? 4.0 : 7.0;
 
   return (
     <>
@@ -138,7 +144,7 @@ function ResponsiveMango() {
         <ContactShadows 
           position={shadowPos} 
           opacity={0.35} 
-          scale={isMobile ? 25 : 35} 
+          scale={isSmall ? 25 : 35} 
           blur={3.5} 
           far={15} 
           color="#0F172A" 
@@ -147,7 +153,7 @@ function ResponsiveMango() {
         <ContactShadows 
           position={shadowPos} 
           opacity={0.65} 
-          scale={isMobile ? 10 : 15} 
+          scale={isSmall ? 10 : 15} 
           blur={1.2} 
           far={10} 
           color="#1A4314" 

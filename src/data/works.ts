@@ -183,6 +183,14 @@ export const horizontalWorks: WorkItem[] = [
     type: "image",
     aspect: "landscape",
   },
+  {
+    id: 35,
+    title: "Behind The Scenes",
+    category: "Case Studies",
+    thumbnail: "https://res.cloudinary.com/dqxyp7emm/video/upload/so_2,c_fill,g_auto,w_1200,h_675,f_webp,q_auto/v1787035861/Bts_Final_jcnlxt.webp",
+    videoUrl: "https://res.cloudinary.com/dqxyp7emm/video/upload/v1787035861/Bts_Final_jcnlxt.mp4",
+    aspect: "landscape",
+  },
 ];
 
 /* ===== VERTICAL (PORTRAIT) WORKS ===== */
@@ -379,6 +387,7 @@ export const verticalWorks: WorkItem[] = [
 
 export const allWorks: WorkItem[] = [
   // --- Column 1 ---
+  horizontalWorks[16],
   horizontalWorks[0],
   verticalWorks[0],
   horizontalWorks[5],

@@ -10,7 +10,9 @@ import { allWorks, type WorkItem } from "@/data/works";
 
 const categories = [
   "All",
-  ...Array.from(new Set([...allWorks.map((w) => w.category), "Case Studies"])),
+  "Videography",
+  "Photography",
+  "Case Studies",
 ];
 
 /* ------------------------------------------------------------------ */

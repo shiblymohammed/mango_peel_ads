@@ -112,7 +112,7 @@ export default function AboutSection() {
               {/* Left Text */}
               <div className="flex-1 flex flex-col items-center lg:items-start">
                 {/* Headline */}
-                <h2 ref={headlineRef} className="font-mileast font-extrabold text-[#0B132B] text-2xl xs:text-3xl sm:text-5xl lg:text-[64px] xl:text-[72px] leading-[1.0] sm:leading-[1.1] tracking-tight relative z-10">
+                <h2 ref={headlineRef} className="font-mileast font-extrabold text-[#0B132B] text-[32px] xs:text-[40px] sm:text-5xl lg:text-[64px] xl:text-[72px] leading-[1.0] sm:leading-[1.1] tracking-tight relative z-10">
                   <div className="flex items-center relative inline-block">
                     Who We
                     {/* Yellow Burst */}
@@ -133,7 +133,7 @@ export default function AboutSection() {
                 </h2>
 
                 {/* Paragraphs */}
-                <div ref={paragraphRef} className="mt-6 text-[#475569] font-poppins text-[10px] xs:text-xs sm:text-lg leading-relaxed max-w-[500px]">
+                <div ref={paragraphRef} className="mt-6 text-[#475569] font-poppins text-[14px] xs:text-[15px] sm:text-lg leading-relaxed max-w-[500px]">
                   <p className="mb-3 sm:mb-6 font-medium">
                     We're a creative advertising agency that turns ideas into impactful stories. We blend creativity, strategy and storytelling to build brands people love and remember.
                   </p>
@@ -151,14 +151,14 @@ export default function AboutSection() {
               </div>
 
               {/* Right Button (Watch Our Story) */}
-              <div className="relative w-32 h-32 xs:w-36 xs:h-36 sm:w-40 sm:h-40 xl:w-48 xl:h-48 flex items-center justify-center shrink-0 mt-4 xl:mt-12 xl:mr-10 self-center lg:self-start cursor-pointer group">
+              <div className="relative w-40 h-40 xs:w-44 xs:h-44 sm:w-40 sm:h-40 xl:w-48 xl:h-48 flex items-center justify-center shrink-0 mt-4 xl:mt-12 xl:mr-10 self-center lg:self-start cursor-pointer group">
                 {/* Dashed Circle */}
                 <div className="absolute inset-4 xl:inset-5 border-[1.5px] border-dashed border-[#2E7D32]/30 rounded-full lg:group-hover:border-[#2E7D32]/60 transition-colors" />
                 
                 {/* Spinning Text */}
                 <svg className="absolute inset-0 w-full h-full animate-[spin_15s_linear_infinite]" viewBox="0 0 100 100">
                   <path id="textPath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
-                  <text className="text-[9px] xs:text-[10px] font-bold tracking-[0.2em] fill-[#0B132B] uppercase">
+                  <text className="text-[12px] xs:text-[14px] font-bold tracking-[0.2em] fill-[#0B132B] uppercase">
                     <textPath href="#textPath" startOffset="0%">WATCH OUR STORY • WATCH OUR STORY • </textPath>
                   </text>
                 </svg>

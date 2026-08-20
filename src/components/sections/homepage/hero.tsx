@@ -53,7 +53,7 @@ export default function HeroSection() {
             className="w-full col-span-7 order-2 flex flex-col items-start text-left relative pt-0 lg:ml-4 xl:ml-8 max-w-full sm:max-w-2xl md:max-w-3xl xl:max-w-3xl"
           >
             {/* Main Display Headline */}
-            <h1 className="font-mileast font-extrabold tracking-tight select-none relative z-20 flex flex-col items-start gap-y-0 sm:gap-y-1 md:gap-y-2 text-[22px] xs:text-3xl sm:text-4xl md:text-5xl lg:text-[76px] xl:text-[88px] 2xl:text-[98px] leading-[1.0] sm:leading-[0.95] md:leading-[0.92]">
+            <h1 className="font-mileast font-extrabold tracking-tight select-none relative z-20 flex flex-col items-start gap-y-0 sm:gap-y-1 md:gap-y-2 text-[32px] xs:text-[40px] sm:text-4xl md:text-5xl lg:text-[76px] xl:text-[88px] 2xl:text-[98px] leading-[1.0] sm:leading-[0.95] md:leading-[0.92]">
               {/* Line 1 */}
               <div className="flex flex-wrap justify-start gap-x-1 sm:gap-x-1.5 md:gap-x-4">
                 <motion.span
@@ -100,7 +100,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.65 }}
-              className="font-poppins text-[#64748B] text-[9px] xs:text-[10px] sm:text-xs lg:text-[17px] font-medium leading-[1.3] sm:leading-[1.4] lg:leading-[1.6] mt-2 sm:mt-4 lg:mt-8 max-w-[90%] sm:max-w-md lg:max-w-none lg:whitespace-nowrap relative z-20"
+              className="font-poppins text-[#64748B] text-[13px] xs:text-[15px] sm:text-xs lg:text-[17px] font-medium leading-[1.3] sm:leading-[1.4] lg:leading-[1.6] mt-2 sm:mt-4 lg:mt-8 max-w-[90%] sm:max-w-md lg:max-w-none lg:whitespace-nowrap relative z-20"
             >
               We&apos;re a creative advertising agency that builds stories, sparks emotions,<br /> and delivers real results for brands that dare to{" "}
               <span className="font-bold text-[#1F2937]">stand out.</span>
@@ -120,7 +120,7 @@ export default function HeroSection() {
               >
                 <div className="absolute inset-0 bg-[#F0A202] translate-y-full lg:group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]" />
                 
-                <span className="relative z-10 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-white lg:group-hover:text-[#0F3124] transition-colors duration-500">
+                <span className="relative z-10 text-[14px] sm:text-[15px] font-bold tracking-[0.2em] uppercase text-white lg:group-hover:text-[#0F3124] transition-colors duration-500">
                   View Our Work
                 </span>
                 <ArrowUpRight className="relative z-10 w-3 h-3 sm:w-4 sm:h-4 text-white lg:group-hover:text-[#0F3124] transition-all duration-500 lg:group-hover:rotate-45" />
@@ -134,7 +134,7 @@ export default function HeroSection() {
                 <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-[#F0A202]/20 flex items-center justify-center lg:group-hover:bg-[#F0A202] transition-colors duration-500">
                    <Briefcase className="w-3 h-3 sm:w-4 sm:h-4 text-[#F0A202] lg:group-hover:text-black transition-colors duration-500" strokeWidth={2.5} />
                 </div>
-                <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-[#0F172A]">
+                <span className="text-[14px] sm:text-[15px] font-bold tracking-[0.2em] uppercase text-[#0F172A]">
                   Our Services
                 </span>
               </Link>
@@ -175,10 +175,10 @@ export default function HeroSection() {
                   {/* Divider line */}
                   <div className={`absolute right-[-4px] sm:right-[-12px] top-[15%] h-[70%] w-[1px] bg-[#0F3124]/20 ${index === 3 ? 'hidden' : ''} ${index === 1 ? 'hidden sm:block' : ''}`} />
 
-                  <div className="relative z-10 text-xl xs:text-2xl sm:text-3xl lg:text-[46px] font-extrabold text-[#0F3124] font-mileast leading-none mb-0.5 sm:mb-1 lg:mb-2 mt-0 sm:mt-1 lg:mt-2 transition-transform duration-300 lg:group-hover:-translate-y-1 lg:group-hover:scale-105 lg:group-hover:text-[#2E7D32]">
+                  <div className="relative z-10 text-[32px] xs:text-[36px] sm:text-3xl lg:text-[46px] font-extrabold text-[#0F3124] font-mileast leading-none mb-0.5 sm:mb-1 lg:mb-2 mt-0 sm:mt-1 lg:mt-2 transition-transform duration-300 lg:group-hover:-translate-y-1 lg:group-hover:scale-105 lg:group-hover:text-[#2E7D32]">
                     <Counter value={stat.value} suffix={stat.suffix} />
                   </div>
-                  <div className="relative z-10 text-[7px] xs:text-[8px] sm:text-[9px] lg:text-[13px] font-bold text-[#0F3124]/70 uppercase tracking-[0.05em] sm:tracking-[0.1em] lg:tracking-[0.15em] whitespace-pre-line leading-[1.0] sm:leading-[1.1] lg:leading-[1.3] font-poppins block transition-colors duration-300 lg:group-hover:text-[#0F3124]">
+                  <div className="relative z-10 text-[11px] xs:text-[12px] sm:text-[9px] lg:text-[13px] font-bold text-[#0F3124]/70 uppercase tracking-[0.05em] sm:tracking-[0.1em] lg:tracking-[0.15em] whitespace-pre-line leading-[1.0] sm:leading-[1.1] lg:leading-[1.3] font-poppins block transition-colors duration-300 lg:group-hover:text-[#0F3124]">
                     {stat.label}
                   </div>
                 </motion.div>

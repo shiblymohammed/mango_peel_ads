@@ -32,7 +32,7 @@ export default function WorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="font-mileast font-extrabold text-[#0B132B] text-[22px] xs:text-3xl sm:text-5xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight mb-2 sm:mb-5 flex flex-wrap justify-start gap-x-2 sm:gap-x-4 select-none"
+              className="font-mileast font-extrabold text-[#0B132B] text-[32px] xs:text-[40px] sm:text-5xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight mb-2 sm:mb-5 flex flex-wrap justify-start gap-x-2 sm:gap-x-4 select-none"
             >
               <span>Trusted <span className="text-[#FFB800] drop-shadow-md">by</span></span>
               <span className="text-[#2E7D32] drop-shadow-md relative">
@@ -46,7 +46,7 @@ export default function WorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="font-poppins text-[#475569] text-[10px] xs:text-[11px] sm:text-lg leading-relaxed mb-4 sm:mb-8 mt-2 sm:mt-4 max-w-xl"
+              className="font-poppins text-[#475569] text-[14px] xs:text-[16px] sm:text-lg leading-relaxed mb-4 sm:mb-8 mt-2 sm:mt-4 max-w-xl"
             >
               We partner with industry leaders and ambitious challengers to deliver campaigns that disrupt markets and drive undeniable growth.
             </motion.p>
@@ -93,11 +93,11 @@ export default function WorksSection() {
             >
               <Link
                 href="/works"
-                className="group relative inline-flex items-center gap-1.5 sm:gap-3 px-4 py-2.5 sm:px-10 sm:py-5 rounded-full bg-[#0B132B] overflow-hidden shadow-[0_8px_20px_rgba(11,19,43,0.15)] lg:hover:shadow-[0_15px_30px_rgba(255,184,0,0.3)] transition-all duration-300 transform lg:hover:-translate-y-1"
+                className="group relative inline-flex items-center gap-1.5 sm:gap-3 px-7 py-3.5 sm:px-10 sm:py-5 rounded-full bg-[#0B132B] overflow-hidden shadow-[0_8px_20px_rgba(11,19,43,0.15)] lg:hover:shadow-[0_15px_30px_rgba(255,184,0,0.3)] transition-all duration-300 transform lg:hover:-translate-y-1"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[#FFB800] to-[#FF9800] translate-y-full lg:group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]"></div>
                 
-                <span className="relative z-10 font-poppins font-extrabold tracking-[0.15em] uppercase text-[10px] sm:text-[15px] text-white lg:group-hover:text-[#0B132B] transition-colors duration-500">
+                <span className="relative z-10 font-poppins font-extrabold tracking-[0.15em] uppercase text-[14px] sm:text-[15px] text-white lg:group-hover:text-[#0B132B] transition-colors duration-500">
                   SEE OUR WORK
                 </span>
                 <ArrowRight className="relative z-10 w-3 h-3 sm:w-5 sm:h-5 text-white lg:group-hover:text-[#0B132B] transition-all duration-500 lg:group-hover:translate-x-1" />

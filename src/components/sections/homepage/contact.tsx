@@ -32,7 +32,7 @@ export default function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="font-mileast font-extrabold text-[#0B132B] text-[22px] xs:text-3xl sm:text-5xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight mb-4 sm:mb-12 flex flex-col gap-0 sm:gap-1 select-none text-left"
+              className="font-mileast font-extrabold text-[#0B132B] text-[32px] xs:text-[40px] sm:text-5xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight mb-4 sm:mb-12 flex flex-col gap-0 sm:gap-1 select-none text-left"
             >
               <span>Ready to <span className="text-[#FFB800] drop-shadow-sm">Peel</span></span>
               <span className="text-[#2E7D32] drop-shadow-sm relative w-max mx-0">
@@ -52,28 +52,28 @@ export default function ContactSection() {
               <div className="flex flex-col gap-5 sm:gap-6 font-poppins w-full">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                   <div className="flex flex-col gap-2">
-                    <label className="text-[8px] xs:text-[9px] sm:text-sm font-bold text-[#0B132B] uppercase tracking-widest pl-1">Your Name</label>
+                    <label className="text-[12px] xs:text-[13px] sm:text-sm font-bold text-[#0B132B] uppercase tracking-widest pl-1">Your Name</label>
                     <input 
                       type="text" 
                       placeholder="John Doe" 
-                      className="w-full bg-white/50 border border-gray-300 focus:border-[#FFB800] focus:ring-2 focus:ring-[#FFB800]/20 rounded-xl sm:rounded-2xl px-2 py-2 sm:px-4 sm:py-3.5 text-[9px] xs:text-[10px] sm:text-base text-[#0B132B] focus:outline-none transition-all placeholder:text-gray-400" 
+                      className="w-full bg-white/50 border border-gray-300 focus:border-[#FFB800] focus:ring-2 focus:ring-[#FFB800]/20 rounded-xl sm:rounded-2xl px-3 py-3 sm:px-4 sm:py-3.5 text-[13px] xs:text-[14px] sm:text-base text-[#0B132B] focus:outline-none transition-all placeholder:text-gray-400" 
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-[8px] xs:text-[9px] sm:text-sm font-bold text-[#0B132B] uppercase tracking-widest pl-1">Email Address</label>
+                    <label className="text-[12px] xs:text-[13px] sm:text-sm font-bold text-[#0B132B] uppercase tracking-widest pl-1">Email Address</label>
                     <input 
                       type="email" 
                       placeholder="john@example.com" 
-                      className="w-full bg-white/50 border border-gray-300 focus:border-[#FFB800] focus:ring-2 focus:ring-[#FFB800]/20 rounded-xl sm:rounded-2xl px-2 py-2 sm:px-4 sm:py-3.5 text-[9px] xs:text-[10px] sm:text-base text-[#0B132B] focus:outline-none transition-all placeholder:text-gray-400" 
+                      className="w-full bg-white/50 border border-gray-300 focus:border-[#FFB800] focus:ring-2 focus:ring-[#FFB800]/20 rounded-xl sm:rounded-2xl px-3 py-3 sm:px-4 sm:py-3.5 text-[13px] xs:text-[14px] sm:text-base text-[#0B132B] focus:outline-none transition-all placeholder:text-gray-400" 
                     />
                   </div>
                 </div>
                 
                 <div className="flex flex-col gap-2">
-                  <label className="text-[8px] xs:text-[9px] sm:text-sm font-bold text-[#0B132B] uppercase tracking-widest pl-1">Project Type</label>
+                  <label className="text-[12px] xs:text-[13px] sm:text-sm font-bold text-[#0B132B] uppercase tracking-widest pl-1">Project Type</label>
                   <select 
                     defaultValue=""
-                    className="w-full bg-white/50 border border-gray-300 focus:border-[#FFB800] focus:ring-2 focus:ring-[#FFB800]/20 rounded-xl sm:rounded-2xl px-2 py-2 sm:px-4 sm:py-3.5 text-[9px] xs:text-[10px] sm:text-base text-[#0B132B] focus:outline-none transition-all appearance-none cursor-pointer"
+                    className="w-full bg-white/50 border border-gray-300 focus:border-[#FFB800] focus:ring-2 focus:ring-[#FFB800]/20 rounded-xl sm:rounded-2xl px-3 py-3 sm:px-4 sm:py-3.5 text-[13px] xs:text-[14px] sm:text-base text-[#0B132B] focus:outline-none transition-all appearance-none cursor-pointer"
                   >
                     <option value="" disabled>Select a project type...</option>
                     <option value="branding">Branding & Identity</option>
@@ -85,11 +85,11 @@ export default function ContactSection() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-[8px] xs:text-[9px] sm:text-sm font-bold text-[#0B132B] uppercase tracking-widest pl-1">Message</label>
+                  <label className="text-[12px] xs:text-[13px] sm:text-sm font-bold text-[#0B132B] uppercase tracking-widest pl-1">Message</label>
                   <textarea 
                     placeholder="Tell us about your project..." 
                     rows={4}
-                    className="w-full bg-white/50 border border-gray-300 focus:border-[#FFB800] focus:ring-2 focus:ring-[#FFB800]/20 rounded-xl sm:rounded-2xl px-2 py-2 sm:px-4 sm:py-3.5 text-[9px] xs:text-[10px] sm:text-base text-[#0B132B] focus:outline-none transition-all placeholder:text-gray-400 resize-none" 
+                    className="w-full bg-white/50 border border-gray-300 focus:border-[#FFB800] focus:ring-2 focus:ring-[#FFB800]/20 rounded-xl sm:rounded-2xl px-3 py-3 sm:px-4 sm:py-3.5 text-[13px] xs:text-[14px] sm:text-base text-[#0B132B] focus:outline-none transition-all placeholder:text-gray-400 resize-none" 
                   />
                 </div>
               </div>
@@ -97,10 +97,10 @@ export default function ContactSection() {
               <div className="mt-8 sm:mt-12 flex justify-start">
                 <button
                   type="submit"
-                  className="group relative inline-flex items-center gap-1.5 sm:gap-3 px-3 py-2 sm:px-6 sm:py-4 xs:px-10 xs:py-5 rounded-full bg-[#2E7D32] overflow-hidden shadow-[0_8px_20px_rgba(46,125,50,0.2)] lg:hover:shadow-[0_15px_30px_rgba(46,125,50,0.4)] transition-all duration-300 transform lg:hover:-translate-y-1 w-full xs:w-auto justify-center"
+                  className="group relative inline-flex items-center gap-1.5 sm:gap-3 px-5 py-3 sm:px-6 sm:py-4 xs:px-10 xs:py-5 rounded-full bg-[#2E7D32] overflow-hidden shadow-[0_8px_20px_rgba(46,125,50,0.2)] lg:hover:shadow-[0_15px_30px_rgba(46,125,50,0.4)] transition-all duration-300 transform lg:hover:-translate-y-1 w-full xs:w-auto justify-center"
                 >
                   <div className="absolute inset-0 bg-[#FFB800] translate-y-full lg:group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]"></div>
-                  <span className="relative z-10 font-poppins font-extrabold tracking-[0.15em] uppercase text-[9px] xs:text-[10px] sm:text-[15px] text-white lg:group-hover:text-[#0B132B] transition-colors duration-500">
+                  <span className="relative z-10 font-poppins font-extrabold tracking-[0.15em] uppercase text-[12px] xs:text-[14px] sm:text-[15px] text-white lg:group-hover:text-[#0B132B] transition-colors duration-500">
                     SEND INQUIRY
                   </span>
                   <ArrowRight className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 text-white lg:group-hover:text-[#0B132B] transition-all duration-500 lg:group-hover:translate-x-1" />

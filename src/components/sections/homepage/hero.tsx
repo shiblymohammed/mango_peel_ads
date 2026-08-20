@@ -128,16 +128,14 @@ export default function HeroSection() {
 
               {/* Secondary CTA - Minimalist Outline */}
               <Link
-                href="/showreel"
+                href="#services"
                 className="group inline-flex items-center justify-center gap-1.5 sm:gap-2 lg:gap-3 px-3 py-2 sm:px-6 sm:py-3 lg:px-10 lg:py-[18px] rounded-full border border-[#0F172A]/15 bg-transparent lg:hover:border-[#F0A202] lg:hover:bg-[#F0A202]/5 transition-all duration-500"
               >
                 <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-[#F0A202]/20 flex items-center justify-center lg:group-hover:bg-[#F0A202] transition-colors duration-500">
-                   <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="text-[#F0A202] lg:group-hover:text-black ml-0.5 transition-colors duration-500 w-2 h-2 sm:w-3 sm:h-3">
-                      <path d="M8 5v14l11-7z" />
-                   </svg>
+                   <Briefcase className="w-3 h-3 sm:w-4 sm:h-4 text-[#F0A202] lg:group-hover:text-black transition-colors duration-500" strokeWidth={2.5} />
                 </div>
                 <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-[#0F172A]">
-                  Showreel
+                  Our Services
                 </span>
               </Link>
             </motion.div>

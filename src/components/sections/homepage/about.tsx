@@ -174,7 +174,7 @@ export default function AboutSection() {
             {/* MIDDLE ROW: Feature Bar */}
             <div ref={featureBarRef} className="mt-12 xl:mt-16 w-full relative z-20 lg:hover:-translate-y-1 transition-transform duration-500">
               <div 
-                className="w-full bg-white/70 backdrop-blur-md px-2 py-4 sm:px-4 sm:py-8 lg:px-6 xl:px-8 lg:py-10 grid grid-cols-1 sm:grid-cols-4 gap-y-4 sm:gap-y-8 gap-x-2 shadow-sm relative overflow-hidden border-[1.5px] border-[#0B132B]/20 lg:hover:border-[#0B132B]/40 transition-colors"
+                className="w-full bg-white/70 backdrop-blur-md px-2 py-4 sm:px-4 sm:py-8 lg:px-6 xl:px-8 lg:py-10 grid grid-cols-2 sm:grid-cols-4 gap-y-4 sm:gap-y-8 gap-x-2 shadow-sm relative overflow-hidden border-[1.5px] border-[#0B132B]/20 lg:hover:border-[#0B132B]/40 transition-colors"
                 style={{ borderRadius: '24px' }}
               >
                 {features.map((feature, idx) => (

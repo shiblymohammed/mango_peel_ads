@@ -146,7 +146,7 @@ export default function Navbar() {
         <div className="flex-1 flex justify-end items-center gap-2.5 sm:gap-3">
           <Link 
             href="/contact"
-            className="group relative inline-flex items-center gap-1.5 sm:gap-2 bg-[#1A3626] px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 rounded-full overflow-hidden transition-all duration-500 shadow-sm hover:shadow-md active:scale-95"
+            className="hidden md:inline-flex group relative items-center gap-1.5 sm:gap-2 bg-[#1A3626] px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 rounded-full overflow-hidden transition-all duration-500 shadow-sm hover:shadow-md active:scale-95"
           >
             {/* Hover Sliding Background */}
             <div className="absolute inset-0 bg-[#FFB800] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]" />

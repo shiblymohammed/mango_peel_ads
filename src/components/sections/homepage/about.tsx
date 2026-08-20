@@ -84,7 +84,7 @@ export default function AboutSection() {
   return (
     <section ref={sectionRef} id="about" className="relative w-full py-12 lg:py-16 bg-transparent overflow-hidden">
       {/* Background Decor (Curve and Dots) */}
-      <div className="absolute top-0 right-0 w-full sm:w-[80%] lg:w-[60%] h-full bg-white/80 backdrop-blur-sm rounded-none sm:rounded-l-[150px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[60%] sm:w-[80%] lg:w-[60%] h-full bg-white/80 backdrop-blur-sm rounded-l-[30px] sm:rounded-l-[150px] pointer-events-none" />
       <div 
         className="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 opacity-20 pointer-events-none"
         style={{

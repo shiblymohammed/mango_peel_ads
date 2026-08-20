@@ -51,37 +51,35 @@ export default function WorksSection() {
               We partner with industry leaders and ambitious challengers to deliver campaigns that disrupt markets and drive undeniable growth.
             </motion.p>
 
-            {/* ALL IN ONE CLIENT LOGO */}
-            {/* ALL IN ONE CLIENT LOGO */}
-            <div className="w-full relative mt-12 mb-16 group cursor-pointer max-w-[600px]">
+            {/* CLIENT LOGOS GRID */}
+            <div className="w-full relative mt-12 mb-16 max-w-[600px]">
               <motion.div
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative w-full min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] flex items-center justify-center p-6 sm:p-8 lg:p-10 overflow-visible"
+                className="grid grid-cols-3 gap-6 sm:gap-8 lg:gap-10 items-center justify-items-center bg-transparent"
               >
-                {/* Ambient Glow on hover */}
-                <div 
-                    className="absolute inset-0 rounded-tr-[4.5rem] sm:rounded-tr-[6rem] opacity-0 lg:group-hover:opacity-45 blur-2xl transition-all duration-500 -z-10 pointer-events-none"
-                    style={{ backgroundColor: "#10B981" }}
-                />
-
-                {/* Background Shape */}
-                <div 
-                    className="absolute inset-0 w-full h-full rounded-tr-[4.5rem] sm:rounded-tr-[6rem] lg:group-hover:rounded-[2.5rem] sm:lg:group-hover:rounded-[3.5rem] overflow-hidden transition-all duration-500 ease-out lg:group-hover:shadow-[0_20px_40px_rgba(16,185,129,0.3)] lg:group-hover:brightness-105"
-                    style={{ backgroundColor: "#10B981" }}
-                >
-                    {/* Shine Line */}
-                    <div className="absolute inset-y-0 -left-[100px] w-20 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 lg:group-hover:translate-x-[1000px] transition-transform duration-1000 ease-in-out pointer-events-none" />
-                </div>
-                
-                {/* Image */}
-                <img
-                  src="/clients/AIOclientsLogos.png"
-                  alt="Our Clients"
-                  className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] lg:group-hover:scale-105 transition-all duration-500 ease-out pointer-events-none"
-                />
+                {[
+                  "Caritas.png",
+                  "Fruitomans.png",
+                  "Kerala-gov.png",
+                  "Melange.png",
+                  "Milma.png",
+                  "Pothys.png",
+                  "Quality.png",
+                  "Santa-monica.png",
+                  "Walkaroo.png",
+                  "ddrc.png"
+                ].map((logo, index) => (
+                  <div key={index} className="w-full relative flex items-center justify-center lg:hover:scale-110 transition-transform duration-300">
+                    <img
+                      src={`/clients/${logo}`}
+                      alt={`Client ${index + 1}`}
+                      className="max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] max-h-[60px] sm:max-h-[80px] object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.05)] opacity-80 lg:hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </div>
+                ))}
               </motion.div>
             </div>
 

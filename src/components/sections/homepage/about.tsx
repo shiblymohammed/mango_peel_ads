@@ -94,17 +94,17 @@ export default function AboutSection() {
       />
 
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-12 items-center">
+        <div className="grid grid-cols-12 gap-2 sm:gap-4 md:gap-8 lg:gap-8 xl:gap-12 items-center">
           
           {/* LEFT COLUMN: Reserved for 3D Scene */}
-          <div className="w-full lg:col-span-5 xl:col-span-5 order-2 lg:order-1 hidden lg:flex min-h-[300px] sm:min-h-[400px] relative flex-col items-center lg:items-start justify-end pb-10 pointer-events-none">
+          <div className="w-full col-span-5 order-1 flex min-h-[250px] sm:min-h-[400px] relative flex-col items-center lg:items-start justify-end pb-10 pointer-events-none">
             {/* Left side reserved for your 3D scene (Mango) */}
             
             {/* Left side reserved for your 3D scene (Mango) */}
           </div>
 
           {/* RIGHT COLUMN: Typography & Content */}
-          <div className="w-full lg:col-span-7 xl:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left relative z-10 order-1 lg:order-2 pt-12 sm:pt-16 lg:pt-0">
+          <div className="w-full col-span-7 flex flex-col items-start text-left relative z-10 order-2 pt-0 sm:pt-16 lg:pt-0">
             
             {/* TOP ROW: Text & Button */}
             <div className="flex flex-col xl:flex-row justify-between items-center lg:items-start gap-10 xl:gap-8 w-full">
@@ -112,7 +112,7 @@ export default function AboutSection() {
               {/* Left Text */}
               <div className="flex-1 flex flex-col items-center lg:items-start">
                 {/* Headline */}
-                <h2 ref={headlineRef} className="font-mileast font-extrabold text-[#0B132B] text-5xl sm:text-6xl lg:text-[64px] xl:text-[72px] leading-[1.0] sm:leading-[1.1] tracking-tight relative z-10">
+                <h2 ref={headlineRef} className="font-mileast font-extrabold text-[#0B132B] text-2xl xs:text-3xl sm:text-5xl lg:text-[64px] xl:text-[72px] leading-[1.0] sm:leading-[1.1] tracking-tight relative z-10">
                   <div className="flex items-center relative inline-block">
                     Who We
                     {/* Yellow Burst */}
@@ -133,8 +133,8 @@ export default function AboutSection() {
                 </h2>
 
                 {/* Paragraphs */}
-                <div ref={paragraphRef} className="mt-6 text-[#475569] font-poppins text-[15px] sm:text-lg leading-relaxed max-w-[500px]">
-                  <p className="mb-5 sm:mb-6 font-medium">
+                <div ref={paragraphRef} className="mt-6 text-[#475569] font-poppins text-[10px] xs:text-xs sm:text-lg leading-relaxed max-w-[500px]">
+                  <p className="mb-3 sm:mb-6 font-medium">
                     We're a creative advertising agency that turns ideas into impactful stories. We blend creativity, strategy and storytelling to build brands people love and remember.
                   </p>
                   <p className="font-bold text-[#2E7D32]">
@@ -174,7 +174,7 @@ export default function AboutSection() {
             {/* MIDDLE ROW: Feature Bar */}
             <div ref={featureBarRef} className="mt-12 xl:mt-16 w-full relative z-20 lg:hover:-translate-y-1 transition-transform duration-500">
               <div 
-                className="w-full bg-white/70 backdrop-blur-md px-4 py-8 lg:px-6 xl:px-8 lg:py-10 grid grid-cols-2 sm:grid-cols-4 gap-y-8 gap-x-2 shadow-sm relative overflow-hidden border-[1.5px] border-[#0B132B]/20 lg:hover:border-[#0B132B]/40 transition-colors"
+                className="w-full bg-white/70 backdrop-blur-md px-2 py-4 sm:px-4 sm:py-8 lg:px-6 xl:px-8 lg:py-10 grid grid-cols-1 sm:grid-cols-4 gap-y-4 sm:gap-y-8 gap-x-2 shadow-sm relative overflow-hidden border-[1.5px] border-[#0B132B]/20 lg:hover:border-[#0B132B]/40 transition-colors"
                 style={{ borderRadius: '24px' }}
               >
                 {features.map((feature, idx) => (

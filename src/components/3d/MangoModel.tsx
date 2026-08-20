@@ -39,22 +39,26 @@ export function MangoModel(props: any) {
 
   // Setup GSAP ScrollTrigger and Entrance Animation
   useGSAP(() => {
-    // 1. Fast, spinning entrance drop
+    // 1. Fast, spinning entrance drop (Desktop only)
     if (outerGroup.current) {
-      gsap.from(outerGroup.current.position, {
-        y: 10,
-        duration: 1.5, // Slower drop
-        ease: "power2.out",
-        delay: 0.4
-      });
-      gsap.from(outerGroup.current.rotation, {
-        x: Math.PI / 2,
-        y: Math.PI,
-        z: Math.PI / 4,
-        duration: 2.0, // Slower spin
-        ease: "power2.out",
-        delay: 0.4
-      });
+      const isMobile = window.innerWidth < 1024;
+      
+      if (!isMobile) {
+        gsap.from(outerGroup.current.position, {
+          y: 10,
+          duration: 1.5, // Slower drop
+          ease: "power2.out",
+          delay: 0.4
+        });
+        gsap.from(outerGroup.current.rotation, {
+          x: Math.PI / 2,
+          y: Math.PI,
+          z: Math.PI / 4,
+          duration: 2.0, // Slower spin
+          ease: "power2.out",
+          delay: 0.4
+        });
+      }
     }
 
     // 2. ScrollTrigger
@@ -87,8 +91,7 @@ export function MangoModel(props: any) {
 
     const p = scrollProgress.current;
 
-    // Simplify the choreography to prevent the model from swinging off-screen
-    // We use continuous mathematical curves for an elegant, organic feel that stays centered
+    const isMobile = window.innerWidth < 1024;
     const targetRotY = p * Math.PI; // Rotates 180 degrees over the entire scroll
     
     // Subtle tilt on X and Z axes based on a sine wave of the scroll progress
@@ -97,27 +100,23 @@ export function MangoModel(props: any) {
     const targetRotZ = Math.cos(p * Math.PI * 2) * -0.05; 
     
     // Remove the drastic Y position shifts that were causing it to go off-screen
-    const targetPosY = 0; 
-
     // Responsive scaling
-    const isMobile = window.innerWidth < 1024;
-    const m = isMobile ? 0.4 : 1.0; // Shrink the sway even more on mobile
+    const m = isMobile ? 0.0 : 1.0; // Completely disable sway on mobile for optimization
 
     // Extra hero section animation: larger and extra tilted at the very top
     // Fades out by the time p reaches 0.15 (as they scroll past hero)
     const heroEffect = Math.max(0, 1 - p * 6.66); 
     
-    // On mobile, keep the initial size constant (1.25x). On desktop, shrink to normal size (1.0x).
-    const baseScale = isMobile ? 1.25 : 1.0;
-    const topScaleBonus = 1.25 - baseScale;
+    // Use identical scaling logic for both desktop and mobile
+    const baseScale = 1.0;
+    const topScaleBonus = 0.25;
     const targetScale = baseScale + (topScaleBonus * heroEffect); 
     
-    const extraTiltX = -0.1 * heroEffect; 
-    const extraTiltZ = 0.1 * heroEffect;
+    const extraTiltX = isMobile ? 0 : -0.1 * heroEffect; 
+    const extraTiltZ = isMobile ? 0 : 0.1 * heroEffect;
 
     // Calculate mouse spin effect (only active in the hero section because of * heroEffect)
-    // Increase the multiplier to make it spin multiple times across the screen
-    const mouseSpinY = state.pointer.x * (Math.PI * 3) * heroEffect; 
+    const mouseSpinY = isMobile ? 0 : state.pointer.x * (Math.PI * 3) * heroEffect; 
 
     // Apply smooth dampening to the inner group
     innerGroup.current.scale.setScalar(THREE.MathUtils.damp(innerGroup.current.scale.x, targetScale, 4, delta));
@@ -133,30 +132,34 @@ export function MangoModel(props: any) {
     innerGroup.current.rotation.x = THREE.MathUtils.damp(innerGroup.current.rotation.x, targetRotX * m + extraTiltX, 4, delta);
     innerGroup.current.rotation.z = THREE.MathUtils.damp(innerGroup.current.rotation.z, targetRotZ * m + extraTiltZ, 4, delta);
     
-    // Dynamic 3D Speed Lines Logic
+    // Dynamic 3D Speed Lines Logic (Disable on mobile for optimization)
     if (spinLinesGroup.current && innerGroup.current) {
-      const currentRotY = innerGroup.current.rotation.y;
-      const velocityY = (currentRotY - prevRotY.current) / delta;
-      prevRotY.current = currentRotY;
+      if (isMobile) {
+        spinLinesGroup.current.visible = false; // Hide speed lines completely on mobile
+      } else {
+        const currentRotY = innerGroup.current.rotation.y;
+        const velocityY = (currentRotY - prevRotY.current) / delta;
+        prevRotY.current = currentRotY;
 
-      const absVelocity = Math.abs(velocityY);
-      // Keep lines permanently visible (e.g., 0.35 opacity) and brighten up to 0.95 when spinning fast
-      const targetOpacity = 0.35 + Math.max(0, Math.min(0.6, absVelocity / 4.0));
+        const absVelocity = Math.abs(velocityY);
+        // Keep lines permanently visible (e.g., 0.35 opacity) and brighten up to 0.95 when spinning fast
+        const targetOpacity = 0.35 + Math.max(0, Math.min(0.6, absVelocity / 4.0));
 
-      // Make the speed lines constantly spin around the mango, plus extra based on velocity
-      spinLinesGroup.current.rotation.y += (0.6 + velocityY * 1.5) * delta;
-      
-      // Match the tilt and scale of the mango so the rings stay perfectly aligned
-      spinLinesGroup.current.rotation.x = innerGroup.current.rotation.x;
-      spinLinesGroup.current.rotation.z = innerGroup.current.rotation.z;
-      spinLinesGroup.current.scale.copy(innerGroup.current.scale);
+        // Make the speed lines constantly spin around the mango, plus extra based on velocity
+        spinLinesGroup.current.rotation.y += (0.6 + velocityY * 1.5) * delta;
+        
+        // Match the tilt and scale of the mango so the rings stay perfectly aligned
+        spinLinesGroup.current.rotation.x = innerGroup.current.rotation.x;
+        spinLinesGroup.current.rotation.z = innerGroup.current.rotation.z;
+        spinLinesGroup.current.scale.copy(innerGroup.current.scale);
 
-      // Apply opacity to all the 3D curves
-      materialsRef.current.forEach(mat => {
-        if (mat) {
-          mat.opacity = THREE.MathUtils.damp(mat.opacity, targetOpacity * 0.9, 10, delta);
-        }
-      });
+        // Apply opacity to all the 3D curves
+        materialsRef.current.forEach(mat => {
+          if (mat) {
+            mat.opacity = THREE.MathUtils.damp(mat.opacity, targetOpacity * 0.9, 10, delta);
+          }
+        });
+      }
     }
 
     // Keep only a very subtle continuous float so it breathes, but disable it in the hero section

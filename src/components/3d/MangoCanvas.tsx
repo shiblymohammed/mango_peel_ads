@@ -134,9 +134,9 @@ function ResponsiveMango() {
   }, []);
 
   const isSmall = screenSize !== 'desktop';
-  const mangoPos: [number, number, number] = isSmall ? [0, 4.2, 0] : [-3.3, 3.8, 0];
-  const shadowPos: [number, number, number] = isSmall ? [0, 1.0, 0] : [-3.3, -1.0, 0];
-  const mangoScale = screenSize === 'mobile' ? 4.5 : screenSize === 'tablet' ? 4.0 : 7.0;
+  const mangoPos: [number, number, number] = screenSize === 'mobile' ? [-0.8, 1.4, 0] : screenSize === 'tablet' ? [0, 4.2, 0] : [-3.3, 3.8, 0];
+  const shadowPos: [number, number, number] = screenSize === 'mobile' ? [-0.8, -0.9, 0] : screenSize === 'tablet' ? [0, 1.0, 0] : [-3.3, -1.0, 0];
+  const mangoScale = screenSize === 'mobile' ? 3.4 : screenSize === 'tablet' ? 4.0 : 7.0;
 
   return (
     <>

@@ -183,10 +183,6 @@ export default function AboutSection() {
                     {idx !== features.length - 1 && (
                       <div className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-[60px] border-r border-dashed border-[#0B132B]/20" />
                     )}
-                    {/* Dashed Divider for Mobile (odd items) */}
-                    {idx % 2 === 0 && (
-                      <div className="block sm:hidden absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-[60px] border-r border-dashed border-[#0B132B]/20" />
-                    )}
 
                     <div className="mb-4">
                       {/* For Creativity icon, we add tiny hand-drawn rays to match the sketch */}

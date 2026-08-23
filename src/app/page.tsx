@@ -4,6 +4,7 @@ import ServicesSection from "@/components/sections/homepage/services";
 import WorksSection from "@/components/sections/homepage/works";
 import ContactSection from "@/components/sections/homepage/contact";
 import MangoCanvas from "@/components/3d/MangoCanvas";
+import Preloader from "@/components/common/Preloader";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         }}
       />
       
+      <Preloader />
       <MangoCanvas />
       <HeroSection />
       <AboutSection />

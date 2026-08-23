@@ -3,14 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useState, useEffect } from "react";
-
 export default function WorksSection() {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
-  }, []);
-
   return (
     <section
       id="works"
@@ -32,11 +25,10 @@ export default function WorksSection() {
             
             {/* Main Heading */}
             <motion.h2 
-              initial={isMobile ? false : { opacity: 0, y: 20 }}
-              animate={isMobile ? { opacity: 1, y: 0 } : undefined}
-              whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "100px 0px 100px 0px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="font-mileast font-extrabold text-[#0B132B] text-[32px] xs:text-[40px] sm:text-5xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight mb-2 sm:mb-5 flex flex-wrap justify-start gap-x-2 sm:gap-x-4 select-none"
             >
               <span>Trusted <span className="text-[#FFB800] drop-shadow-md">by</span></span>
@@ -47,11 +39,10 @@ export default function WorksSection() {
 
             {/* Subtitle */}
             <motion.p 
-              initial={isMobile ? false : { opacity: 0, y: 20 }}
-              animate={isMobile ? { opacity: 1, y: 0 } : undefined}
-              whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "100px 0px 100px 0px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="font-poppins text-[#475569] text-[14px] xs:text-[16px] sm:text-lg leading-relaxed mb-4 sm:mb-8 mt-2 sm:mt-4 max-w-xl"
             >
               We partner with industry leaders and ambitious challengers to deliver campaigns that disrupt markets and drive undeniable growth.
@@ -60,10 +51,9 @@ export default function WorksSection() {
             {/* CLIENT LOGOS GRID */}
             <div className="w-full relative mt-12 mb-16 max-w-[600px]">
               <motion.div
-                initial={isMobile ? false : { opacity: 0, y: 30 }}
-                animate={isMobile ? { opacity: 1, y: 0 } : undefined}
-                whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "100px 0px 100px 0px" }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className="grid grid-cols-3 gap-6 sm:gap-8 lg:gap-10 items-center justify-items-center bg-transparent"
               >
@@ -83,6 +73,8 @@ export default function WorksSection() {
                     <img
                       src={`/clients/${logo}`}
                       alt={`Client ${index + 1}`}
+                      width={120}
+                      height={80}
                       className="max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] max-h-[60px] sm:max-h-[80px] object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.05)] opacity-80 lg:hover:opacity-100 transition-opacity duration-300"
                     />
                   </div>
@@ -92,11 +84,10 @@ export default function WorksSection() {
 
             {/* CTA Button */}
             <motion.div 
-              initial={isMobile ? false : { opacity: 0, y: 20 }}
-              animate={isMobile ? { opacity: 1, y: 0 } : undefined}
-              whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "100px 0px 100px 0px" }}
+              transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-8 mb-8 z-20 relative"
             >
               <Link

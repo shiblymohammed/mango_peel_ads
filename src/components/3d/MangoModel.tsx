@@ -114,14 +114,12 @@ export function MangoModel(props: any) {
     // Responsive scaling
     const m = isMobile ? 0.0 : 1.0; // Completely disable sway on mobile for optimization
 
-    // Extra hero section animation: larger and extra tilted at the very top
+    // Extra hero section animation: extra tilted at the very top
     // Fades out by the time animP reaches 0.15 (as they scroll past hero)
     const heroEffect = Math.max(0, 1 - animP * 6.66); 
     
-    // Use identical scaling logic for both desktop and mobile
-    const baseScale = 1.0;
-    const topScaleBonus = 0.25;
-    const targetScale = baseScale + (topScaleBonus * heroEffect); 
+    // Static scaling: the mango maintains a consistent size throughout the scroll
+    const targetScale = 1.0; 
     
     const extraTiltX = isMobile ? 0 : -0.1 * heroEffect; 
     const extraTiltZ = isMobile ? 0 : 0.1 * heroEffect;

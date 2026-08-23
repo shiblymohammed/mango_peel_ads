@@ -151,21 +151,21 @@ export default function AboutSection() {
               </div>
 
               {/* Right Button (Watch Our Story) */}
-              <div className="relative w-40 h-40 xs:w-44 xs:h-44 sm:w-40 sm:h-40 xl:w-48 xl:h-48 flex items-center justify-center shrink-0 mt-4 xl:mt-12 xl:mr-10 self-center lg:self-start cursor-pointer group">
+              <div className="relative w-32 h-32 xs:w-36 xs:h-36 sm:w-40 sm:h-40 xl:w-48 xl:h-48 flex items-center justify-center shrink-0 mt-6 xl:mt-12 xl:mr-10 self-center lg:self-start cursor-pointer group">
                 {/* Dashed Circle */}
-                <div className="absolute inset-4 xl:inset-5 border-[1.5px] border-dashed border-[#2E7D32]/30 rounded-full lg:group-hover:border-[#2E7D32]/60 transition-colors" />
+                <div className="absolute inset-3 sm:inset-4 xl:inset-5 border-[1.5px] border-dashed border-[#2E7D32]/30 rounded-full lg:group-hover:border-[#2E7D32]/60 transition-colors" />
                 
                 {/* Spinning Text */}
                 <svg className="absolute inset-0 w-full h-full animate-[spin_15s_linear_infinite]" viewBox="0 0 100 100">
                   <path id="textPath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
-                  <text className="text-[12px] xs:text-[14px] font-bold tracking-[0.2em] fill-[#0B132B] uppercase">
+                  <text className="text-[10px] xs:text-[11px] sm:text-[12px] xl:text-[14px] font-bold tracking-[0.2em] fill-[#0B132B] uppercase">
                     <textPath href="#textPath" startOffset="0%">WATCH OUR STORY • WATCH OUR STORY • </textPath>
                   </text>
                 </svg>
                 
                 {/* Play Button */}
-                <div className="w-12 h-12 xs:w-14 xs:h-14 sm:w-16 sm:h-16 xl:w-[72px] xl:h-[72px] bg-[#FFB800] rounded-full flex items-center justify-center shadow-lg lg:group-hover:scale-105 transition-transform z-10">
-                  <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-white border-b-[6px] border-b-transparent ml-1 xs:border-t-[7px] xs:border-l-[12px] xs:border-b-[7px] sm:border-t-[8px] sm:border-l-[14px] sm:border-b-[8px] xl:border-t-[9px] xl:border-l-[16px] xl:border-b-[9px]" />
+                <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-16 sm:h-16 xl:w-[72px] xl:h-[72px] bg-[#FFB800] rounded-full flex items-center justify-center shadow-lg lg:group-hover:scale-105 transition-transform z-10">
+                  <div className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-white border-b-[5px] border-b-transparent ml-1 xs:border-t-[6px] xs:border-l-[10px] xs:border-b-[6px] sm:border-t-[8px] sm:border-l-[14px] sm:border-b-[8px] xl:border-t-[9px] xl:border-l-[16px] xl:border-b-[9px]" />
                 </div>
               </div>
 

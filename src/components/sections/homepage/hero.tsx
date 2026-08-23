@@ -111,16 +111,16 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="mt-3 sm:mt-6 lg:mt-12 flex flex-col xl:flex-row xl:flex-wrap items-start gap-2 sm:gap-3 lg:gap-6 relative z-20 w-full justify-start"
+              className="mt-4 sm:mt-6 lg:mt-12 flex flex-row flex-wrap items-center justify-start gap-2.5 sm:gap-4 lg:gap-6 relative z-20 w-full"
             >
               {/* Primary CTA */}
               <Link
                 href="/works"
-                className="group relative inline-flex items-center justify-center gap-1.5 sm:gap-2 lg:gap-3 px-3 py-2 sm:px-6 sm:py-3 lg:px-10 lg:py-[18px] rounded-full bg-[#2E7D32] overflow-hidden transition-all duration-500 shadow-[0_8px_25px_rgba(46,125,50,0.25)] lg:hover:shadow-[0_12px_30px_rgba(46,125,50,0.35)] lg:hover:-translate-y-1"
+                className="group relative inline-flex items-center justify-center gap-1.5 sm:gap-2 lg:gap-3 px-4 py-2 xs:px-5 xs:py-2.5 sm:px-6 sm:py-3 lg:px-10 lg:py-[18px] rounded-full bg-[#2E7D32] overflow-hidden transition-all duration-500 shadow-[0_8px_25px_rgba(46,125,50,0.25)] lg:hover:shadow-[0_12px_30px_rgba(46,125,50,0.35)] lg:hover:-translate-y-1"
               >
                 <div className="absolute inset-0 bg-[#F0A202] translate-y-full lg:group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]" />
                 
-                <span className="relative z-10 text-[14px] sm:text-[15px] font-bold tracking-[0.2em] uppercase text-white lg:group-hover:text-[#0F3124] transition-colors duration-500">
+                <span className="relative z-10 text-[11px] xs:text-[13px] sm:text-[14px] font-bold tracking-[0.15em] sm:tracking-[0.2em] uppercase text-white lg:group-hover:text-[#0F3124] transition-colors duration-500">
                   View Our Work
                 </span>
                 <ArrowUpRight className="relative z-10 w-3 h-3 sm:w-4 sm:h-4 text-white lg:group-hover:text-[#0F3124] transition-all duration-500 lg:group-hover:rotate-45" />
@@ -129,12 +129,12 @@ export default function HeroSection() {
               {/* Secondary CTA - Minimalist Outline */}
               <Link
                 href="#services"
-                className="group inline-flex items-center justify-center gap-1.5 sm:gap-2 lg:gap-3 px-3 py-2 sm:px-6 sm:py-3 lg:px-10 lg:py-[18px] rounded-full border border-[#0F172A]/15 bg-transparent lg:hover:border-[#F0A202] lg:hover:bg-[#F0A202]/5 transition-all duration-500"
+                className="group inline-flex items-center justify-center gap-1.5 sm:gap-2 lg:gap-3 px-4 py-2 xs:px-5 xs:py-2.5 sm:px-6 sm:py-3 lg:px-10 lg:py-[18px] rounded-full border border-[#0F172A]/20 bg-transparent lg:hover:border-[#F0A202] lg:hover:bg-[#F0A202]/5 transition-all duration-500"
               >
                 <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-[#F0A202]/20 flex items-center justify-center lg:group-hover:bg-[#F0A202] transition-colors duration-500">
-                   <Briefcase className="w-3 h-3 sm:w-4 sm:h-4 text-[#F0A202] lg:group-hover:text-black transition-colors duration-500" strokeWidth={2.5} />
+                   <Briefcase className="w-2.5 h-2.5 sm:w-4 sm:h-4 text-[#F0A202] lg:group-hover:text-black transition-colors duration-500" strokeWidth={2.5} />
                 </div>
-                <span className="text-[14px] sm:text-[15px] font-bold tracking-[0.2em] uppercase text-[#0F172A]">
+                <span className="text-[11px] xs:text-[13px] sm:text-[14px] font-bold tracking-[0.15em] sm:tracking-[0.2em] uppercase text-[#0F172A]">
                   Our Services
                 </span>
               </Link>

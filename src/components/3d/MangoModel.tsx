@@ -96,20 +96,26 @@ export function MangoModel(props: any) {
     const p = smoothProgress.current;
 
     const isMobile = window.innerWidth < 1024;
-    const targetRotY = p * Math.PI; // Rotates 180 degrees over the entire scroll
+    
+    // OPTIMIZATION: On mobile, vertical stacking makes the page much taller.
+    // We accelerate the progress multiplier so the peeling and rotation finish 
+    // perfectly in sync with the main content sections, matching desktop pacing.
+    const animP = isMobile ? Math.min(1.0, p * 1.25) : p;
+
+    const targetRotY = animP * Math.PI; // Rotates 180 degrees over the effective scroll
     
     // Subtle tilt on X and Z axes based on a sine wave of the scroll progress
     // This creates a natural "sway" that returns to normal at the end
-    const targetRotX = Math.sin(p * Math.PI) * 0.15; 
-    const targetRotZ = Math.cos(p * Math.PI * 2) * -0.05; 
+    const targetRotX = Math.sin(animP * Math.PI) * 0.15; 
+    const targetRotZ = Math.cos(animP * Math.PI * 2) * -0.05; 
     
     // Remove the drastic Y position shifts that were causing it to go off-screen
     // Responsive scaling
     const m = isMobile ? 0.0 : 1.0; // Completely disable sway on mobile for optimization
 
     // Extra hero section animation: larger and extra tilted at the very top
-    // Fades out by the time p reaches 0.15 (as they scroll past hero)
-    const heroEffect = Math.max(0, 1 - p * 6.66); 
+    // Fades out by the time animP reaches 0.15 (as they scroll past hero)
+    const heroEffect = Math.max(0, 1 - animP * 6.66); 
     
     // Use identical scaling logic for both desktop and mobile
     const baseScale = 1.0;
@@ -190,8 +196,8 @@ export function MangoModel(props: any) {
           const endTime = duration * ANIM_END_PERCENT;
           const activeDuration = endTime - startTime;
           
-          // Map peeling exactly to scroll progress (p) for reliable control
-          const targetTime = startTime + (p * activeDuration);
+          // Map peeling exactly to effective scroll progress (animP) for perfectly timed control
+          const targetTime = startTime + (animP * activeDuration);
           
           // Add a tiny bit of dampening so the peeling feels slightly buttery
           action.time = THREE.MathUtils.damp(action.time || startTime, targetTime, 6, delta);

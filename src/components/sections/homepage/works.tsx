@@ -49,7 +49,7 @@ export default function WorksSection() {
             </motion.p>
 
             {/* CLIENT LOGOS GRID */}
-            <div className="w-full relative mt-12 mb-16 max-w-[600px]">
+            <div className="w-full relative mt-12 mb-8 max-w-[600px]">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -88,18 +88,18 @@ export default function WorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "100px 0px 100px 0px" }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8 mb-8 z-20 relative"
+              className="mt-4 sm:mt-8 mb-8 z-20 relative"
             >
               <Link
                 href="/works"
-                className="group relative inline-flex items-center gap-1.5 sm:gap-3 px-7 py-3.5 sm:px-10 sm:py-5 rounded-full bg-[#0B132B] overflow-hidden shadow-[0_8px_20px_rgba(11,19,43,0.15)] lg:hover:shadow-[0_15px_30px_rgba(255,184,0,0.3)] transition-all duration-300 transform lg:hover:-translate-y-1"
+                className="group relative inline-flex items-center gap-1.5 sm:gap-3 px-5 py-2.5 sm:px-10 sm:py-5 rounded-full bg-[#0B132B] overflow-hidden shadow-[0_8px_20px_rgba(11,19,43,0.15)] lg:hover:shadow-[0_15px_30px_rgba(255,184,0,0.3)] transition-all duration-300 transform lg:hover:-translate-y-1"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[#FFB800] to-[#FF9800] translate-y-full lg:group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]"></div>
                 
-                <span className="relative z-10 font-poppins font-extrabold tracking-[0.15em] uppercase text-[14px] sm:text-[15px] text-white lg:group-hover:text-[#0B132B] transition-colors duration-500">
+                <span className="relative z-10 font-poppins font-extrabold tracking-[0.15em] uppercase text-[12px] xs:text-[13px] sm:text-[15px] text-white lg:group-hover:text-[#0B132B] transition-colors duration-500">
                   SEE OUR WORK
                 </span>
-                <ArrowRight className="relative z-10 w-3 h-3 sm:w-5 sm:h-5 text-white lg:group-hover:text-[#0B132B] transition-all duration-500 lg:group-hover:translate-x-1" />
+                <ArrowRight className="relative z-10 w-3.5 h-3.5 sm:w-5 sm:h-5 text-white lg:group-hover:text-[#0B132B] transition-all duration-500 lg:group-hover:translate-x-1" />
               </Link>
             </motion.div>
           </div>

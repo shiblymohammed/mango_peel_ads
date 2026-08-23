@@ -62,8 +62,21 @@ function SpeedLines() {
 }
 
 export default function MangoCanvas() {
+  const [isDesktop, setIsDesktop] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (!isDesktop) return null;
+
   return (
-    <div className="absolute inset-0 z-30 pointer-events-none">
+    <div className="hidden lg:block absolute inset-0 z-30 pointer-events-none">
       <SpeedLines />
       <div 
         className="sticky top-0 h-screen w-full"

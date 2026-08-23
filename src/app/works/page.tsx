@@ -92,7 +92,7 @@ function VideoLightbox({
       {/* Close button */}
       <button
         onClick={onClose}
-        className="absolute top-5 right-5 sm:top-8 sm:right-8 z-[110] w-11 h-11 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 cursor-pointer"
+        className="absolute top-5 right-5 sm:top-8 sm:right-8 z-[110] w-11 h-11 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 active:scale-90 transition-all duration-300 cursor-pointer"
         aria-label="Close lightbox"
       >
         <svg
@@ -181,7 +181,7 @@ function WorkCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay: index * 0.06 }}
-      className="group relative rounded-2xl overflow-hidden cursor-pointer break-inside-avoid mb-6 sm:mb-7 bg-black shadow-[0_8px_30px_rgb(0,0,0,0.10)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.18)] transition-shadow duration-500"
+      className="group relative rounded-2xl overflow-hidden cursor-pointer break-inside-avoid mb-6 sm:mb-7 bg-black shadow-[0_8px_30px_rgb(0,0,0,0.10)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.18)] active:scale-[0.98] transition-all duration-300"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => onPlay(item)}
@@ -359,7 +359,7 @@ export default function WorksPage() {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-4 py-2 rounded-full text-[12px] sm:text-[13px] font-semibold tracking-wide transition-all duration-300 border cursor-pointer ${
+                className={`px-4 py-2 rounded-full text-[12px] sm:text-[13px] font-semibold tracking-wide transition-all duration-300 border cursor-pointer active:scale-95 ${
                   activeFilter === cat
                     ? "bg-[#FFB800] text-white border-[#FFB800] shadow-[0_0_20px_rgba(255,184,0,0.25)]"
                     : "bg-white text-[#64748B] border-gray-200 hover:bg-gray-50 hover:text-[#0F172A] hover:border-gray-300 shadow-sm"
@@ -449,7 +449,7 @@ export default function WorksPage() {
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#FFB800] text-white font-bold text-sm tracking-wide hover:shadow-[0_0_30px_rgba(255,184,0,0.35)] hover:-translate-y-0.5 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#FFB800] text-white font-bold text-sm tracking-wide hover:shadow-[0_0_30px_rgba(255,184,0,0.35)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300"
             >
               Start a Conversation
               <svg

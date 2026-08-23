@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/common/navbar";
 import Footer from "@/components/common/footer";
 import SmoothScrolling from "@/components/common/SmoothScrolling";
+import Preloader from "@/components/common/Preloader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({
         }}
       >
         <SmoothScrolling>
+          <Preloader />
           <Navbar />
           <div className="flex-grow">
             {children}

@@ -61,7 +61,7 @@ export default function Preloader() {
         <motion.div
           key="preloader"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, y: "-100%" }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut", delay: 0.2 }}
           className="fixed inset-0 z-[9999] bg-[#F4F1E8] flex flex-col items-center justify-center overflow-hidden"
           style={{
@@ -69,28 +69,33 @@ export default function Preloader() {
             backgroundRepeat: 'repeat',
           }}
         >
-          <div className="relative flex flex-col items-center z-10">
-            {/* Simple outline/Spinner */}
-            <div className="w-16 h-16 border-4 border-[#2E7D32]/20 border-t-[#FFB800] rounded-full animate-spin mb-6" />
-            <motion.h2 
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="text-[#0B132B] font-mileast text-2xl tracking-widest uppercase mb-2"
-            >
-              Loading...
-            </motion.h2>
-            <div className="w-48 h-1.5 bg-[#0B132B]/10 rounded-full overflow-hidden shadow-inner">
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-center"
+          >
+            {/* Minimalist Brand Name */}
+            <h2 className="text-[#0F3124] font-poppins font-semibold text-[11px] sm:text-[13px] uppercase tracking-[0.4em] mb-6">
+              Mango Peel
+            </h2>
+
+            {/* Ultra-thin elegant progress bar */}
+            <div className="w-40 sm:w-56 h-[1px] bg-[#0F3124]/10 overflow-hidden relative">
               <motion.div 
-                className="h-full bg-[#2E7D32]"
+                className="absolute top-0 left-0 h-full bg-[#0F3124]"
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ ease: "linear", duration: 0.3 }}
               />
             </div>
-            <div className="mt-2 text-[#0B132B]/60 font-poppins text-xs font-bold">
-              {Math.round(progress)}%
+            
+            {/* Subtle Percentage */}
+            <div className="mt-4 text-[#0F3124]/40 font-poppins text-[10px] tracking-widest">
+              {progress === 100 ? "READY" : `${Math.round(progress)}%`}
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

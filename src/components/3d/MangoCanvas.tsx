@@ -119,7 +119,12 @@ export default function MangoCanvas() {
 }
 
 function ResponsiveMango() {
-  const [screenSize, setScreenSize] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
+  const [screenSize, setScreenSize] = useState<'mobile' | 'tablet' | 'desktop'>(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768 ? 'mobile' : window.innerWidth < 1024 ? 'tablet' : 'desktop';
+    }
+    return 'desktop';
+  });
 
   useEffect(() => {
     const handleResize = () => {
@@ -128,7 +133,6 @@ function ResponsiveMango() {
       else if (width < 1024) setScreenSize('tablet');
       else setScreenSize('desktop');
     };
-    handleResize(); // initial check
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -137,10 +141,11 @@ function ResponsiveMango() {
   const mangoPos: [number, number, number] = screenSize === 'mobile' ? [-0.8, 1.4, 0] : screenSize === 'tablet' ? [-1.1, 2.0, 0] : [-3.3, 3.8, 0];
   const shadowPos: [number, number, number] = screenSize === 'mobile' ? [-0.8, -0.9, 0] : screenSize === 'tablet' ? [-1.1, -0.3, 0] : [-3.3, -1.0, 0];
   const mangoScale = screenSize === 'mobile' ? 3.1 : screenSize === 'tablet' ? 4.0 : 7.0;
+  const modelPath = screenSize === 'mobile' ? "/models/mango-mobile.glb" : "/models/mango_export-optimized.glb";
 
   return (
     <>
-      <MangoModel position={mangoPos} scale={mangoScale} rotation={[0.2, 0.5, 0]}>
+      <MangoModel position={mangoPos} scale={mangoScale} rotation={[0.2, 0.5, 0]} modelPath={modelPath}>
         <ContactShadows 
           position={shadowPos} 
           opacity={0.35} 

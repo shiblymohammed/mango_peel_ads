@@ -22,12 +22,13 @@ export function MangoModel(props: any) {
   const materialsRef = useRef<(THREE.MeshBasicMaterial | null)[]>([]);
   const prevRotY = useRef(0);
   
-  const { scene, animations } = useGLTF("/models/mango_export-optimized.glb");
+  const modelPath = props.modelPath || "/models/mango_export-optimized.glb";
+  const { scene, animations } = useGLTF(modelPath) as any;
   const { actions } = useAnimations(animations, innerGroup);
   
   // Enable shadows on the model
   React.useEffect(() => {
-    scene.traverse((child) => {
+    scene.traverse((child: THREE.Object3D) => {
       if ((child as THREE.Mesh).isMesh) {
         child.castShadow = true;
         child.receiveShadow = true;
@@ -268,5 +269,4 @@ export function MangoModel(props: any) {
   );
 }
 
-// Preload the model
-useGLTF.preload("/models/mango_export-optimized.glb");
+

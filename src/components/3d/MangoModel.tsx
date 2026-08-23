@@ -37,6 +37,7 @@ export function MangoModel(props: any) {
   }, [scene]);
 
   const scrollProgress = useRef(0);
+  const smoothProgress = useRef(0);
 
   // Setup GSAP ScrollTrigger and Entrance Animation
   useGSAP(() => {
@@ -90,7 +91,9 @@ export function MangoModel(props: any) {
   useFrame((state, delta) => {
     if (!innerGroup.current) return;
 
-    const p = scrollProgress.current;
+    // Smooth out scroll progress for smoother interpolation on mobile where scroll events drop
+    smoothProgress.current = THREE.MathUtils.lerp(smoothProgress.current, scrollProgress.current, 0.08);
+    const p = smoothProgress.current;
 
     const isMobile = window.innerWidth < 1024;
     const targetRotY = p * Math.PI; // Rotates 180 degrees over the entire scroll

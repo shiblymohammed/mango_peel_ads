@@ -71,6 +71,7 @@ export default function MangoCanvas() {
       >
         <Canvas 
           shadows 
+          dpr={typeof window !== "undefined" && window.innerWidth < 768 ? [1, 1] : [1, 2]}
           style={{ pointerEvents: 'none' }}
           eventSource={typeof window !== 'undefined' ? document.body : undefined}
           eventPrefix="client"

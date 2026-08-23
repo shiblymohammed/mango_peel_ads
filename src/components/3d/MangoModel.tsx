@@ -91,8 +91,9 @@ export function MangoModel(props: any) {
   useFrame((state, delta) => {
     if (!innerGroup.current) return;
 
-    // Smooth out scroll progress for smoother interpolation on mobile where scroll events drop
-    smoothProgress.current = THREE.MathUtils.lerp(smoothProgress.current, scrollProgress.current, 0.08);
+    // Smooth out scroll progress using framerate-independent dampening
+    // This fixes the "stuck" feeling on mobile if the framerate ever drops
+    smoothProgress.current = THREE.MathUtils.damp(smoothProgress.current, scrollProgress.current, 5, delta);
     const p = smoothProgress.current;
 
     const isMobile = window.innerWidth < 1024;
@@ -199,8 +200,9 @@ export function MangoModel(props: any) {
           // Map peeling exactly to effective scroll progress (animP) for perfectly timed control
           const targetTime = startTime + (animP * activeDuration);
           
-          // Add a tiny bit of dampening so the peeling feels slightly buttery
-          action.time = THREE.MathUtils.damp(action.time || startTime, targetTime, 6, delta);
+          // Apply time directly, since animP is already smoothly interpolated. 
+          // Avoiding double-dampening completely removes the "stuck" feeling on mobile.
+          action.time = targetTime;
         }
       });
     }

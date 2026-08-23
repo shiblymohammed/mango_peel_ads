@@ -29,7 +29,7 @@ function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full min-h-screen pt-28 pb-16 lg:py-0 flex items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-screen pt-16 sm:pt-28 pb-16 lg:py-0 flex items-center justify-center overflow-hidden">
       {/* Background Decorative Ambient Highlights */}
       <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#FFB800]/10 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#2E7D32]/10 rounded-full blur-3xl pointer-events-none -z-10" />
@@ -39,7 +39,7 @@ export default function HeroSection() {
           {/* ========================================================================= */}
           {/* 3D MODEL PLACEHOLDER / BACKGROUND                                         */}
           {/* ========================================================================= */}
-          <div className="relative w-full col-span-5 order-1 flex min-h-[250px] sm:min-h-[400px] lg:min-h-[600px] items-center justify-center">
+          <div className="relative w-full col-span-5 order-1 flex min-h-[150px] xs:min-h-[200px] sm:min-h-[400px] lg:min-h-[600px] items-center justify-center">
              {/* Model renders here via MangoCanvas */}
           </div>
 

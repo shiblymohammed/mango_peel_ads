@@ -2,8 +2,13 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function ContactSection() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
   return (
     <section
       id="contact"
@@ -28,8 +33,9 @@ export default function ContactSection() {
 
             {/* Main Heading */}
             <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={isMobile ? false : { opacity: 0, y: 20 }}
+              animate={isMobile ? { opacity: 1, y: 0 } : undefined}
+              whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
               className="font-mileast font-extrabold text-[#0B132B] text-[32px] xs:text-[40px] sm:text-5xl lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-tight mb-4 sm:mb-12 flex flex-col gap-0 sm:gap-1 select-none text-left"
@@ -42,8 +48,9 @@ export default function ContactSection() {
 
             {/* Interactive Mad Libs Form */}
             <motion.form
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={isMobile ? false : { opacity: 0, y: 20 }}
+              animate={isMobile ? { opacity: 1, y: 0 } : undefined}
+              whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="w-full max-w-3xl bg-white/40 backdrop-blur-xl border border-white/60 p-3 sm:p-10 lg:p-12 rounded-[16px] sm:rounded-[32px] shadow-[0_20px_60px_rgba(0,0,0,0.05)]"

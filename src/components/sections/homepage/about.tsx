@@ -38,6 +38,8 @@ export default function AboutSection() {
     gsap.registerPlugin(ScrollTrigger);
     
     let ctx = gsap.context(() => {
+      // Disable scroll entrance animations entirely on mobile for instant loading
+      if (window.innerWidth < 768) return;
 
       // 2. Headline Entrance
       gsap.from(headlineRef.current, {

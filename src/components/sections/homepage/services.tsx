@@ -49,6 +49,8 @@ export default function ServicesSection() {
     gsap.registerPlugin(ScrollTrigger);
     
     let ctx = gsap.context(() => {
+      // Disable scroll entrance animations entirely on mobile for instant loading
+      if (window.innerWidth < 768) return;
       // Title Animation
       gsap.fromTo(titleRef.current, 
         { y: 50, opacity: 0 },

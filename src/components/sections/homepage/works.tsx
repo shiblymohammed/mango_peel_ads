@@ -24,14 +24,6 @@ export default function WorksSection() {
           {/* ========================================================================= */}
           <div className="w-full col-span-12 lg:col-span-7 order-2 flex flex-col items-start text-left relative z-20">
             
-            {/* Section Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2E7D32]/10 border border-[#2E7D32]/20 mb-3 sm:mb-4">
-              <Award className="w-3.5 h-3.5 text-[#2E7D32]" />
-              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#2E7D32] font-poppins">
-                Our Clients & Portfolio
-              </span>
-            </div>
-
             {/* Main Heading */}
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}

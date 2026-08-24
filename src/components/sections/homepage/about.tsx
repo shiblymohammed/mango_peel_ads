@@ -110,14 +110,6 @@ export default function AboutSection() {
               
               {/* Left Text */}
               <div className="flex-1 flex flex-col items-start text-left">
-                {/* Section Badge */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2E7D32]/10 border border-[#2E7D32]/20 mb-3 sm:mb-4">
-                  <span className="w-2 h-2 rounded-full bg-[#2E7D32] animate-pulse" />
-                  <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#2E7D32] font-poppins">
-                    Who We Are
-                  </span>
-                </div>
-
                 {/* Headline */}
                 <h2 ref={headlineRef} className="font-mileast font-extrabold text-[#0B132B] text-[34px] xs:text-[42px] sm:text-5xl lg:text-[64px] xl:text-[72px] leading-[1.05] tracking-tight relative z-10">
                   <span className="relative inline-block">

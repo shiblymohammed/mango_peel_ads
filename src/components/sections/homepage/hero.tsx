@@ -51,19 +51,6 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full col-span-12 lg:col-span-7 order-2 flex flex-col items-start text-left relative pt-0 lg:ml-4 xl:ml-8 max-w-full sm:max-w-2xl md:max-w-3xl xl:max-w-3xl"
           >
-            {/* Agency Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2E7D32]/10 border border-[#2E7D32]/25 mb-4 sm:mb-6"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-[#2E7D32]" />
-              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#2E7D32] font-poppins">
-                Creative Advertising Agency
-              </span>
-            </motion.div>
-
             {/* Main Display Headline */}
             <h1 className="font-mileast font-extrabold tracking-tight select-none relative z-20 flex flex-col items-start gap-y-1 text-[36px] xs:text-[44px] sm:text-6xl md:text-7xl lg:text-[78px] xl:text-[88px] 2xl:text-[98px] leading-[1.02] sm:leading-[0.95]">
               {/* Line 1 */}

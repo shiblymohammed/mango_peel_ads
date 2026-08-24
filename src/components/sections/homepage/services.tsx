@@ -96,14 +96,6 @@ export default function ServicesSection() {
             
             {/* Title Section */}
             <div ref={titleRef} className="w-full mb-8 sm:mb-12">
-              {/* Section Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFB800]/15 border border-[#FFB800]/30 mb-3 sm:mb-4">
-                <span className="w-2 h-2 rounded-full bg-[#F0A202] animate-pulse" />
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#0B132B] font-poppins">
-                  Our Services
-                </span>
-              </div>
-
               <h2 className="font-mileast font-extrabold text-[#0B132B] text-[32px] xs:text-[40px] sm:text-5xl lg:text-[64px] xl:text-[72px] leading-[1.05] tracking-tight">
                 We <span className="text-[#2E7D32]">Create.</span> You <span className="text-[#2E7D32]">Connect.</span><br className="hidden xs:block"/>
                 We <span className="text-[#FFB800]">Make</span> It Matter.

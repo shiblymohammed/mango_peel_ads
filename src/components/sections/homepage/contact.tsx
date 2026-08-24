@@ -32,14 +32,6 @@ export default function ContactSection() {
             {/* Ambient Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-[#FFB800]/10 to-[#2E7D32]/10 blur-[100px] rounded-full pointer-events-none -z-10" />
 
-            {/* Section Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2E7D32]/10 border border-[#2E7D32]/20 mb-3 sm:mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-[#2E7D32]" />
-              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#2E7D32] font-poppins">
-                Let&apos;s Connect
-              </span>
-            </div>
-
             {/* Main Heading */}
             <motion.h2 
               initial={isMobile ? false : { opacity: 0, y: 20 }}
